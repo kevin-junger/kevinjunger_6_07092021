@@ -1,0 +1,76 @@
+.cta {
+  width: 170px;
+  height: 69px;
+  background-color: #901c1c;
+  border-radius: 5px;
+  border-style: none;
+  font-family: "DM Sans", sans-serif;
+  font-weight: 500;
+  font-size: 1.1rem;
+  color: white;
+}
+.cta:hover {
+  width: 170px;
+  height: 69px;
+  background-color: #db8876;
+  border-radius: 5px;
+  border-style: none;
+  font-family: "DM Sans", sans-serif;
+  font-weight: 500;
+  font-size: 1.1rem;
+  color: black;
+}
+
+.tags {
+  display: inline;
+}
+
+.tag {
+  display: inline-block;
+  padding: 0.25rem 0.5rem 0.35rem;
+  background-color: inherit;
+  border: 1px solid #c4c4c4;
+  border-radius: 20px;
+  font-family: "DM Sans", sans-serif;
+  font-weight: 500;
+  font-size: 0.9rem;
+  color: #901c1c;
+}
+.tag:hover {
+  display: inline-block;
+  padding: 0.25rem 0.5rem 0.35rem;
+  background-color: #901c1c;
+  border: 1px solid #901c1c;
+  border-radius: 20px;
+  font-family: "DM Sans", sans-serif;
+  font-weight: 500;
+  font-size: 0.9rem;
+  color: white;
+}
+
+.profile__name {
+  font-family: "DM Sans", sans-serif;
+  font-weight: 400;
+  font-size: 2.2rem;
+  color: #d3573c;
+}
+.profile__name--big {
+  font-family: "DM Sans", sans-serif;
+  font-weight: 400;
+  font-size: 3rem;
+  color: #d3573c;
+}
+.profile__location {
+  font-family: "DM Sans", sans-serif;
+  font-weight: 400;
+  font-size: 1.1rem;
+  color: #901c1c;
+}
+.profile__location--big {
+  font-family: "DM Sans", sans-serif;
+  font-weight: 400;
+  font-size: 1.5rem;
+  color: #901c1c;
+}
+
+/*# sourceMappingURL=style.css.map */

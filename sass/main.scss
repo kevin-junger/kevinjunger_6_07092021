@@ -1,0 +1,31 @@
+@import "colors";
+@import "builders";
+.cta {
+  @include __button-builder($primary, white);
+  &:hover {
+    @include __button-builder($tertiary, black);
+  }
+}
+.tags {
+  display: inline;
+}
+.tag {
+  @include __tag-builder(inherit, $grey, $primary);
+  &:hover {
+    @include __tag-builder($primary, $primary, white);
+  }
+}
+.profile {
+  &__name {
+    @include __font-builder(2.2rem, 400, $secondary);
+    &--big {
+      @include __font-builder(3rem, 400, $secondary);
+    }
+  }
+  &__location {
+    @include __font-builder(1.1rem, 400, $primary);
+    &--big {
+      @include __font-builder(1.5rem, 400, $primary);
+    }
+  }
+}

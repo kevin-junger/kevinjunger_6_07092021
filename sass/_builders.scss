@@ -1,0 +1,22 @@
+@mixin __font-builder($size: 1rem, $weight: 400, $color: black) {
+  font-family: "DM Sans", sans-serif;
+  font-weight: $weight;
+  font-size: $size;
+  color: $color;
+}
+@mixin __button-builder($bg_color, $font_color) {
+  width: 170px;
+  height: 69px;
+  background-color: $bg-color;
+  border-radius: 5px;
+  border-style: none;
+  @include __font-builder(1.1rem, 500, $font_color);
+}
+@mixin __tag-builder($bg_color, $border_color, $font_color) {
+  display: inline-block;
+  padding: 0.25rem 0.5rem 0.35rem;
+  background-color: $bg_color;
+  border: 1px solid $border_color;
+  border-radius: 20px;
+  @include __font-builder(0.9rem, 500, $font-color);
+}
