@@ -29,3 +29,19 @@
     }
   }
 }
+.like {
+  &__count {
+    @include __font-builder(1.1rem, 500, $primary);
+    &--total {
+      @include __font-builder(1.1rem, 500, black);
+    }
+  }
+  &__heart {
+    color: $primary;
+    font-size: 1rem;
+    &--total {
+      font-size: 1rem;
+      color: black;
+    }
+  }
+}

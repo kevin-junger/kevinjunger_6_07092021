@@ -73,4 +73,25 @@
   color: #901c1c;
 }
 
+.like__count {
+  font-family: "DM Sans", sans-serif;
+  font-weight: 500;
+  font-size: 1.1rem;
+  color: #901c1c;
+}
+.like__count--total {
+  font-family: "DM Sans", sans-serif;
+  font-weight: 500;
+  font-size: 1.1rem;
+  color: black;
+}
+.like__heart {
+  color: #901c1c;
+  font-size: 1rem;
+}
+.like__heart--total {
+  font-size: 1rem;
+  color: black;
+}
+
 /*# sourceMappingURL=style.css.map */
