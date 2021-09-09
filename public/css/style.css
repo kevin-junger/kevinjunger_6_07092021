@@ -19,13 +19,13 @@
   font-weight: 500;
   font-size: 1.1rem;
   color: black;
+  box-shadow: 0px 3px 5px 0px #c4c4c4;
 }
 
 .tags {
   display: inline;
 }
-
-.tag {
+.tags__tag {
   display: inline-block;
   padding: 0.25rem 0.5rem 0.35rem;
   background-color: inherit;
@@ -36,7 +36,7 @@
   font-size: 0.9rem;
   color: #901c1c;
 }
-.tag:hover {
+.tags__tag:hover {
   display: inline-block;
   padding: 0.25rem 0.5rem 0.35rem;
   background-color: #901c1c;
@@ -92,6 +92,64 @@
 .like__heart--total {
   font-size: 1rem;
   color: black;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+.dropdown__button {
+  width: 170px;
+  height: 69px;
+  background-color: #901c1c;
+  border-radius: 5px;
+  border-style: none;
+  font-family: "DM Sans", sans-serif;
+  font-weight: 500;
+  font-size: 1.1rem;
+  color: white;
+}
+.dropdown__button i {
+  margin-left: 1rem;
+}
+.dropdown__button:hover {
+  width: 170px;
+  height: 69px;
+  background-color: #db8876;
+  border-radius: 5px;
+  border-style: none;
+  font-family: "DM Sans", sans-serif;
+  font-weight: 500;
+  font-size: 1.1rem;
+  color: black;
+  box-shadow: 0px 3px 5px 0px #c4c4c4;
+}
+.dropdown__content {
+  display: none;
+  position: absolute;
+  background-color: #901c1c;
+}
+.dropdown__item {
+  font-family: "DM Sans", sans-serif;
+  font-weight: 500;
+  font-size: 1.1rem;
+  color: white;
+  border-top: 1px solid white;
+  width: 170px;
+  height: 69px;
+  list-style: none;
+  display: block;
+}
+.dropdown__item:hover {
+  background-color: #db8876;
+  font-family: "DM Sans", sans-serif;
+  font-weight: 500;
+  font-size: 1.1rem;
+  color: black;
+}
+.dropdown:hover .dropdown__content {
+  display: block;
+  box-shadow: 0px 3px 5px 0px #c4c4c4;
 }
 
 /*# sourceMappingURL=style.css.map */
