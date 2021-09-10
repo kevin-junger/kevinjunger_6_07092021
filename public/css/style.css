@@ -56,36 +56,30 @@
 }
 
 .profile__name {
-  font-family: "DM Sans", sans-serif;
-  font-weight: 400;
-  font-size: 2.2rem;
-  color: #d3573c;
-}
-.profile__name--big {
+  /*@include __font-builder(2.2rem, 400, $secondary);
+  &--big {*/
   font-family: "DM Sans", sans-serif;
   font-weight: 400;
   font-size: 3rem;
   color: #d3573c;
   margin: 0;
+  /*}*/
 }
 .profile__location {
-  font-family: "DM Sans", sans-serif;
-  font-weight: 400;
-  font-size: 1.1rem;
-  color: #901c1c;
-}
-.profile__location--big {
+  /*@include __font-builder(1.1rem, 400, $primary);
+  &--big {*/
   font-family: "DM Sans", sans-serif;
   font-weight: 400;
   font-size: 1.5rem;
   color: #901c1c;
   margin: 0;
+  /*}*/
 }
 .profile__quote {
   margin: 0;
-}
-.profile__quote--big {
-  margin: 0;
+  /*&--big {
+    margin: 0;
+  }*/
 }
 .profile__pic {
   width: 100px;
@@ -178,10 +172,6 @@
   box-shadow: 0px 3px 5px 0px #c4c4c4;
 }
 
-.photographer {
-  margin: 0 1rem;
-}
-
 .work {
   margin-top: 3rem;
   display: grid;
@@ -208,6 +198,22 @@
   font-size: 1.1rem;
   color: #901c1c;
   margin: 0;
+}
+
+@media screen and (min-width: 450px) {
+  .work {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media screen and (min-width: 768px) {
+  .work {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media screen and (min-width: 1024px) {
+  .work {
+    gap: 3rem;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
