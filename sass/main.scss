@@ -16,34 +16,38 @@
     }
   }
 }
-.navbar{
+.navbar {
   margin: 3rem 1rem 1.5rem;
-  &__logo{
+  &__logo {
     max-width: 150px;
   }
 }
-.profile {
+.photographer {
+  position: relative;
+  margin: 0 1rem;
   &__name {
     /*@include __font-builder(2.2rem, 400, $secondary);
     &--big {*/
-      @include __font-builder(3rem, 400, $secondary);
-      margin: 0;
+    @include __font-builder(3rem, 400, $secondary);
+    margin: 0;
     /*}*/
   }
   &__location {
     /*@include __font-builder(1.1rem, 400, $primary);
     &--big {*/
-      @include __font-builder(1.5rem, 400, $primary);
-      margin: 0;
+    @include __font-builder(1.5rem, 400, $primary);
+    margin: .15rem 0 0;
     /*}*/
   }
   &__quote {
-    margin: 0;
+    margin: .5rem 0;
+    @include __font-builder(1rem, 400, $dark_grey);
     /*&--big {
       margin: 0;
     }*/
   }
   &__pic {
+    float: right;
     width: 100px;
     height: 100px;
     object-fit: cover;
@@ -51,8 +55,12 @@
     box-shadow: 0px 3px 5px 0px $grey;
   }
   &__tags {
-    margin: 0;
     padding: 0;
+  }
+  &__cta {
+    position: fixed;
+    bottom: 1rem;
+    left: 28%; // à revoir
   }
 }
 .like {
@@ -107,7 +115,7 @@
   }
 }
 .work {
-  margin-top: 3rem;
+  margin: 3rem 0 6.5rem;
   display: grid;
   gap: 1rem;
   &__card {

@@ -55,7 +55,11 @@
   max-width: 150px;
 }
 
-.profile__name {
+.photographer {
+  position: relative;
+  margin: 0 1rem;
+}
+.photographer__name {
   /*@include __font-builder(2.2rem, 400, $secondary);
   &--big {*/
   font-family: "DM Sans", sans-serif;
@@ -65,32 +69,41 @@
   margin: 0;
   /*}*/
 }
-.profile__location {
+.photographer__location {
   /*@include __font-builder(1.1rem, 400, $primary);
   &--big {*/
   font-family: "DM Sans", sans-serif;
   font-weight: 400;
   font-size: 1.5rem;
   color: #901c1c;
-  margin: 0;
+  margin: 0.15rem 0 0;
   /*}*/
 }
-.profile__quote {
-  margin: 0;
+.photographer__quote {
+  margin: 0.5rem 0;
+  font-family: "DM Sans", sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  color: #525252;
   /*&--big {
     margin: 0;
   }*/
 }
-.profile__pic {
+.photographer__pic {
+  float: right;
   width: 100px;
   height: 100px;
   object-fit: cover;
   border-radius: 50px;
   box-shadow: 0px 3px 5px 0px #c4c4c4;
 }
-.profile__tags {
-  margin: 0;
+.photographer__tags {
   padding: 0;
+}
+.photographer__cta {
+  position: fixed;
+  bottom: 1rem;
+  left: 28%;
 }
 
 .like__count {
@@ -173,7 +186,7 @@
 }
 
 .work {
-  margin-top: 3rem;
+  margin: 3rem 0 6.5rem;
   display: grid;
   gap: 1rem;
 }
