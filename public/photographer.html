@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FishEye</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/a8f2f85b52.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="css/normalize.css" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header>
+        <nav class="navbar">
+            <img class="navbar__logo" src="content/logo.png">
+        </nav>
+    </header>
+    <main>
+      <article class="photographer">
+        <section class="profile">
+          <h1 class="profile__name--big">Mimi Keel</h1>
+          <h2 class="profile__location--big">London, UK</h2>
+          <blockquote class="profile__quote--big">
+            Voir le beau dans le quotidien
+          </blockquote>
+          <img class="profile__pic" src="content/photographers/MimiKeel.jpg" />
+          <ul class="profile__tags tags">
+            <li class="tags__tag">#portrait</li>
+            <li class="tags__tag">#events</li>
+            <li class="tags__tag">#travel</li>
+            <li class="tags__tag">#animals</li>
+          </ul>
+        </section>
+        <section class="work">
+          <figure class="work__card">
+            <img
+              class="work__display"
+              src="content/MimiKeel/Animals_Rainbow.jpg"
+            />
+            <figcaption class="work__caption">
+              <h2 class="work__desc">Arc-en-ciel</h2>
+              <div class="work__like like">
+                <span class="like__count">12</span>
+                <i class="like__heart fas fa-heart"></i>
+              </div>
+            </figcaption>
+          </figure>
+          <figure class="work__card">
+            <img
+              class="work__display"
+              src="content/MimiKeel/Travel_Lonesome.jpg"
+            />
+            <figcaption class="work__caption">
+              <h2 class="work__desc">Solitude</h2>
+              <div class="work__like like">
+                <span class="like__count">12</span>
+                <i class="like__heart fas fa-heart"></i>
+              </div>
+            </figcaption>
+          </figure>
+        </section>
+      </article>
+    </main>
+    <footer></footer>
+  </body>
+</html>
