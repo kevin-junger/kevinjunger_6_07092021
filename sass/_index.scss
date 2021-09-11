@@ -1,5 +1,5 @@
-.profiles{
-    display: grid;
+.profiles {
+  display: grid;
 }
 .profile {
   display: flex;
@@ -7,9 +7,7 @@
   align-items: center;
   &__caption {
     margin-top: 1rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    text-align: center;
   }
   &__name {
     @include __font-builder(2rem, 400, $secondary);
@@ -20,15 +18,15 @@
     margin: 0;
   }
   &__quote {
-    @include __font-builder(.8rem, 400, black);
-    margin: .2rem 0;
+    @include __font-builder(0.8rem, 400, black);
+    margin: 0.2rem 0;
   }
-  &__price{
-    @include __font-builder(.7rem, 400, $dark_grey);
-      margin: 0 0 .5rem;
+  &__price {
+    @include __font-builder(0.7rem, 400, $dark_grey);
+    margin: 0 0 0.5rem;
   }
-  &__tags{
-      margin: 0;
-      padding: 0;
+  &__tags {
+    margin: 0;
+    padding: 0;
   }
 }

@@ -1,15 +1,18 @@
 @media screen and (min-width: 450px) {
+  .profiles,
   .work {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 @media screen and (min-width: 768px) {
+  .profiles,
   .work {
     grid-template-columns: repeat(3, 1fr);
   }
 }
 @media screen and (min-width: 1024px) {
-    .work{
-        gap: 3rem;
-    }
+  .profiles,
+  .work {
+    gap: 3rem;
+  }
 }

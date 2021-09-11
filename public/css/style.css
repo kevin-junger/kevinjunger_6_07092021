@@ -164,9 +164,7 @@
 }
 .profile__caption {
   margin-top: 1rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  text-align: center;
 }
 .profile__name {
   font-family: "DM Sans", sans-serif;
@@ -279,17 +277,20 @@
 }
 
 @media screen and (min-width: 450px) {
-  .work {
+  .profiles,
+.work {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 @media screen and (min-width: 768px) {
-  .work {
+  .profiles,
+.work {
     grid-template-columns: repeat(3, 1fr);
   }
 }
 @media screen and (min-width: 1024px) {
-  .work {
+  .profiles,
+.work {
     gap: 3rem;
   }
 }
