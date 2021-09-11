@@ -1,3 +1,13 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.hidden {
+  display: none;
+}
+
 .cta {
   width: 170px;
   height: 69px;
@@ -142,15 +152,26 @@
   box-shadow: 0px 3px 5px 0px #c4c4c4;
 }
 
-.hidden {
-  display: none;
-}
-
 .navbar {
   margin: 3rem 1rem 1.5rem;
 }
 .navbar__logo {
   max-width: 150px;
+}
+.navbar__categories {
+  display: block;
+  margin: 2rem 0;
+  padding: 0;
+}
+
+.photographers {
+  position: relative;
+}
+.photographers h1 {
+  font-family: "DM Sans", sans-serif;
+  font-weight: 400;
+  font-size: 0.9rem;
+  color: #901c1c;
 }
 
 .profiles {
@@ -208,7 +229,7 @@
 }
 .about__name {
   /*@include __font-builder(2.2rem, 400, $secondary);
-  &--big {*/
+    &--big {*/
   font-family: "DM Sans", sans-serif;
   font-weight: 400;
   font-size: 3rem;
@@ -218,7 +239,7 @@
 }
 .about__location {
   /*@include __font-builder(1.1rem, 400, $primary);
-  &--big {*/
+    &--big {*/
   font-family: "DM Sans", sans-serif;
   font-weight: 400;
   font-size: 1.5rem;
@@ -233,8 +254,8 @@
   font-size: 1rem;
   color: #525252;
   /*&--big {
-    margin: 0;
-  }*/
+      margin: 0;
+    }*/
 }
 .about__pic {
   float: right;

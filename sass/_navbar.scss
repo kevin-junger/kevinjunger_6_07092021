@@ -1,0 +1,11 @@
+.navbar {
+  margin: 3rem 1rem 1.5rem;
+  &__logo {
+    max-width: 150px;
+  }
+  &__categories {
+    display: block;
+    margin: 2rem 0;
+    padding: 0;
+  }
+}

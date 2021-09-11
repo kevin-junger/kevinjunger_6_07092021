@@ -1,3 +1,9 @@
+.photographers {
+  position: relative;
+  h1 {
+    @include __font-builder(.9rem, 400, $primary);
+  }
+}
 .profiles {
   display: grid;
 }
