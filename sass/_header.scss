@@ -1,3 +1,11 @@
+header {
+  position: relative;
+  h2 {
+    @include __font-builder(0.8rem, 400, $primary);
+    position: absolute;
+    right: 1.8rem;
+  }
+}
 .navbar {
   margin: 3rem 1rem 1.5rem;
   &__logo {

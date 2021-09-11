@@ -4,25 +4,16 @@
 .about {
   margin: 0 1rem;
   &__name {
-    /*@include __font-builder(2.2rem, 400, $secondary);
-      &--big {*/
     @include __font-builder(3rem, 400, $secondary);
     margin: 0;
-    /*}*/
   }
   &__location {
-    /*@include __font-builder(1.1rem, 400, $primary);
-      &--big {*/
     @include __font-builder(1.5rem, 400, $primary);
     margin: 0.15rem 0 0;
-    /*}*/
   }
   &__quote {
     margin: 0.5rem 0;
     @include __font-builder(1rem, 400, $dark_grey);
-    /*&--big {
-        margin: 0;
-      }*/
   }
   &__pic {
     float: right;
