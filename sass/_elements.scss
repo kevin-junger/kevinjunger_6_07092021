@@ -1,0 +1,83 @@
+.cta {
+  @include __button-builder($primary, white);
+  &:hover {
+    @include __button-builder($tertiary, black);
+    box-shadow: 0px 3px 5px 0px $grey;
+  }
+}
+.tags {
+  display: inline;
+  &__tag {
+    @include __tag-builder(inherit, $grey, $primary);
+    &:hover {
+      @include __tag-builder($primary, $primary, white);
+    }
+  }
+}
+
+.like {
+  &__count {
+    @include __font-builder(1.1rem, 500, $primary);
+    &--total {
+      @include __font-builder(1.1rem, 500, black);
+    }
+  }
+  &__heart {
+    color: $primary;
+    font-size: 1rem;
+    &--total {
+      font-size: 1rem;
+      color: black;
+    }
+  }
+}
+.pp {
+  width: 100px;
+  height: 100px;
+  border-radius: 50px;
+  object-fit: cover;
+  box-shadow: 0px 3px 5px 0px $grey;
+  &--big {
+    width: 200px;
+    height: 200px;
+    border-radius: 100px;
+    object-fit: cover;
+    box-shadow: 0px 3px 5px 0px $grey;
+  }
+}
+.dropdown {
+  // à revoir (non fonctionnel)
+  position: relative;
+  display: inline-block;
+  &__button {
+    @include __button-builder($primary, white);
+    i {
+      margin-left: 1rem;
+    }
+    &:hover {
+      @include __button-builder($tertiary, black);
+      box-shadow: 0px 3px 5px 0px $grey;
+    }
+  }
+  &__content {
+    display: none;
+    position: absolute;
+    background-color: $primary;
+  }
+  &__item {
+    @include __font-builder(1.1rem, 500, white);
+    border-top: 1px solid white;
+    width: 170px;
+    height: 69px;
+    list-style: none;
+    display: block;
+    &:hover {
+      background-color: $tertiary;
+      @include __font-builder(1.1rem, 500, black);
+    }
+  }
+  &:hover &__content {
+    display: block;
+    box-shadow: 0px 3px 5px 0px $grey;
+  }
+}
