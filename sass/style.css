@@ -1,0 +1,254 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.hidden {
+  display: none;
+}
+
+.cta {
+  width: 170px;
+  height: 69px;
+  background-color: #901c1c;
+  border-radius: 5px;
+  border-style: none;
+  font-family: "DM Sans", sans-serif;
+  font-weight: 500;
+  font-size: 1.1rem;
+  color: white;
+}
+.cta:hover {
+  width: 170px;
+  height: 69px;
+  background-color: #db8876;
+  border-radius: 5px;
+  border-style: none;
+  font-family: "DM Sans", sans-serif;
+  font-weight: 500;
+  font-size: 1.1rem;
+  color: black;
+  box-shadow: 0px 3px 5px 0px #c4c4c4;
+}
+
+.tags {
+  display: inline;
+}
+.tags__tag {
+  display: inline-block;
+  padding: 0.25rem 0.5rem 0.35rem;
+  background-color: inherit;
+  border: 1px solid #c4c4c4;
+  border-radius: 20px;
+  font-family: "DM Sans", sans-serif;
+  font-weight: 500;
+  font-size: 0.8rem;
+  color: #901c1c;
+}
+.tags__tag:hover {
+  display: inline-block;
+  padding: 0.25rem 0.5rem 0.35rem;
+  background-color: #901c1c;
+  border: 1px solid #901c1c;
+  border-radius: 20px;
+  font-family: "DM Sans", sans-serif;
+  font-weight: 500;
+  font-size: 0.8rem;
+  color: white;
+}
+
+.like__count {
+  font-family: "DM Sans", sans-serif;
+  font-weight: 500;
+  font-size: 1.1rem;
+  color: #901c1c;
+}
+.like__count--total {
+  font-family: "DM Sans", sans-serif;
+  font-weight: 500;
+  font-size: 1.1rem;
+  color: black;
+}
+.like__heart {
+  color: #901c1c;
+  font-size: 1rem;
+}
+.like__heart--total {
+  font-size: 1rem;
+  color: black;
+}
+
+.pp {
+  width: 100px;
+  height: 100px;
+  border-radius: 50px;
+  object-fit: cover;
+  box-shadow: 0px 3px 5px 0px #c4c4c4;
+}
+.pp--big {
+  width: 200px;
+  height: 200px;
+  border-radius: 100px;
+  object-fit: cover;
+  box-shadow: 0px 3px 5px 0px #c4c4c4;
+}
+
+header {
+  position: relative;
+}
+header h2 {
+  font-family: "DM Sans", sans-serif;
+  font-weight: 400;
+  font-size: 0.8rem;
+  color: #901c1c;
+  position: absolute;
+  right: 1.8rem;
+}
+
+.navbar {
+  margin: 3rem 1rem 1.5rem;
+}
+.navbar__logo {
+  max-width: 150px;
+}
+.navbar__categories {
+  display: block;
+  margin: 2rem 0;
+  padding: 0;
+}
+
+.profiles {
+  display: grid;
+}
+
+.profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.profile__caption {
+  margin-top: 1rem;
+  text-align: center;
+}
+.profile__name {
+  font-family: "DM Sans", sans-serif;
+  font-weight: 400;
+  font-size: 2rem;
+  color: #d3573c;
+  margin: 0;
+}
+.profile__location {
+  font-family: "DM Sans", sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  color: #901c1c;
+  margin: 0;
+}
+.profile__quote {
+  font-family: "DM Sans", sans-serif;
+  font-weight: 400;
+  font-size: 0.8rem;
+  color: black;
+  margin: 0.2rem 0;
+}
+.profile__price {
+  font-family: "DM Sans", sans-serif;
+  font-weight: 400;
+  font-size: 0.7rem;
+  color: #525252;
+  margin: 0 0 0.5rem;
+}
+.profile__tags {
+  margin: 0;
+  padding: 0;
+}
+
+.photographer {
+  position: relative;
+}
+
+.about {
+  margin: 0 1rem;
+}
+.about__name {
+  font-family: "DM Sans", sans-serif;
+  font-weight: 400;
+  font-size: 3rem;
+  color: #d3573c;
+  margin: 0;
+}
+.about__location {
+  font-family: "DM Sans", sans-serif;
+  font-weight: 400;
+  font-size: 1.5rem;
+  color: #901c1c;
+  margin: 0.15rem 0 0;
+}
+.about__quote {
+  margin: 0.5rem 0;
+  font-family: "DM Sans", sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  color: #525252;
+}
+.about__pic {
+  float: right;
+}
+.about__tags {
+  padding: 0;
+}
+.about__cta {
+  position: fixed;
+  bottom: 1rem;
+  left: 28%;
+}
+
+.work {
+  margin: 3rem 1rem 6.5rem;
+  display: grid;
+  gap: 1rem;
+}
+.work__card {
+  max-width: 100%;
+  margin: 0;
+}
+.work__display {
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+.work__caption {
+  margin-top: 0.8rem;
+  display: flex;
+  justify-content: space-between;
+}
+.work__desc {
+  font-family: "DM Sans", sans-serif;
+  font-weight: 500;
+  font-size: 1.1rem;
+  color: #901c1c;
+  margin: 0;
+}
+
+@media screen and (min-width: 450px) {
+  .profiles,
+.work {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media screen and (min-width: 768px) {
+  .profiles,
+.work {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media screen and (min-width: 1024px) {
+  .profiles,
+.work {
+    gap: 3rem;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */
