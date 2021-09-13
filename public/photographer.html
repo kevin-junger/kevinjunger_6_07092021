@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="css/style.css" />
     <script src="js/main.js"></script>
   </head>
-  <body>
+  <body onload="fetchProfile()">
     <header>
       <nav class="navbar">
         <img class="navbar__logo" src="content/logo.png" alt="" />
@@ -26,9 +26,7 @@
     </header>
     <main>
       <article class="photographer">
-        <section class="about">
-          <!-- populated by json -->
-        </section>
+        <section class="about"></section>
         <section class="work">
           <figure class="work__card">
             <img
