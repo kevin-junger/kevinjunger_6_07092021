@@ -46,10 +46,13 @@ function fetchProfile() {
       return response.json();
     })
     .then((data) => {
-      let html = "";
+      //let html = "";
+      const container = document.querySelector(".about");
       for (i = 0; i < data.photographers.length; i++) {
         if (data.photographers[i].id === 243) {
-          html += `<img
+          container.insertAdjacentHTML(
+            "afterbegin",
+            `<img
               class="about__pic pp"
               src="content/photographers/${data.photographers[i].portrait}"
               alt="${data.photographers[i].name}"
@@ -58,18 +61,21 @@ function fetchProfile() {
             <h3 class="about__location">${data.photographers[i].city}, ${data.photographers[i].country}</h3>
             <blockquote class="about__quote">
               ${data.photographers[i].tagline}
-            </blockquote>`;
-          let tags = data.photographers[i].tags
-            .map((tag) => `<li class="about__tag tags__tag">#${tag}</li>`)
-            .join("");
-          html += `${tags}
-          </ul>
-          <button type="button" class="about__cta cta">
+            </blockquote>
+            <ul class="about__tags tags></ul><button type="button" class="about__cta cta">
+            <button type="button" class="about__cta cta">
             Contactez-moi
-          </button>`;
+          </button>`
+          );
+          const tags = document.querySelector(".about__tags");
+          tags.insertAdjacentHTML(
+            "beforeend",
+            data.photographers[i].tags
+              .map((tag) => `<li class="about__tag tags__tag">#${tag}</li>`)
+              .join("")
+          );
         }
       }
-      document.querySelector(".about").innerHTML = html;
     });
 }
 fetchProfiles();
