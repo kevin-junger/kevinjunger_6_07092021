@@ -58,13 +58,26 @@ function fetchMedia (id, name) {
         if (medium.photographerId === id) {
           container.insertAdjacentHTML(
             'afterbegin',
-          `<figure class="work__card">
-            <img
-              class="work__display"
-              src="content/${name}/${medium.image}"
-              alt=""
-            />
-            <figcaption class="work__caption">
+            '<figure class="work__card"></figure>')
+          const card = document.querySelector('.work__card')
+          if (typeof medium.image === 'undefined') {
+            card.insertAdjacentHTML(
+              'afterbegin',
+              `<video controls class="work__display">
+                <source src="content/${name}/${medium.video}"
+              </video>`)
+          } else {
+            card.insertAdjacentHTML(
+              'afterbegin',
+              `<img
+                class="work__display"
+                src="content/${name}/${medium.image}"
+                alt=""
+              />`)
+          }
+          card.insertAdjacentHTML(
+            'beforeend',
+            `<figcaption class="work__caption">
               <h2 class="work__desc">${medium.title}</h2>
               <div class="work__like like">
                 <span class="like__count">${medium.likes}</span>
