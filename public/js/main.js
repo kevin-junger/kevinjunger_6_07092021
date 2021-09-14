@@ -1,6 +1,9 @@
 function fetchProfiles () {
   fetch('../../FishEyeData.json')
     .then((response) => {
+      if (!response.ok) {
+        throw Error()
+      }
       return response.json()
     })
     .then((data) => {
@@ -39,16 +42,53 @@ function fetchProfiles () {
         )
       }
     })
+    .catch(error => { console.log(error) })
+}
+function fetchMedia (id, name) {
+  fetch('../../FishEyeData.json')
+    .then((response) => {
+      if (!response.ok) {
+        throw Error()
+      }
+      return response.json()
+    })
+    .then((data) => {
+      const container = document.querySelector('.work')
+      for (const medium of data.media) {
+        if (medium.photographerId === id) {
+          container.insertAdjacentHTML(
+            'afterbegin',
+          `<figure class="work__card">
+            <img
+              class="work__display"
+              src="content/${name}/${medium.image}"
+              alt=""
+            />
+            <figcaption class="work__caption">
+              <h2 class="work__desc">${medium.title}</h2>
+              <div class="work__like like">
+                <span class="like__count">${medium.likes}</span>
+                <i class="like__heart fas fa-heart"></i>
+              </div>
+            </figcaption>
+          </figure>`)
+        }
+      }
+    })
+    .catch(error => { console.log(error) })
 }
 function fetchProfile () {
   fetch('../../FishEyeData.json')
     .then((response) => {
+      if (!response.ok) {
+        throw Error()
+      }
       return response.json()
     })
     .then((data) => {
       const container = document.querySelector('.about')
       for (const photographer of data.photographers) {
-        if (photographer.id === 243) {
+        if (photographer.id === 243) { // à modifier pour rendre cela dynamique (GET/POST ?)
           container.insertAdjacentHTML(
             'afterbegin',
             `<img
@@ -73,7 +113,9 @@ function fetchProfile () {
               .map((tag) => `<li class="about__tag tags__tag">#${tag}</li>`)
               .join('')
           )
+          fetchMedia(photographer.id, photographer.name.replace(/\s+/g, ''))
         }
       }
     })
+    .catch(error => { console.log(error) })
 }

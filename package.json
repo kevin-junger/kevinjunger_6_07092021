@@ -25,5 +25,5 @@
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^5.1.0"
   },
-  "browserslist": "last 4 versions"
+  "browserslist": "last 50 versions"
 }
