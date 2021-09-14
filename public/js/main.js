@@ -42,7 +42,7 @@ function fetchProfiles () {
         )
       }
     })
-    .catch(error => { console.log(error) })
+    .catch(error => { console.log(error) }) // provisoire
 }
 function fetchMedia (id, name) {
   fetch('../../FishEyeData.json')
@@ -64,7 +64,10 @@ function fetchMedia (id, name) {
             card.insertAdjacentHTML(
               'afterbegin',
               `<video controls class="work__display">
-                <source src="content/${name}/${medium.video}"
+                <source 
+                  src="content/${name}/${medium.video}" 
+                  type="video/mp4"
+                />
               </video>`)
           } else {
             card.insertAdjacentHTML(
@@ -88,7 +91,7 @@ function fetchMedia (id, name) {
         }
       }
     })
-    .catch(error => { console.log(error) })
+    .catch(error => { console.log(error) }) // provisoire
 }
 function fetchProfile () {
   fetch('../../FishEyeData.json')
@@ -130,5 +133,5 @@ function fetchProfile () {
         }
       }
     })
-    .catch(error => { console.log(error) })
+    .catch(error => { console.log(error) }) // provisoire
 }
