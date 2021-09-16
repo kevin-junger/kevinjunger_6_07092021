@@ -1,4 +1,4 @@
-function fetchProfiles () {
+function fetchProfiles() {
   fetch('../../FishEyeData.json')
     .then((response) => {
       if (!response.ok) {
@@ -42,9 +42,11 @@ function fetchProfiles () {
         )
       }
     })
-    .catch(error => { console.log(error) }) // provisoire
+    .catch((error) => {
+      console.log(error)
+    }) // provisoire
 }
-function fetchMedia (id, name) {
+function fetchMedia(id, name) {
   fetch('../../FishEyeData.json')
     .then((response) => {
       if (!response.ok) {
@@ -58,7 +60,8 @@ function fetchMedia (id, name) {
         if (medium.photographerId === id) {
           container.insertAdjacentHTML(
             'afterbegin',
-            '<figure class="work__card"></figure>')
+            '<figure class="work__card"></figure>'
+          )
           const card = document.querySelector('.work__card')
           if (typeof medium.image === 'undefined') {
             card.insertAdjacentHTML(
@@ -68,7 +71,8 @@ function fetchMedia (id, name) {
                   src="content/${name}/${medium.video}" 
                   type="video/mp4"
                 />
-              </video>`)
+              </video>`
+            )
           } else {
             card.insertAdjacentHTML(
               'afterbegin',
@@ -76,7 +80,8 @@ function fetchMedia (id, name) {
                 class="work__display"
                 src="content/${name}/${medium.image}"
                 alt=""
-              />`)
+              />`
+            )
           }
           card.insertAdjacentHTML(
             'beforeend',
@@ -87,13 +92,16 @@ function fetchMedia (id, name) {
                 <i class="like__heart fas fa-heart"></i>
               </div>
             </figcaption>
-          </figure>`)
+          </figure>`
+          )
         }
       }
     })
-    .catch(error => { console.log(error) }) // provisoire
+    .catch((error) => {
+      console.log(error)
+    }) // provisoire
 }
-function fetchProfile () {
+function fetchProfile() {
   fetch('../../FishEyeData.json')
     .then((response) => {
       if (!response.ok) {
@@ -104,7 +112,8 @@ function fetchProfile () {
     .then((data) => {
       const container = document.querySelector('.about')
       for (const photographer of data.photographers) {
-        if (photographer.id === 243) { // à modifier pour rendre cela dynamique (GET/POST ?)
+        if (photographer.id === 243) {
+          // à modifier pour rendre cela dynamique (GET/POST ?)
           container.insertAdjacentHTML(
             'afterbegin',
             `<img
@@ -133,5 +142,7 @@ function fetchProfile () {
         }
       }
     })
-    .catch(error => { console.log(error) }) // provisoire
+    .catch((error) => {
+      console.log(error)
+    }) // provisoire
 }

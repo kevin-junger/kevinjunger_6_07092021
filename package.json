@@ -1,17 +1,17 @@
 {
   "name": "kevinjunger_6_07092021",
   "version": "1.0.0",
-  "description": "",
+  "description": "> Sixième projet du parcours *développeur front-end* chez OpenClassrooms.",
   "main": "index.js",
   "scripts": {
-    "sass": "sass --watch ./sass/main.scss:./sass/style.css",
-    "prefix": "postcss ./sass/style.css --use autoprefixer -d ./public/css",
-    "lint": "eslint"
+    "watch": "chokidar ./sass/*.scss --command 'node-sass-chokidar ./sass/main.scss | postcss --use autoprefixer > ./public/css/style.css'",
+    "build": "node-sass-chokidar ./sass/main.scss --output-style compressed --quiet | postcss --use autoprefixer --no-map > ./public/css/style.css"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/kevin-junger/kevinjunger_6_07092021.git"
   },
+  "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
@@ -19,11 +19,21 @@
   },
   "homepage": "https://github.com/kevin-junger/kevinjunger_6_07092021#readme",
   "devDependencies": {
+    "autoprefixer": "^10.3.4",
+    "chokidar-cli": "^3.0.0",
     "eslint": "^7.32.0",
-    "eslint-config-standard": "^16.0.3",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-import": "^2.24.2",
-    "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-promise": "^5.1.0"
+    "eslint-plugin-prettier": "^4.0.0",
+    "node-sass-chokidar": "^1.5.0",
+    "postcss": "^8.3.6",
+    "postcss-cli": "^8.3.1",
+    "prettier": "^2.4.1"
   },
-  "browserslist": "last 50 versions"
+  "browserslist": [
+    "> 1%",
+    "last 4 versions",
+    "not dead"
+  ]
 }
