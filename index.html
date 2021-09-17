@@ -14,14 +14,16 @@
       src="https://kit.fontawesome.com/a8f2f85b52.js"
       crossorigin="anonymous"
     ></script>
-    <link rel="stylesheet" href="css/normalize.css" />
-    <link rel="stylesheet" href="css/style.css" />
-    <script src="js/main.js"></script>
+    <link rel="stylesheet" href="public/css/normalize.css" />
+    <link rel="stylesheet" href="public/css/style.css" />
+    <script type="module" src="app/main.js"></script>
   </head>
-  <body onload="fetchProfiles()">
+  <body>
     <header>
       <nav class="navbar">
-        <img class="navbar__logo" src="content/logo.png" alt="" />
+        <a href="/"
+          ><img class="navbar__logo" src="public/content/logo.png" alt=""
+        /></a>
         <ul class="navbar__categories tags">
           <li class="navbar__category tags__tag">#portrait</li>
           <li class="navbar__category tags__tag">#art</li>
@@ -35,10 +37,15 @@
       </nav>
     </header>
     <main>
-      <article class="photographers">
+      <div class="container"></div>
+      <!--<article class="photographers">
         <h1>Nos photographes</h1>
         <section class="profiles"></section>
-      </article>
+        <article class="photographer">
+          <section class="about"></section>
+          <section class="work"></section>
+        </article>
+      </article>-->
     </main>
   </body>
 </html>
