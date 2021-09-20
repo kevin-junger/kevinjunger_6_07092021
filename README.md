@@ -35,6 +35,6 @@ Le site web est obsolète et nécessite une refonte afin notamment de le rendre 
 ## Environnement
 
 - Le projet a été réalisé sur Visual Studio équipé des _plugins_ Live Server, Prettier et ESLint, le tout avec NodeJS et npm, sous Linux.
-- Plusieurs modules NodeJS ont été utilisés : `autoprefixer`, `chokidar-cli`, `eslint`, `eslint-config-airbnb-base`, `eslint-config-prettier`, `eslint-plugin-import`, `eslint-plugin-prettier`, `node-sass-chokidar`, `postcss`, `postcss-cli` et `prettier`
+- Plusieurs modules NodeJS ont été utilisés : `autoprefixer`, `chokidar-cli`, `eslint`, `eslint-config-airbnb-base`, `eslint-plugin-import`, `node-sass-chokidar`, `postcss` et `postcss-cli`.
 - La majorité des débogages et tests de compatibilité ont été réalisés sous Mozilla Firefox et Google Chrome dans leurs dernières versions au moment de l'écriture, sur ordinateur (Linux) et téléphone (Android).
 - N'ayant pas en ma possession les appareils nécessaires, la compatibilité avec Safari n'a pu être vérifiée à 100%, malgré l'emploi d'un navigateur (Epiphany) reposant sur le même moteur de rendu (WebKit).

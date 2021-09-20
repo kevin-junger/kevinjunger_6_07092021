@@ -234,19 +234,19 @@ header h2 {
 
 @media screen and (min-width: 450px) {
   .profiles,
-.work {
+  .work {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 @media screen and (min-width: 768px) {
   .profiles,
-.work {
+  .work {
     grid-template-columns: repeat(3, 1fr);
   }
 }
 @media screen and (min-width: 1024px) {
   .profiles,
-.work {
+  .work {
     gap: 3rem;
   }
 }

@@ -1,9 +1,9 @@
 export default class App {
-  constructor() {
+  constructor(json) {
     if (App.exists) {
       return App.instance;
     }
-    this.data = 'app/data/FishEyeData.json';
+    this.data = json;
     App.instance = this;
     App.exists = true;
     return this;

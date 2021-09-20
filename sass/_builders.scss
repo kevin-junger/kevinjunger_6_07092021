@@ -14,9 +14,9 @@
 }
 @mixin __tag-builder($bg_color, $border_color, $font_color) {
   display: inline-block;
-  padding: .25rem .5rem .35rem;
+  padding: 0.25rem 0.5rem 0.35rem;
   background-color: $bg_color;
   border: 1px solid $border_color;
   border-radius: 20px;
-  @include __font-builder(.8rem, 500, $font-color);
+  @include __font-builder(0.8rem, 500, $font-color);
 }
