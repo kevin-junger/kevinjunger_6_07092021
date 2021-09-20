@@ -1,3 +1,4 @@
+import MediaFactory from "../factory/MediaFactory.js";
 export default class Photographer {
   constructor(data, id) {
     if (Photographer.exists) {
@@ -39,43 +40,18 @@ export default class Photographer {
         document.querySelector(".container").innerHTML = html;
       }
     });
+  }
+  async displayMedia() {
     document
       .querySelector(".container")
       .insertAdjacentHTML("beforeend", '<section class="work"></section>');
-  }
-  async displayMedia() {
     this.data.media.forEach((medium) => {
       if (medium.photographerId === this.id) {
-        let html = '<figure class="work__card">';
         if (typeof medium.image === "undefined") {
-          html += `
-            <video controls class="work__display">
-              <source 
-                src="public/content/media/${medium.photographerId}/${medium.video}" 
-                type="video/mp4"
-              />
-            </video>
-          `;
+          new MediaFactory("video", medium).get()
         } else {
-          html += `
-            <img
-              class="work__display"
-              src="public/content/media/${medium.photographerId}/${medium.image}"
-              alt=""
-            />
-          `;
+          new MediaFactory("image", medium).get()
         }
-        html += `
-              <figcaption class="work__caption">
-              <h2 class="work__desc">${medium.title}</h2>
-              <div class="work__like like">
-                <span class="like__count">${medium.likes}</span>
-                <i class="like__heart fas fa-heart"></i>
-              </div>
-            </figcaption>
-          </figure>
-        `;
-        document.querySelector(".work").innerHTML += html;
       }
     });
   }
