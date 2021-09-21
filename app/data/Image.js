@@ -1,18 +1,12 @@
-export default class Video {
+export default class Image {
   constructor(data) {
-    this.type = "Video"
-    this.id = data.id
+    this.type = "Image"
     this.data = data
   }
   async get(){
     document.querySelector(".work").innerHTML += `
       <figure class="work__card">  
-        <video controls class="work__display">
-          <source 
-            src="public/content/media/${this.data.photographerId}/${this.data.video}" 
-            type="video/mp4"
-          />
-        </video>
+        <img class="work__display" src="public/content/media/${this.data.photographerId}/${this.data.image}" alt="" />
         <figcaption class="work__caption">
           <h2 class="work__desc">${this.data.title}</h2>
           <div class="work__like like">

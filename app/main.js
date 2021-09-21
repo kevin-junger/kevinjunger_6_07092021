@@ -1,18 +1,17 @@
-import App from "./data/App.js";
+import App from "./core/App.js";
 import Index from "./display/Index.js";
-import Photographer from "./display/Photographer.js";
+import Profile from "./display/Profile.js";
 (function launch() {
-  new App("app/data/FishEyeData.json")
+  new App("app/core/FishEyeData.json")
     .get()
     .then((data) => {
       if (data === undefined) {
         throw Error();
       }
       const url = new URLSearchParams(window.location.search);
-      if (url.has("photographer")) {
-        const id = parseInt(url.get("photographer"), 10);
-        new Photographer(data, id).displayProfile();
-        new Photographer(data, id).displayMedia();
+      if (url.has("profile")) {
+        const id = parseInt(url.get("profile"), 10);
+        new Profile(data, id).display();
       } else {
         new Index(data).display();
       }
