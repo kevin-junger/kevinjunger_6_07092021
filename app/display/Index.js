@@ -10,7 +10,7 @@ export default class Index {
     Index.exists = true;
     return this;
   }
-  async display() {
+  display() {
     new Nav(this.data.tags).display()
     this.data.photographers.forEach((photographer) => {
       new Photographer(photographer).displayProfile("index")
