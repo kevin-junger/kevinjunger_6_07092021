@@ -3,7 +3,7 @@ export default class Video {
     this.type = "Video"
     this.data = data
   }
-  async get(){
+  get(){
     document.querySelector(".work").innerHTML += `
       <figure class="work__card">  
         <video controls class="work__display">

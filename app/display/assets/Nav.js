@@ -8,7 +8,7 @@ export default class Nav {
     Nav.exists = true;
     return this;
   }
-  async display() {
+  display() {
     document.querySelector(".navbar").insertAdjacentHTML('beforeend',`
       <ul class="navbar__categories tags">
         ${this.data.map((tag) => `<li class="navbar__category tags__tag">#${tag}</li>`).join(' ')}

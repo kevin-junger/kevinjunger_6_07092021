@@ -3,7 +3,7 @@ export default class Photographer {
   constructor(data) {
     this.data = data
   }
-  async displayProfile(context) {
+  displayProfile(context) {
     switch(context) {
       case "index":
         document.querySelector(".container").innerHTML += `
@@ -37,7 +37,7 @@ export default class Photographer {
         break;
     }
   }
-  async displayMedium(context, medium) {
+  displayMedium(context, medium) {
     switch(context) {
       case "image":
         new MediaFactory("image", medium).get()

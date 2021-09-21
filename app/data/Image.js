@@ -3,7 +3,7 @@ export default class Image {
     this.type = "Image"
     this.data = data
   }
-  async get(){
+  get(){
     document.querySelector(".work").innerHTML += `
       <figure class="work__card">  
         <img class="work__display" src="public/content/media/${this.data.photographerId}/${this.data.image}" alt="" />
