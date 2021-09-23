@@ -1,10 +1,11 @@
 export default class Video {
   constructor(data) {
-    this.type = "Video"
+    this.type = 'Video'
     this.data = data
   }
-  get(){
-    document.querySelector(".work").innerHTML += `
+
+  get() {
+    document.querySelector('.work').innerHTML += `
       <figure class="work__card">  
         <video controls class="work__display">
           <source 

@@ -1,19 +1,21 @@
-import Photographer from "../data/Photographer.js";
-import Nav from "./assets/Nav.js";
+import Photographer from '../data/Photographer.js'
+import Nav from './assets/Nav.js'
+
 export default class Index {
   constructor(data) {
     if (Index.exists) {
-      return Index.instance;
+      return Index.instance
     }
-    this.data = data;
-    Index.instance = this;
-    Index.exists = true;
-    return this;
+    this.data = data
+    Index.instance = this
+    Index.exists = true
+    return this
   }
+
   display() {
     new Nav(this.data.tags).display()
     this.data.photographers.forEach((photographer) => {
-      new Photographer(photographer).displayProfile("index")
-    });
+      new Photographer(photographer).displayProfile('index')
+    })
   }
 }

@@ -1,10 +1,11 @@
 export default class Image {
   constructor(data) {
-    this.type = "Image"
+    this.type = 'Image'
     this.data = data
   }
-  get(){
-    document.querySelector(".work").innerHTML += `
+
+  get() {
+    document.querySelector('.work').innerHTML += `
       <figure class="work__card">  
         <img class="work__display" src="public/content/media/${this.data.photographerId}/${this.data.image}" alt="" />
         <figcaption class="work__caption">

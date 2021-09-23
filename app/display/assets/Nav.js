@@ -1,18 +1,24 @@
 export default class Nav {
   constructor(data) {
     if (Nav.exists) {
-      return Nav.instance;
+      return Nav.instance
     }
-    this.data = data;
-    Nav.instance = this;
-    Nav.exists = true;
-    return this;
+    this.data = data
+    Nav.instance = this
+    Nav.exists = true
+    return this
   }
+
   display() {
-    document.querySelector(".navbar").insertAdjacentHTML('beforeend',`
+    document.querySelector('.navbar').insertAdjacentHTML(
+      'beforeend',
+      `
       <ul class="navbar__categories tags">
-        ${this.data.map((tag) => `<li class="navbar__category tags__tag">#${tag}</li>`).join(' ')}
+        ${this.data
+          .map((tag) => `<li class="navbar__category tags__tag">#${tag}</li>`)
+          .join(' ')}
       </ul>
-    `)
+    `
+    )
   }
 }
