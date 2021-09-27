@@ -1,4 +1,5 @@
 import Photographer from '../data/Photographer.js'
+import Modal from './assets/Modal.js'
 
 export default class Profile {
   constructor(data, id) {
@@ -16,6 +17,9 @@ export default class Profile {
     this.data.photographers.forEach((profile) => {
       if (profile.id === this.id) {
         new Photographer(profile).displayProfile('profile')
+        /* document
+          .querySelector('.about__contact')
+          .addEventListener('click', new Modal().get()) */
         document
           .querySelector('.container')
           .insertAdjacentHTML('beforeend', '<section class="work"></section>')

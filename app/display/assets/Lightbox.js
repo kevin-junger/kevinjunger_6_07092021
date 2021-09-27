@@ -34,9 +34,9 @@ export default class Lightbox {
       default:
         return undefined
     }
-    document.querySelector('.lightbox').style.display = 'block'
+    /* document.querySelector('.lightbox').style.display = 'block'
     document.querySelector('.lightbox__close').addEventListener('click', () => {
       document.querySelector('.lightbox').style.display = 'none'
-    })
+    }) */
   }
 }
