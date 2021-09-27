@@ -51,6 +51,8 @@ export default class Photographer {
           </section>
         `
         break
+      default:
+        return undefined
     }
   }
 
@@ -62,6 +64,8 @@ export default class Photographer {
       case 'video':
         new MediaFactory('video', medium).get()
         break
+      default:
+        return undefined
     }
   }
 }

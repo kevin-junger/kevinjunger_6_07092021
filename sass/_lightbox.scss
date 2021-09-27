@@ -6,8 +6,12 @@
   width: 100vw;
   background-color: white;
   padding: 1rem;
-  &__container {
+  &__modal {
+    height: 100%;
     margin: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   &__close {
     float: right;
