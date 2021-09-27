@@ -47,7 +47,7 @@ export default class Photographer {
             <ul class="about__tags tags">${this.data.tags
               .map((tag) => `<li class="about__tag tags__tag">#${tag}</li>`)
               .join(' ')}</ul>
-            <button type="button" class="about__cta cta">Contactez-moi</button>
+            <button type="button" class="about__contact cta">Contactez-moi</button>
           </section>
         `
         break

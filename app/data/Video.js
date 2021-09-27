@@ -7,7 +7,7 @@ export default class Video {
   get() {
     document.querySelector('.work').innerHTML += `
       <figure class="work__card">  
-        <video controls class="work__display">
+        <video controls class="work__display" id="${this.data.id}">
           <source 
             src="public/content/media/${this.data.photographerId}/${this.data.video}" 
             type="video/mp4"

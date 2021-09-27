@@ -3,13 +3,12 @@
 *::after {
   box-sizing: border-box;
 }
-.hidden {
-  display: none;
-}
-@import "colors";
-@import "builders";
-@import "elements";
-@import "header";
-@import "index";
-@import "photographers";
-@import "medias";
+@import 'colors';
+@import 'builders';
+@import 'elements';
+@import 'header';
+@import 'index';
+@import 'profile';
+@import 'lightbox';
+@import 'modal';
+@import 'media';

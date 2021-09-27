@@ -7,7 +7,7 @@ export default class Image {
   get() {
     document.querySelector('.work').innerHTML += `
       <figure class="work__card">  
-        <img class="work__display" src="public/content/media/${this.data.photographerId}/${this.data.image}" alt="" />
+        <img class="work__display" id="${this.data.id}" src="public/content/media/${this.data.photographerId}/${this.data.image}" alt="" />
         <figcaption class="work__caption">
           <h2 class="work__desc">${this.data.title}</h2>
           <div class="work__like like">
