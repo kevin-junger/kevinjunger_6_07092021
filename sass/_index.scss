@@ -5,13 +5,15 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  &__caption {
-    margin-top: 1rem;
-    text-align: center;
+  &__link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
   }
   &__name {
     @include __font-builder(2rem, 400, $secondary);
-    margin: 0;
+    margin: 0.5rem 0 0.25rem;
   }
   &__location {
     @include __font-builder(1rem, 400, $primary);

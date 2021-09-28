@@ -1,11 +1,11 @@
-export default class App {
+export default class Database {
   constructor(json) {
-    if (App.exists) {
-      return App.instance
+    if (Database.exists) {
+      return Database.instance
     }
     this.data = json
-    App.instance = this
-    App.exists = true
+    Database.instance = this
+    Database.exists = true
     return this
   }
 
@@ -18,7 +18,6 @@ export default class App {
     return {
       photographers: [...result.photographers],
       media: [...result.media],
-      tags: [...result.tags],
     }
   }
 }
