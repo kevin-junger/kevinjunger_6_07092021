@@ -1,5 +1,6 @@
 import Photographer from '../Model/Photographer.js'
 import Gallery from './Gallery.js'
+import Modal from './Elements/Modal.js'
 
 export default class Profile {
   constructor(photographer, media) {
@@ -8,6 +9,7 @@ export default class Profile {
     this.aboutContainer.className = 'about'
     this.photographer = new Photographer(photographer)
     this.media = new Gallery(media, this.photographer.getId())
+    this.modal = new Modal(this.photographer.getName())
   }
 
   init() {
@@ -27,7 +29,7 @@ export default class Profile {
     const contactBtn = document.createElement('button')
     contactBtn.className = 'about__contact cta'
     contactBtn.textContent = 'Contactez-moi'
-    // contactBtn.addEventListener('click', console.log('pouet'))
+    // contactBtn.addEventListener('click', this.modal.init())
     this.aboutContainer.appendChild(contactBtn)
     this.mainContainer.appendChild(this.aboutContainer)
     this.media.init()
