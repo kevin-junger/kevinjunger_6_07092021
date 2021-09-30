@@ -29,12 +29,12 @@ Le site web est obsolète et nécessite une refonte afin notamment de le rendre 
 - CSS3 (Sass, Autoprefixer, `normalize.css`)
 - Google Fonts (fonte de caractères _DM Sans_)
 - Font Awesome (icônes)
-- JavaScript (ES6) avec utilisation de programmation orientée objet et de _design patterns_
+- JavaScript (ES6) avec utilisation de programmation orientée objet et de _design patterns_ (_Factory Method_ et _MVC_)
 - JSON (pour la "base de données")
 
 ## Environnement
 
 - Le projet a été réalisé sur Visual Studio équipé des _plugins_ Live Server, Prettier et ESLint, le tout avec NodeJS et npm, sous Linux.
-- Plusieurs modules NodeJS ont été utilisés : `autoprefixer`, `chokidar-cli`, `eslint`, `eslint-config-airbnb-base`, `eslint-plugin-import`, `node-sass-chokidar`, `postcss` et `postcss-cli`.
+- Plusieurs modules NodeJS ont été utilisés : `autoprefixer`, `chokidar-cli`, `eslint`, `eslint-config-airbnb-base`, `eslint-config-prettier`, `eslint-plugin-import`, `eslint-plugin-prettier`, `node-sass-chokidar`, `postcss`, `postcss-cli` et `prettier`.
 - La majorité des débogages et tests de compatibilité ont été réalisés sous Mozilla Firefox et Google Chrome dans leurs dernières versions au moment de l'écriture, sur ordinateur (Linux) et téléphone (Android).
 - N'ayant pas en ma possession les appareils nécessaires, la compatibilité avec Safari n'a pu être vérifiée à 100%, malgré l'emploi d'un navigateur (Epiphany) reposant sur le même moteur de rendu (WebKit).
