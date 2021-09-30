@@ -2,7 +2,9 @@ import Media from '../Model/Media.js'
 
 export default class Gallery {
   constructor(media, pId) {
-    this.galleryContainer = document.querySelector('.work') // DOM object which will contain the gallery
+    this.mainContainer = document.querySelector('.container')
+    this.galleryContainer = document.createElement('section') // DOM object which will contain the gallery
+    this.galleryContainer.className = 'work'
     this.galleryElements = [] // will contain all Media objects corresponding to the chosen Photographer
     media.forEach((element) => {
       // adds all Media objects to the array
@@ -18,7 +20,6 @@ export default class Gallery {
 
   init() {
     // loops the created array of media and displays it all
-    this.galleryContainer.innerHTML = ''
     this.galleryElements.forEach((element) => {
       const card = document.createElement('figure')
       card.className = 'work__card'
@@ -57,5 +58,6 @@ export default class Gallery {
       // card.addEventListener('click', console.log('prout'))
       this.galleryContainer.appendChild(card)
     })
+    this.mainContainer.appendChild(this.galleryContainer)
   }
 }

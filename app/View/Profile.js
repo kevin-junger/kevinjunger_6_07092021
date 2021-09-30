@@ -3,13 +3,14 @@ import Gallery from './Gallery.js'
 
 export default class Profile {
   constructor(photographer, media) {
-    this.aboutContainer = document.querySelector('.about')
+    this.mainContainer = document.querySelector('.container')
+    this.aboutContainer = document.createElement('section')
+    this.aboutContainer.className = 'about'
     this.photographer = new Photographer(photographer)
     this.media = new Gallery(media, this.photographer.getId())
   }
 
   init() {
-    this.aboutContainer.innerHTML = ''
     const html = `
       <img class="about__pic pp" src="public/content/photographers/${this.photographer.getPortrait()}" />
       <h2 class="about__name">${this.photographer.getName()}</h2>
@@ -28,6 +29,7 @@ export default class Profile {
     contactBtn.textContent = 'Contactez-moi'
     // contactBtn.addEventListener('click', console.log('pouet'))
     this.aboutContainer.appendChild(contactBtn)
+    this.mainContainer.appendChild(this.aboutContainer)
     this.media.init()
   }
 }
