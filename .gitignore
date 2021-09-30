@@ -1,0 +1,4 @@
+*.json
+!FishEyeData.json
+/node_modules
+.prettierrc
