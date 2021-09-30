@@ -8,7 +8,7 @@ export default class Modal {
 
   init() {
     this.modalContainer.style.display = 'block'
-    this.modalHeader.innerHTML += `<br />${this.pName}`
+    this.modalHeader.innerHTML = `Contactez-moi<br />${this.pName}`
     this.modalClose.addEventListener('click', () => {
       this.modalContainer.style.display = 'none'
     })

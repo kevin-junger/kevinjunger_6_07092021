@@ -29,7 +29,9 @@ export default class Profile {
     const contactBtn = document.createElement('button')
     contactBtn.className = 'about__contact cta'
     contactBtn.textContent = 'Contactez-moi'
-    // contactBtn.addEventListener('click', this.modal.init())
+    contactBtn.addEventListener('click', () => {
+      this.modal.init()
+    })
     this.aboutContainer.appendChild(contactBtn)
     this.mainContainer.appendChild(this.aboutContainer)
     this.media.init()
