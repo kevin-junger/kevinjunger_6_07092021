@@ -30,6 +30,52 @@ export default class Gallery {
     `
     this.sortContainer.innerHTML = `<span class="sort__method">Trier par</span>`
     this.sortContainer.appendChild(select)
+    this.mainContainer.appendChild(this.sortContainer)
+    ;(function () {
+      const dropdown = document.querySelector('.sort__select')
+      const ddOptions = dropdown.querySelectorAll('option')
+      dropdown.className = 'sort__hidden'
+      const ddWrapper = document.createElement('div')
+      ddWrapper.className = 'sort__select'
+      dropdown.parentNode.insertBefore(ddWrapper, dropdown)
+      ddWrapper.appendChild(dropdown)
+      ddWrapper.insertAdjacentHTML(
+        'beforeend',
+        '<div class="sort__styled"></div>'
+      )
+      const ddStyled = document.querySelector('.sort__styled')
+      ddStyled.innerText = ddOptions[0].textContent
+      const ddList = document.createElement('ul')
+      ddList.className = 'sort__options'
+      ddWrapper.appendChild(ddList)
+      ddOptions.forEach((option) => {
+        ddList.insertAdjacentHTML(
+          'beforeend',
+          `<li rel="${option.value}">${option.textContent}</li>`
+        )
+      })
+      const ddListOptions = ddList.querySelectorAll('li')
+      ddStyled.addEventListener('click', (e) => {
+        e.stopPropagation()
+        if (ddStyled.classList.contains('active')) {
+          ddStyled.classList.remove('active')
+          ddList.style.display = 'none'
+        } else {
+          ddStyled.classList.toggle('active')
+          ddList.style.display = 'block'
+        }
+      })
+      ddListOptions.forEach((option) => {
+        option.addEventListener('click', (e) => {
+          e.stopPropagation()
+          ddStyled.innerText = option.textContent
+          // select_styled.setAttribute("rel", `${option.value}`);
+          // console.log(option.value)
+          ddStyled.classList.remove('active')
+          ddList.style.display = 'none'
+        })
+      })
+    })()
     // loops the created array of media and displays it all
     this.galleryElements.forEach((element) => {
       const card = document.createElement('figure')
@@ -69,7 +115,6 @@ export default class Gallery {
       // card.addEventListener('click', console.log('prout'))
       this.galleryContainer.appendChild(card)
     })
-    this.mainContainer.appendChild(this.sortContainer)
     this.mainContainer.appendChild(this.galleryContainer)
   }
 }
