@@ -3,6 +3,8 @@ import Media from '../Model/Media.js'
 export default class Gallery {
   constructor(media, pId) {
     this.mainContainer = document.querySelector('.container')
+    this.sortContainer = document.createElement('aside')
+    this.sortContainer.className = 'sort'
     this.galleryContainer = document.createElement('section') // DOM object which will contain the gallery
     this.galleryContainer.className = 'work'
     this.galleryElements = [] // will contain all Media objects corresponding to the chosen Photographer
@@ -19,6 +21,15 @@ export default class Gallery {
   }
 
   init() {
+    const select = document.createElement('select')
+    select.className = 'sort__select'
+    select.innerHTML = `
+      <option value="popular">Popularité</option>
+      <option value="data">Date</option>
+      <option value="title">Title</option>
+    `
+    this.sortContainer.innerHTML = `<span class="sort__method">Trier par</span>`
+    this.sortContainer.appendChild(select)
     // loops the created array of media and displays it all
     this.galleryElements.forEach((element) => {
       const card = document.createElement('figure')
@@ -58,6 +69,7 @@ export default class Gallery {
       // card.addEventListener('click', console.log('prout'))
       this.galleryContainer.appendChild(card)
     })
+    this.mainContainer.appendChild(this.sortContainer)
     this.mainContainer.appendChild(this.galleryContainer)
   }
 }
