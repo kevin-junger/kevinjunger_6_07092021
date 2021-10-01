@@ -12,11 +12,11 @@ export default class Lightbox {
     this.mediumIndex = index
     this.lightboxContainer.style.display = 'block'
     this.lightboxPrevious.addEventListener('click', () => {
-      this.mediumIndex--
+      this.mediumIndex -= 1
       this.displayMedia()
     })
     this.lightboxNext.addEventListener('click', () => {
-      this.mediumIndex++
+      this.mediumIndex += 1
       this.displayMedia()
     })
     this.lightboxClose.addEventListener('click', () => {
