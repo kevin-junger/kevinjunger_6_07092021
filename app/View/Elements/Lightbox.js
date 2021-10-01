@@ -3,12 +3,22 @@ export default class Lightbox {
     this.galleryElements = media
     this.lightboxContainer = document.querySelector('.lightbox')
     this.lightboxContent = document.querySelector('.lightbox__content')
+    this.lightboxPrevious = document.querySelector('.lightbox__previous')
+    this.lightboxNext = document.querySelector('.lightbox__next')
     this.lightboxClose = document.querySelector('.lightbox__close')
   }
 
   init(index) {
     this.mediumIndex = index
     this.lightboxContainer.style.display = 'block'
+    this.lightboxPrevious.addEventListener('click', () => {
+      this.mediumIndex--
+      this.displayMedia()
+    })
+    this.lightboxNext.addEventListener('click', () => {
+      this.mediumIndex++
+      this.displayMedia()
+    })
     this.lightboxClose.addEventListener('click', () => {
       this.lightboxContainer.style.display = 'none'
     })
