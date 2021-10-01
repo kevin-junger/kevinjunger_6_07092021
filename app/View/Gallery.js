@@ -1,4 +1,5 @@
 import Media from '../Model/Media.js'
+import Lightbox from './Elements/Lightbox.js'
 
 export default class Gallery {
   constructor(media, pId) {
@@ -18,6 +19,7 @@ export default class Gallery {
         }
       }
     })
+    this.lightbox = new Lightbox(this.galleryElements)
   }
 
   init() {
@@ -131,7 +133,9 @@ export default class Gallery {
         </figcaption>
       `
       card.innerHTML = html
-      // card.addEventListener('click', console.log('prout'))
+      card.addEventListener('click', () => {
+        this.lightbox.init(parseInt(this.galleryElements.indexOf(element), 10))
+      })
       this.galleryContainer.appendChild(card)
     })
     this.mainContainer.appendChild(this.galleryContainer)
