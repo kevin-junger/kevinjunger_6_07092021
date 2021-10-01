@@ -30,8 +30,8 @@ export default class Gallery {
     select.className = 'sort__select'
     select.innerHTML = `
       <option value="popular">Popularité</option>
-      <option value="data">Date</option>
-      <option value="title">Title</option>
+      <option value="date">Date</option>
+      <option value="title">Titre</option>
     `
     this.sortContainer.innerHTML = `<span class="sort__method">Trier par</span>`
     this.sortContainer.appendChild(select)
@@ -72,16 +72,29 @@ export default class Gallery {
     ddListOptions.forEach((option) => {
       option.addEventListener('click', (e) => {
         e.stopPropagation()
+        this.displayGallery(`${option.getAttribute('rel')}`)
         ddStyled.innerText = option.textContent
-        // select_styled.setAttribute("rel", `${option.value}`);
-        // console.log(option.value)
         ddStyled.classList.remove('active')
         ddList.style.display = 'none'
       })
     })
   }
 
-  displayGallery() {
+  displayGallery(sortBy) {
+    this.galleryContainer.innerHTML = ''
+    switch (sortBy) {
+      case 'date':
+        this.galleryElements.sort((a, b) => a.getDate() - b.getDate())
+        break
+      case 'title':
+        this.galleryElements.sort((a, b) =>
+          a.getTitle().localeCompare(b.getTitle())
+        )
+        break
+      default:
+        this.galleryElements.sort((a, b) => a.getLikes() - b.getLikes())
+        break
+    }
     // loops the created array of media and displays it all
     this.galleryElements.forEach((element) => {
       const card = document.createElement('figure')

@@ -6,6 +6,7 @@ export default class Image {
     this.setTitle(data.title)
     this.setImage(data.image)
     this.setTags(data.tags)
+    this.setDate(data.date)
     this.setLikes(data.likes)
   }
 
@@ -35,6 +36,10 @@ export default class Image {
     this.tags = tags
   }
 
+  setDate(date) {
+    this.date = new Date(date)
+  }
+
   setLikes(likes) {
     this.likes = likes
   }
@@ -59,6 +64,10 @@ export default class Image {
 
   getTags() {
     return this.tags
+  }
+
+  getDate() {
+    return this.date
   }
 
   getLikes() {

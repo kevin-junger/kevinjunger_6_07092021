@@ -6,6 +6,7 @@ export default class Video {
     this.setTitle(data.title)
     this.setVideo(data.video)
     this.setTags(data.tags)
+    this.setDate(data.date)
     this.setLikes(data.likes)
   }
 
@@ -29,6 +30,10 @@ export default class Video {
 
   setTags(tags) {
     this.tags = tags
+  }
+
+  setDate(date) {
+    this.date = new Date(date)
   }
 
   setLikes(likes) {
@@ -59,6 +64,10 @@ export default class Video {
 
   getTags() {
     return this.tags
+  }
+
+  getDate() {
+    return this.date
   }
 
   getLikes() {
