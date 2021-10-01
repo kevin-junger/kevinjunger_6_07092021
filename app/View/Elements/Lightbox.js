@@ -8,7 +8,6 @@ export default class Lightbox {
 
   init(index) {
     this.mediumIndex = index
-    console.log(this.galleryElements[this.mediumIndex])
     this.lightboxContainer.style.display = 'block'
     this.lightboxClose.addEventListener('click', () => {
       this.lightboxContainer.style.display = 'none'
@@ -19,7 +18,19 @@ export default class Lightbox {
   displayMedia() {
     let html = ''
     switch (this.galleryElements[this.mediumIndex].getType()) {
-      case 'Image':
+      case 'Video':
+        html += `
+          <video autoplay controls class="work__display">
+            <source 
+              src="public/content/media/${this.galleryElements[
+                this.mediumIndex
+              ].getPId()}/${this.galleryElements[this.mediumIndex].getVideo()}"
+              type="video/mp4"
+            />
+          </video>
+        `
+        break
+      default:
         html += `
           <img class="work__display" src="public/content/media/${this.galleryElements[
             this.mediumIndex
@@ -27,22 +38,6 @@ export default class Lightbox {
           this.mediumIndex
         ].getImage()}" alt="" />
         `
-        break
-      case 'Video':
-        html += `
-          <video preload="auto" controls class="work__display">
-            <source 
-              src="public/content/media/${this.galleryElements[
-                this.mediumIndex
-              ].getPId()}/${this.galleryElements[
-          this.mediumIndex
-        ].getVideo()}#t=0.5"
-              type="video/mp4"
-            />
-          </video>
-        `
-        break
-      default:
         break
     }
 

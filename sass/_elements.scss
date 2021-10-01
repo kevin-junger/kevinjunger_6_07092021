@@ -54,6 +54,7 @@
     cursor: pointer;
     display: inline-block;
     position: relative;
+    z-index: 10;
     @include __font-builder(0.9rem, 500, white);
     font-size: 1rem;
     width: 170px;

@@ -105,11 +105,6 @@ export default class Gallery {
       switch (
         element.getType() // verifies the Media type
       ) {
-        case 'Image':
-          html = `
-            <img class="work__display" src="public/content/media/${element.getPId()}/${element.getImage()}" alt="" />
-          `
-          break
         case 'Video':
           html = `
             <video preload="metadata" class="work__display">
@@ -121,6 +116,9 @@ export default class Gallery {
           `
           break
         default:
+          html = `
+            <img class="work__display" src="public/content/media/${element.getPId()}/${element.getImage()}" alt="" />
+          `
           break
       }
       html += `
@@ -133,10 +131,11 @@ export default class Gallery {
         </figcaption>
       `
       card.innerHTML = html
+      this.galleryContainer.appendChild(card)
+      // card.querySelector('work__display').addEventListener('click', () => {
       card.addEventListener('click', () => {
         this.lightbox.init(parseInt(this.galleryElements.indexOf(element), 10))
       })
-      this.galleryContainer.appendChild(card)
     })
     this.mainContainer.appendChild(this.galleryContainer)
   }
