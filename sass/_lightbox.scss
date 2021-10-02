@@ -34,4 +34,24 @@
     font-size: 1.5rem;
     color: $primary;
   }
+  &__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 80vh;
+    width: 55vw;
+  }
+  &__caption {
+    margin-top: 0.8rem;
+    display: flex;
+    justify-content: space-between;
+  }
+  &__display {
+    width: 100%;
+    object-fit: contain;
+  }
+  &__desc {
+    @include __font-builder(1.1rem, 500, $primary);
+    margin: 0;
+  }
 }

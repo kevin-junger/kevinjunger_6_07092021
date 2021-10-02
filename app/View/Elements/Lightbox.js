@@ -36,7 +36,7 @@ export default class Lightbox {
     switch (this.galleryElements[this.mediumIndex].getType()) {
       case 'Video':
         html += `
-          <video autoplay controls class="work__display">
+          <video autoplay controls class="lightbox__display">
             <source 
               src="public/content/media/${this.galleryElements[
                 this.mediumIndex
@@ -48,7 +48,7 @@ export default class Lightbox {
         break
       default:
         html += `
-          <img class="work__display" src="public/content/media/${this.galleryElements[
+          <img class="lightbox__display" src="public/content/media/${this.galleryElements[
             this.mediumIndex
           ].getPId()}/${this.galleryElements[
           this.mediumIndex
@@ -58,8 +58,8 @@ export default class Lightbox {
     }
 
     html += `
-      <figcaption class="work__caption">
-        <h2 class="work__desc">${this.galleryElements[
+      <figcaption class="lightbox__caption">
+        <h2 class="lightbox__desc">${this.galleryElements[
           this.mediumIndex
         ].getTitle()}</h2>
       </figcaption>
