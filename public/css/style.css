@@ -298,6 +298,7 @@ header h2 {
   padding: 1rem;
 }
 .lightbox__modal {
+  position: relative;
   height: 100%;
   margin: 1rem;
   display: flex;
@@ -305,12 +306,21 @@ header h2 {
   justify-content: center;
 }
 .lightbox__previous, .lightbox__next {
-  font-size: 2rem;
+  font-size: 1.5rem;
   color: #901c1c;
+  position: absolute;
+}
+.lightbox__previous {
+  left: 0;
+}
+.lightbox__next {
+  right: 0;
 }
 .lightbox__close {
-  float: right;
-  font-size: 2rem;
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 1.5rem;
   color: #901c1c;
 }
 

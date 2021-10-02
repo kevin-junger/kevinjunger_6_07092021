@@ -8,6 +8,7 @@
   background-color: white;
   padding: 1rem;
   &__modal {
+    position: relative;
     height: 100%;
     margin: 1rem;
     display: flex;
@@ -16,12 +17,21 @@
   }
   &__previous,
   &__next {
-    font-size: 2rem;
+    font-size: 1.5rem;
     color: $primary;
+    position: absolute;
+  }
+  &__previous {
+    left: 0;
+  }
+  &__next {
+    right: 0;
   }
   &__close {
-    float: right;
-    font-size: 2rem;
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 1.5rem;
     color: $primary;
   }
 }
