@@ -13,15 +13,21 @@ export default class Lightbox {
     this.lightboxContainer.style.display = 'block'
     this.lightboxPrevious.addEventListener('click', () => {
       this.mediumIndex -= 1
+      this.displayPreviousBtn()
+      this.displayNextBtn()
       this.displayMedia()
     })
     this.lightboxNext.addEventListener('click', () => {
       this.mediumIndex += 1
+      this.displayPreviousBtn()
+      this.displayNextBtn()
       this.displayMedia()
     })
     this.lightboxClose.addEventListener('click', () => {
       this.lightboxContainer.style.display = 'none'
     })
+    this.displayPreviousBtn()
+    this.displayNextBtn()
     this.displayMedia()
   }
 
@@ -59,5 +65,21 @@ export default class Lightbox {
       </figcaption>
     `
     this.lightboxContent.innerHTML = html
+  }
+
+  displayPreviousBtn() {
+    if (this.mediumIndex === 0) {
+      this.lightboxPrevious.style.visibility = 'hidden'
+    } else {
+      this.lightboxPrevious.style.visibility = 'visible'
+    }
+  }
+
+  displayNextBtn() {
+    if (this.mediumIndex === this.galleryElements.length - 1) {
+      this.lightboxNext.style.visibility = 'hidden'
+    } else {
+      this.lightboxNext.style.visibility = 'visible'
+    }
   }
 }
