@@ -131,11 +131,22 @@ export default class Gallery {
         </figcaption>
       `
       card.innerHTML = html
-      this.galleryContainer.appendChild(card)
-      // card.querySelector('work__display').addEventListener('click', () => {
-      card.addEventListener('click', () => {
+      card.querySelector('.work__display').addEventListener('click', () => {
         this.lightbox.init(parseInt(this.galleryElements.indexOf(element), 10))
       })
+      const likeBtn = card.querySelector('.like__heart')
+      likeBtn.addEventListener('click', () => {
+        let nbLikes = element.getLikes()
+        if (likeBtn.classList.contains('liked')) {
+          likeBtn.classList.remove('liked')
+          element.setLikes((nbLikes -= 1))
+        } else {
+          likeBtn.classList.toggle('liked')
+          element.setLikes((nbLikes += 1))
+        }
+        card.querySelector('.like__count').innerHTML = element.getLikes()
+      })
+      this.galleryContainer.appendChild(card)
     })
     this.mainContainer.appendChild(this.galleryContainer)
   }

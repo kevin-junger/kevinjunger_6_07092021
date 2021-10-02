@@ -17,6 +17,7 @@
   }
   &__previous,
   &__next {
+    cursor: pointer;
     font-size: 1.5rem;
     color: $primary;
     position: absolute;
@@ -28,6 +29,7 @@
     right: 0;
   }
   &__close {
+    cursor: pointer;
     position: absolute;
     top: 0;
     right: 0;
