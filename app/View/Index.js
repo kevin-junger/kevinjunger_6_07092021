@@ -15,7 +15,7 @@ export default class Index {
       const card = document.createElement('figure')
       card.className = 'profile'
       const html = `
-        <a class="profile__link" href="/index.html?profile=${element.getId()}">
+        <a class="profile__link" href="?profile=${element.getId()}">
           <img class="profile__pic pp--big" src="public/content/photographers/${element.getPortrait()}" />
           <h2 class="profile__name">${element.getName()}</h2>
         </a>
