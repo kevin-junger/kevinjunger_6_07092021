@@ -16,7 +16,7 @@
   }
   &__header {
     margin: 0;
-    @include __font-builder(2rem, 400, black);
+    @include __font-builder(2.25rem, 400, black);
   }
   &__form {
     margin-top: 1rem;
@@ -25,15 +25,36 @@
 .form {
   &__data {
     position: relative;
-    margin-bottom: 1.5rem;
+    margin-bottom: 0.75rem;
     label {
       display: block;
       margin-bottom: 0.5rem;
       @include __font-builder(1.25rem, 400, black);
     }
   }
-  &__input {
+  &__data[data-error]::after {
+    content: attr(data-error);
+    display: block;
+    opacity: 0;
+    margin-top: 0.5rem;
+    @include __font-builder(0.75rem, 400, $primary);
+  }
+  &__data[data-error-visible='true']::after {
+    opacity: 1;
+  }
+  &__data[data-error-visible='true'] &__input,
+  &__message {
+    border: 2px solid $primary;
+  }
+  &__input,
+  &__message {
+    @include __font-builder(1rem, 400, black);
     padding: 1rem;
     width: 100%;
+    border-radius: 5px;
+    border: 2px solid transparent;
+  }
+  &__message {
+    height: 200px;
   }
 }

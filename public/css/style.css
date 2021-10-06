@@ -372,7 +372,7 @@ header h2 {
   margin: 0;
   font-family: "DM Sans", sans-serif;
   font-weight: 400;
-  font-size: 2rem;
+  font-size: 2.25rem;
   color: black;
 }
 .contact__form {
@@ -381,7 +381,7 @@ header h2 {
 
 .form__data {
   position: relative;
-  margin-bottom: 1.5rem;
+  margin-bottom: 0.75rem;
 }
 .form__data label {
   display: block;
@@ -391,7 +391,32 @@ header h2 {
   font-size: 1.25rem;
   color: black;
 }
-.form__input {
+.form__data[data-error]::after {
+  content: attr(data-error);
+  display: block;
+  opacity: 0;
+  margin-top: 0.5rem;
+  font-family: "DM Sans", sans-serif;
+  font-weight: 400;
+  font-size: 0.75rem;
+  color: #901c1c;
+}
+.form__data[data-error-visible=true]::after {
+  opacity: 1;
+}
+.form__data[data-error-visible=true] .form__input, .form__message {
+  border: 2px solid #901c1c;
+}
+.form__input, .form__message {
+  font-family: "DM Sans", sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  color: black;
   padding: 1rem;
   width: 100%;
+  border-radius: 5px;
+  border: 2px solid transparent;
+}
+.form__message {
+  height: 200px;
 }

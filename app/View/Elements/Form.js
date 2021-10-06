@@ -1,6 +1,9 @@
 export default class Form {
   constructor() {
-    this.inputs = document.querySelectorAll('.form__input')
+    this.firstName = document.querySelector('.form__input[name="first"]')
+    this.lastName = document.querySelector('.form__input[name="last"]')
+    this.email = document.querySelector('.form__input[name="email"]')
+    this.message = document.querySelector('.form__message')
     this.submit = document.querySelector('.form__submit')
     this.regexAlpha = /^[a-zA-ZÀ-ÖØ-öø-ÿ- \s]+$/
     this.regexEmail =
@@ -8,13 +11,29 @@ export default class Form {
   }
 
   init() {
+    this.firstName.addEventListener('focusout', () => {
+      this.checkFirstName()
+    })
+    this.lastName.addEventListener('focusout', () => {
+      this.checkLastName()
+    })
+    this.email.addEventListener('focusout', () => {
+      this.checkEmail()
+    })
+    this.message.addEventListener('focusout', () => {
+      this.checkMessage()
+    })
     this.submit.addEventListener('click', (e) => {
       if (
         !this.checkFirstName() ||
         !this.checkLastName() ||
-        !this.checkEmail()
+        !this.checkEmail() ||
+        !this.checkMessage()
       ) {
-        console.log('prout')
+        window.alert('Un ou plus champs sont manquants ou erronés.')
+        e.preventDefault()
+      } else {
+        window.alert('Message envoyé !')
         e.preventDefault()
       }
     })
@@ -22,37 +41,51 @@ export default class Form {
 
   checkFirstName() {
     if (
-      this.inputs[0].value.trim() === '' ||
-      !this.regexAlpha.test(this.inputs[0].value.trim())
+      this.firstName.value.trim() === '' ||
+      this.firstName.value.trim().length < 2 ||
+      !this.regexAlpha.test(this.firstName.value.trim())
     ) {
-      console.log(false)
+      this.firstName.parentElement.setAttribute('data-error-visible', 'true')
       return false
     }
-    console.log(true)
+    this.firstName.parentElement.setAttribute('data-error-visible', 'false')
     return true
   }
 
   checkLastName() {
     if (
-      this.inputs[1].value.trim() === '' ||
-      !this.regexAlpha.test(this.inputs[1].value.trim())
+      this.lastName.value.trim() === '' ||
+      this.lastName.value.trim().length < 2 ||
+      !this.regexAlpha.test(this.lastName.value.trim())
     ) {
-      console.log(false)
+      this.lastName.parentElement.setAttribute('data-error-visible', 'true')
       return false
     }
-    console.log(true)
+    this.lastName.parentElement.setAttribute('data-error-visible', 'false')
     return true
   }
 
   checkEmail() {
     if (
-      this.inputs[2].value.trim() === '' ||
-      !this.regexEmail.test(this.inputs[2].value.trim())
+      this.email.value.trim() === '' ||
+      !this.regexEmail.test(this.email.value.trim())
     ) {
-      console.log(false)
+      this.email.parentElement.setAttribute('data-error-visible', 'true')
       return false
     }
-    console.log(true)
+    this.email.parentElement.setAttribute('data-error-visible', 'false')
+    return true
+  }
+
+  checkMessage() {
+    if (
+      this.message.value.trim() === '' ||
+      this.message.value.trim().length > 500
+    ) {
+      this.message.parentElement.setAttribute('data-error-visible', 'true')
+      return false
+    }
+    this.message.parentElement.setAttribute('data-error-visible', 'false')
     return true
   }
 }
