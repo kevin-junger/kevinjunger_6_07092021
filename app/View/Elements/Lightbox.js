@@ -12,22 +12,44 @@ export default class Lightbox {
     this.mediumIndex = index
     this.lightboxContainer.style.display = 'block'
     this.lightboxPrevious.addEventListener('click', () => {
-      this.mediumIndex -= 1
-      this.displayPreviousBtn()
-      this.displayNextBtn()
-      this.displayMedia()
+      this.display('previous')
     })
     this.lightboxNext.addEventListener('click', () => {
-      this.mediumIndex += 1
-      this.displayPreviousBtn()
-      this.displayNextBtn()
-      this.displayMedia()
+      this.display('next')
     })
     this.lightboxClose.addEventListener('click', () => {
       this.lightboxContainer.style.display = 'none'
     })
-    this.displayPreviousBtn()
-    this.displayNextBtn()
+    document.addEventListener('keydown', (e) => {
+      switch (e.key) {
+        case 'ArrowLeft':
+          this.display('previous')
+          break
+        case 'ArrowRight':
+          this.display('next')
+          break
+        case 'Escape':
+          this.lightboxContainer.style.display = 'none'
+          break
+        default:
+          break
+      }
+    })
+    this.display()
+  }
+
+  display(context) {
+    switch (context) {
+      case 'previous':
+        this.mediumIndex -= 1
+        break
+      case 'next':
+        this.mediumIndex += 1
+        break
+      default:
+        break
+    }
+    this.displayButtons()
     this.displayMedia()
   }
 
@@ -67,16 +89,13 @@ export default class Lightbox {
     this.lightboxContent.innerHTML = html
   }
 
-  displayPreviousBtn() {
-    if (this.mediumIndex === 0) {
+  displayButtons() {
+    if (this.mediumIndex <= 0) {
       this.lightboxPrevious.style.visibility = 'hidden'
     } else {
       this.lightboxPrevious.style.visibility = 'visible'
     }
-  }
-
-  displayNextBtn() {
-    if (this.mediumIndex === this.galleryElements.length - 1) {
+    if (this.mediumIndex >= this.galleryElements.length - 1) {
       this.lightboxNext.style.visibility = 'hidden'
     } else {
       this.lightboxNext.style.visibility = 'visible'
