@@ -1,10 +1,12 @@
-.profiles {
+.index {
   display: grid;
+  grid-template-columns: auto;
 }
-.profile {
+.photographer {
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: center;
   &__link {
     display: flex;
     flex-direction: column;
@@ -30,5 +32,9 @@
   &__tags {
     margin: 0;
     padding: 0;
+    text-align: center;
+  }
+  &__tag {
+    margin-bottom: 0.3rem;
   }
 }

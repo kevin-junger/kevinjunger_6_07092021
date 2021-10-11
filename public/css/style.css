@@ -170,56 +170,58 @@ header h2 {
   padding: 0;
 }
 
-.profiles {
+.index {
   display: grid;
+  grid-template-columns: auto;
 }
 
-.profile {
+.photographer {
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: center;
 }
-.profile__link {
+.photographer__link {
   display: flex;
   flex-direction: column;
   align-items: center;
   text-decoration: none;
 }
-.profile__name {
+.photographer__name {
   font-family: "DM Sans", sans-serif;
   font-weight: 400;
   font-size: 2rem;
   color: #d3573c;
   margin: 0.5rem 0 0.25rem;
 }
-.profile__location {
+.photographer__location {
   font-family: "DM Sans", sans-serif;
   font-weight: 400;
   font-size: 1rem;
   color: #901c1c;
   margin: 0;
 }
-.profile__quote {
+.photographer__quote {
   font-family: "DM Sans", sans-serif;
   font-weight: 400;
   font-size: 0.8rem;
   color: black;
   margin: 0.2rem 0;
 }
-.profile__price {
+.photographer__price {
   font-family: "DM Sans", sans-serif;
   font-weight: 400;
   font-size: 0.7rem;
   color: #525252;
   margin: 0 0 0.5rem;
 }
-.profile__tags {
+.photographer__tags {
   margin: 0;
   padding: 0;
+  text-align: center;
 }
-
-.photographer {
-  position: relative;
+.photographer__tag {
+  margin-bottom: 0.3rem;
 }
 
 .about {
@@ -254,6 +256,7 @@ header h2 {
 }
 .about__contact {
   position: fixed;
+  z-index: 5;
   bottom: 1rem;
   left: 0;
   right: 0;
@@ -272,7 +275,7 @@ header h2 {
 .work__display {
   cursor: pointer;
   width: 100%;
-  height: 250px;
+  aspect-ratio: 3/2;
   object-fit: cover;
   border-radius: 5px;
 }
@@ -332,7 +335,6 @@ header h2 {
   flex-direction: column;
   justify-content: center;
   height: 80vh;
-  width: 55vw;
 }
 .lightbox__caption {
   margin-top: 0.8rem;
@@ -340,7 +342,8 @@ header h2 {
   justify-content: space-between;
 }
 .lightbox__display {
-  width: 100%;
+  max-width: 100%;
+  max-height: 100%;
   object-fit: contain;
 }
 .lightbox__desc {
@@ -353,13 +356,13 @@ header h2 {
 
 .contact {
   display: none;
-}
-.contact__modal {
-  position: fixed;
+  position: absolute;
   z-index: 20;
   top: 0;
   height: 100vh;
   width: 100vw;
+}
+.contact__modal {
   background-color: #db8876;
   padding: 1rem;
 }
@@ -419,4 +422,37 @@ header h2 {
 }
 .form__message {
   height: 200px;
+}
+
+@media screen and (max-width: 320px) {
+  body {
+    width: 320px;
+  }
+}
+@media screen and (min-width: 320px) and (max-width: 1440px) {
+  body {
+    width: 100vw;
+  }
+}
+@media screen and (min-width: 600px) {
+  .index,
+.work {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media screen and (min-width: 1200px) {
+  .index,
+.work {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .work {
+    gap: 1.5rem 4rem;
+  }
+}
+@media screen and (min-width: 1440px) {
+  body {
+    width: 1440px;
+    margin: 0 auto;
+  }
 }

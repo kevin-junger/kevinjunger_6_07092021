@@ -13,6 +13,7 @@ export default class Profile {
   }
 
   init() {
+    this.mainContainer.innerHTML = ''
     const html = `
       <img class="about__pic pp" src="public/content/photographers/${this.photographer.getPortrait()}" />
       <h2 class="about__name">${this.photographer.getName()}</h2>

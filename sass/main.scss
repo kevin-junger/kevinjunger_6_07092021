@@ -4,11 +4,11 @@
   box-sizing: border-box;
 }
 @import 'colors';
-@import 'builders';
+@import 'mixins';
 @import 'elements';
 @import 'header';
 @import 'index';
 @import 'profile';
 @import 'lightbox';
 @import 'modal';
-// @import 'media';
+@import 'media';
