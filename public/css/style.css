@@ -68,8 +68,15 @@
 }
 .like__heart {
   cursor: pointer;
-  color: #901c1c;
   font-size: 1rem;
+  -webkit-text-stroke: 1px #901c1c;
+  -webkit-text-fill-color: transparent;
+}
+.like__heart:hover, .like__heart:active, .like__heart.liked {
+  background-color: #901c1c;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 .like__heart--total {
   font-size: 1rem;

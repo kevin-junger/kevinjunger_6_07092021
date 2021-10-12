@@ -23,8 +23,17 @@
   }
   &__heart {
     cursor: pointer;
-    color: $primary;
     font-size: 1rem;
+    -webkit-text-stroke: 1px $primary;
+    -webkit-text-fill-color: transparent;
+    &:hover,
+    &:active,
+    &.liked {
+      background-color: $primary;
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
     &--total {
       font-size: 1rem;
       color: black;
