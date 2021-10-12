@@ -94,7 +94,7 @@ export default class Gallery {
         )
         break
       default:
-        this.galleryElements.sort((a, b) => a.getLikes() - b.getLikes())
+        this.galleryElements.sort((a, b) => b.getLikes() - a.getLikes())
         break
     }
     // loops the created array of media and displays it all
