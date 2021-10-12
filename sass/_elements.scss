@@ -17,9 +17,6 @@
 .like {
   &__count {
     @include __font-builder(1.1rem, 500, $primary);
-    &--total {
-      @include __font-builder(1.1rem, 500, black);
-    }
   }
   &__heart {
     cursor: pointer;
@@ -27,16 +24,11 @@
     -webkit-text-stroke: 1px $primary;
     -webkit-text-fill-color: transparent;
     &:hover,
-    &:active,
     &.liked {
       background-color: $primary;
       background-clip: text;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-    }
-    &--total {
-      font-size: 1rem;
-      color: black;
     }
   }
 }
@@ -73,9 +65,9 @@
     background-color: $primary;
     padding: 1rem;
     border-radius: 5px;
-  }
-  &__styled.active {
-    border-radius: 5px 5px 0 0;
+    &.active {
+      border-radius: 5px 5px 0 0;
+    }
   }
   &__options {
     display: none;
