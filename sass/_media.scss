@@ -49,12 +49,17 @@
     grid-template-columns: repeat(3, 1fr);
   }
   .sort {
+    display: block;
     margin: 2rem 1rem;
   }
   .work {
+    margin: 0 1rem 4rem;
     gap: 0.5rem 3.5rem;
     &__display {
       height: 300px;
     }
+  }
+  .likes-price {
+    display: block;
   }
 }

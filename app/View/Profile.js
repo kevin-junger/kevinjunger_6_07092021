@@ -7,8 +7,11 @@ export default class Profile {
     this.mainContainer = document.querySelector('.container')
     this.aboutContainer = document.createElement('section')
     this.aboutContainer.className = 'about'
+    this.likesAndPriceContainer = document.createElement('aside')
+    this.likesAndPriceContainer.className = 'likes-price'
     this.photographer = new Photographer(photographer)
-    this.media = new Gallery(media, this.photographer.getId())
+    this.media = media
+    this.gallery = new Gallery(this.media, this.photographer.getId())
     this.modal = new Modal(this.photographer.getName())
   }
 
@@ -36,6 +39,18 @@ export default class Profile {
       this.modal.init()
     })
     this.mainContainer.appendChild(this.aboutContainer)
-    this.media.init()
+    this.gallery.init()
+    let likesCount = 0
+    this.media.forEach((element) => {
+      if (element.photographerId === this.photographer.getId()) {
+        likesCount += element.likes
+      }
+    })
+    this.likesAndPriceContainer.innerHTML = `
+      <span>${likesCount}</span>
+      <i class="fas fa-heart"></i>
+      <span>${this.photographer.getPrice()}</span>
+    `
+    this.mainContainer.appendChild(this.likesAndPriceContainer)
   }
 }

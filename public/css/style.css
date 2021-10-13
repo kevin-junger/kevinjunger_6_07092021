@@ -74,6 +74,7 @@
 }
 
 .sort {
+  display: none;
   margin: 1rem;
 }
 .sort__method {
@@ -295,6 +296,23 @@ header h2 {
   margin: 0;
 }
 
+.likes-price {
+  display: none;
+  font-family: "DM Sans", sans-serif;
+  font-weight: 500;
+  font-size: 1.3rem;
+  color: black;
+  background-color: #db8876;
+  padding: 1rem 2rem;
+  border-radius: 10px 10px 0 0;
+  position: fixed;
+  bottom: 0;
+  right: 10vw;
+}
+.likes-price i {
+  margin-right: 4rem;
+}
+
 .lightbox {
   display: none;
   position: fixed;
@@ -484,13 +502,19 @@ header h2 {
   }
 
   .sort {
+    display: block;
     margin: 2rem 1rem;
   }
 
   .work {
+    margin: 0 1rem 4rem;
     gap: 0.5rem 3.5rem;
   }
   .work__display {
     height: 300px;
+  }
+
+  .likes-price {
+    display: block;
   }
 }

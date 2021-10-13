@@ -63,3 +63,16 @@
     margin: 0;
   }
 }
+.likes-price {
+  display: none;
+  @include __font-builder(1.3rem, 500);
+  background-color: $tertiary;
+  padding: 1rem 2rem;
+  border-radius: 10px 10px 0 0;
+  position: fixed;
+  bottom: 0;
+  right: 10vw;
+  i {
+    margin-right: 4rem;
+  }
+}

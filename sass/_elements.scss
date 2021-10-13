@@ -33,6 +33,7 @@
   }
 }
 .sort {
+  display: none;
   margin: 1rem;
   &__method {
     @include __font-builder(1rem, 500, black);
