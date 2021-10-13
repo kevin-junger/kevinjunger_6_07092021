@@ -1,5 +1,21 @@
+.profile {
+  max-width: 335px;
+  margin: 0 auto;
+}
 .about {
-  margin: 0 1rem;
+  max-width: 100%;
+  margin: 1rem;
+  &__pic {
+    float: right;
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+    object-fit: cover;
+    box-shadow: 0px 3px 5px 0px $grey;
+  }
+  &__info {
+    max-width: 65%;
+  }
   &__name {
     @include __font-builder(3rem, 400, $secondary);
     margin: 0;
@@ -11,9 +27,6 @@
   &__quote {
     margin: 0.5rem 0;
     @include __font-builder(1rem, 400, $dark_grey);
-  }
-  &__pic {
-    float: right;
   }
   &__tags {
     padding: 0;
@@ -28,22 +41,20 @@
   }
 }
 .work {
-  margin: 0 1rem 6.5rem;
-  display: grid;
-  gap: 1rem;
+  margin: 0 1rem 7rem;
   &__card {
     max-width: 100%;
     margin: 0;
   }
   &__display {
     cursor: pointer;
+    height: 200px;
     width: 100%;
-    aspect-ratio: 3/2;
     object-fit: cover;
     border-radius: 5px;
   }
   &__caption {
-    margin-top: 0.8rem;
+    margin: 0.8rem 0 1rem;
     display: flex;
     justify-content: space-between;
   }

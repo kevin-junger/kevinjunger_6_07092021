@@ -14,9 +14,13 @@ export default class Profile {
 
   init() {
     this.mainContainer.innerHTML = ''
+    this.mainContainer.classList.add('profile')
     const html = `
-      <img class="about__pic pp" src="public/content/photographers/${this.photographer.getPortrait()}" />
-      <h2 class="about__name">${this.photographer.getName()}</h2>
+      <img class="about__pic" src="public/content/photographers/${this.photographer.getPortrait()}" />
+      <div class="about__info">
+        <button class="about__contact cta">Contactez-moi</button>
+        <h2 class="about__name">${this.photographer.getName()}</h2>
+      </div>
       <h3 class="about__location">${this.photographer.getLocation()}</h3>
       <blockquote class="about__quote">${this.photographer.getTagline()}</blockquote>
       <ul class="about__tags tags">
@@ -27,13 +31,10 @@ export default class Profile {
       </ul>
     `
     this.aboutContainer.innerHTML = html
-    const contactBtn = document.createElement('button')
-    contactBtn.className = 'about__contact cta'
-    contactBtn.textContent = 'Contactez-moi'
+    const contactBtn = this.aboutContainer.querySelector('.about__contact')
     contactBtn.addEventListener('click', () => {
       this.modal.init()
     })
-    this.aboutContainer.appendChild(contactBtn)
     this.mainContainer.appendChild(this.aboutContainer)
     this.media.init()
   }

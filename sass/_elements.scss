@@ -32,22 +32,8 @@
     }
   }
 }
-.pp {
-  width: 100px;
-  height: 100px;
-  border-radius: 50px;
-  object-fit: cover;
-  box-shadow: 0px 3px 5px 0px $grey;
-  &--big {
-    width: 200px;
-    height: 200px;
-    border-radius: 100px;
-    object-fit: cover;
-    box-shadow: 0px 3px 5px 0px $grey;
-  }
-}
 .sort {
-  padding: 1rem;
+  margin: 1rem;
   &__method {
     @include __font-builder(1rem, 500, black);
   }
