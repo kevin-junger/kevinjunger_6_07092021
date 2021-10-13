@@ -1,21 +1,23 @@
 header {
   max-width: 335px;
   margin: 3rem auto 1.5rem;
-  position: relative;
-  h2 {
-    @include __font-builder(0.8rem, 400, $primary);
-    position: absolute;
-    right: 1.8rem;
-  }
 }
 .navbar {
   margin: 0 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   &__logo {
     max-width: 150px;
   }
-  &__categories {
-    display: block;
-    margin: 2rem 0;
-    padding: 0;
+  &__menu {
+    display: none;
+  }
+  &__item {
+    margin-right: 0.5rem;
+    cursor: pointer;
+  }
+  &__header {
+    @include __font-builder(1rem, 400, $primary);
   }
 }

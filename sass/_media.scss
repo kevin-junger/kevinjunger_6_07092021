@@ -38,6 +38,14 @@
   .profile {
     max-width: 1200px;
   }
+  .navbar {
+    &__menu {
+      display: block;
+    }
+    &__header {
+      font-size: 1.8rem;
+    }
+  }
   .about__contact {
     position: inherit;
     float: right;
@@ -47,6 +55,9 @@
   .work {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+  }
+  .index {
+    margin-top: 4rem;
   }
   .sort {
     display: block;

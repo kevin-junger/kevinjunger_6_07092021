@@ -6,7 +6,6 @@
   }
 }
 .tags {
-  display: inline;
   &__tag {
     @include __tag-builder(inherit, $grey, $primary);
     &:hover {

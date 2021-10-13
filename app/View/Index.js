@@ -3,6 +3,17 @@ import Photographer from '../Model/Photographer.js'
 export default class Index {
   constructor(photographers) {
     this.mainContainer = document.querySelector('.container')
+    this.navbar = document.querySelector('.navbar')
+    this.menu = [
+      'portrait',
+      'art',
+      'fashion',
+      'architecture',
+      'travel',
+      'sport',
+      'animals',
+      'events',
+    ]
     this.profiles = []
     photographers.forEach((element) => {
       this.profiles.push(new Photographer(element))
@@ -10,7 +21,19 @@ export default class Index {
   }
 
   init() {
-    this.mainContainer.innerHTML = ''
+    const menu = document.createElement('ul')
+    menu.className = 'navbar__menu tags'
+    this.menu.forEach((element) => {
+      const item = document.createElement('li')
+      item.className = 'navbar__item tags__tag'
+      item.innerText = `#${element}`
+      menu.appendChild(item)
+    })
+    this.navbar.appendChild(menu)
+    this.navbar.insertAdjacentHTML(
+      'beforeend',
+      `<h2 class="navbar__header">Nos photographes</h2>`
+    )
     this.mainContainer.classList.add('index')
     this.profiles.forEach((element) => {
       const card = document.createElement('figure')
