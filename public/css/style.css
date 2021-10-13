@@ -226,9 +226,9 @@ header {
 }
 .about__pic {
   float: right;
-  width: 100px;
-  height: 100px;
-  border-radius: 50px;
+  width: 120px;
+  height: 120px;
+  border-radius: 60px;
   object-fit: cover;
   box-shadow: 0px 3px 5px 0px #c4c4c4;
 }
@@ -457,9 +457,9 @@ header {
     border-radius: 10px;
   }
   .about__pic {
-    width: 160px;
-    height: 160px;
-    border-radius: 80px;
+    width: 180px;
+    height: 180px;
+    border-radius: 90px;
   }
   .about__name {
     font-size: 3.5rem;
@@ -505,10 +505,6 @@ header {
 .work {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-  }
-
-  .index {
-    margin-top: 4rem;
   }
 
   .sort {
