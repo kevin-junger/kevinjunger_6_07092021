@@ -7,10 +7,27 @@
   height: 100%;
   width: 100%;
   overflow: auto;
+  &__modal,
+  &__message {
+    padding: 1rem;
+  }
   &__modal {
     position: relative;
     background-color: $tertiary;
-    padding: 1rem;
+  }
+  &__message {
+    display: none;
+    position: fixed;
+    top: 30vh;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    background-color: $dark_grey;
+    text-align: center;
+  }
+  &__error,
+  &__success {
+    @include __font-builder(1.5rem, 400, white);
   }
   &__close {
     float: right;

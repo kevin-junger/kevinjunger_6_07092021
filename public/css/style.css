@@ -384,10 +384,28 @@ header {
   width: 100%;
   overflow: auto;
 }
+.contact__modal, .contact__message {
+  padding: 1rem;
+}
 .contact__modal {
   position: relative;
   background-color: #db8876;
-  padding: 1rem;
+}
+.contact__message {
+  display: none;
+  position: fixed;
+  top: 30vh;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  background-color: #525252;
+  text-align: center;
+}
+.contact__error, .contact__success {
+  font-family: "DM Sans", sans-serif;
+  font-weight: 400;
+  font-size: 1.5rem;
+  color: white;
 }
 .contact__close {
   float: right;
@@ -487,11 +505,17 @@ header {
   .contact {
     background-color: rgba(82, 82, 82, 0.75);
   }
-  .contact__modal {
-    width: 700px;
-    margin: 4rem auto;
+  .contact__modal, .contact__message {
     border-radius: 10px;
     box-shadow: 0px 3px 5px 0px #525252;
+  }
+  .contact__modal {
+    margin: 4rem auto;
+    width: 700px;
+  }
+  .contact__message {
+    margin: 8rem auto;
+    width: 500px;
   }
 }
 @media screen and (min-width: 1280px) {

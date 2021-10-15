@@ -5,6 +5,7 @@ export default class Form {
     this.email = document.querySelector('.form__input[name="email"]')
     this.message = document.querySelector('.form__message')
     this.submit = document.querySelector('.form__submit')
+    this.messageContainer = document.querySelector('.contact__message')
     this.regexAlpha = /^[a-zA-ZÀ-ÖØ-öø-ÿ- \s]+$/
     this.regexEmail =
       /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
@@ -24,16 +25,41 @@ export default class Form {
       this.checkMessage()
     })
     this.submit.addEventListener('click', (e) => {
+      this.messageContainer.innerHTML = ''
+      this.messageContainer.insertAdjacentHTML(
+        'beforeend',
+        `<button class="contact__confirm cta">OK</button>`
+      )
       if (
         !this.checkFirstName() ||
         !this.checkLastName() ||
         !this.checkEmail() ||
         !this.checkMessage()
       ) {
-        window.alert('Un ou plus champs sont manquants ou erronés.')
+        this.messageContainer.insertAdjacentHTML(
+          'afterbegin',
+          `<p class="contact__error">Un ou plus champs sont manquants ou erronés. Veuillez corriger.</p>`
+        )
+        document
+          .querySelector('.contact__confirm')
+          .addEventListener('click', () => {
+            this.messageContainer.style.display = 'none'
+          })
+        this.messageContainer.style.display = 'block'
         e.preventDefault()
       } else {
-        window.alert('Message envoyé !')
+        this.messageContainer.insertAdjacentHTML(
+          'afterbegin',
+          `<p class="contact__success">Message envoyé !</p>`
+        )
+        document
+          .querySelector('.contact__confirm')
+          .addEventListener('click', () => {
+            this.messageContainer.style.display = 'none'
+            document.querySelector('.contact').style.display = 'none'
+          })
+        document.querySelector('.contact__modal').style.display = 'none'
+        this.messageContainer.style.display = 'block'
         e.preventDefault()
       }
     })
