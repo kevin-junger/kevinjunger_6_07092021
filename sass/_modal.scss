@@ -1,11 +1,14 @@
 .contact {
   display: none;
-  position: absolute;
+  position: fixed;
   z-index: 20;
   top: 0;
-  height: 100vh;
-  width: 100vw;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
   &__modal {
+    position: relative;
     background-color: $tertiary;
     padding: 1rem;
   }
