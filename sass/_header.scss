@@ -16,6 +16,10 @@ header {
   &__item {
     margin-right: 0.5rem;
     cursor: pointer;
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
   }
   &__header {
     @include __font-builder(1rem, 400, $primary);
