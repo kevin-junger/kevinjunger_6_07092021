@@ -5,6 +5,7 @@
 }
 
 .cta {
+  cursor: pointer;
   width: 170px;
   height: 69px;
   background-color: #901c1c;
@@ -408,6 +409,7 @@ header {
   color: white;
 }
 .contact__close {
+  cursor: pointer;
   float: right;
   font-size: 2rem;
   color: white;

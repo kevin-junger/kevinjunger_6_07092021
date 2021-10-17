@@ -20,9 +20,13 @@ export default class Index {
     })
   }
 
-  init() {
+  init(tag) {
     this.displayNavbar()
-    this.displayIndex()
+    if (!tag) {
+      this.displayIndex()
+    } else {
+      this.displayIndexByTag(tag)
+    }
   }
 
   displayNavbar() {
@@ -31,7 +35,7 @@ export default class Index {
     this.menu.forEach((element) => {
       const item = document.createElement('li')
       item.className = 'navbar__item tags__tag'
-      item.innerText = `#${element}`
+      item.innerHTML = `<a href="?tag=${element}">#${element}</a>`
       menu.appendChild(item)
     })
     this.navbar.appendChild(menu)
@@ -65,6 +69,38 @@ export default class Index {
       `
       card.innerHTML = html
       this.mainContainer.appendChild(card)
+    })
+  }
+
+  displayIndexByTag(tag) {
+    this.mainContainer.classList.add('index')
+    this.profiles.forEach((element) => {
+      element.tags.forEach((e) => {
+        if (e === tag) {
+          const card = document.createElement('figure')
+          card.className = 'photographer'
+          const html = `
+            <a class="photographer__link" href="?profile=${element.getId()}">
+              <img class="photographer__pic" src="public/content/photographers/${element.getPortrait()}" />
+              <h2 class="photographer__name">${element.getName()}</h2>
+            </a>
+            <h3 class="photographer__location">${element.getLocation()}</h3>
+            <blockquote class="photographer__quote">${element.getTagline()}</blockquote>
+            <h4 class="photographer__price">${element.getPrice()}</h4>
+            <ul class="photographer__tags tags">
+              ${element
+                .getTags()
+                .map(
+                  (tag) =>
+                    `<li class="photographer__tag tags__tag">#${tag}</li>`
+                )
+                .join(' ')}
+            </ul>
+          `
+          card.innerHTML = html
+          this.mainContainer.appendChild(card)
+        }
+      })
     })
   }
 }

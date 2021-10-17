@@ -30,6 +30,7 @@
     @include __font-builder(1.5rem, 400, white);
   }
   &__close {
+    cursor: pointer;
     float: right;
     font-size: 2rem;
     color: white;

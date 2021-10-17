@@ -1,4 +1,5 @@
 .cta {
+  cursor: pointer;
   @include __button-builder($primary, white);
   &:hover {
     @include __button-builder($tertiary, black);

@@ -28,9 +28,15 @@ export default class Controller {
           break
         default:
           this.context = new Index(data.photographers)
-          break
+          switch (url.has('tag')) {
+            case true:
+              this.context.init(url.get('tag'))
+              break
+            default:
+              this.context.init()
+              break
+          }
       }
-      this.context.init()
     })
   }
 }
