@@ -14,19 +14,22 @@ export default class Index {
       'animals',
       'events',
     ]
-    this.photographers = []
-    photographers.forEach((photographer) => {
-      this.photographers.push(new Photographer(photographer))
-    })
+    this.photographers = photographers.map(
+      (photographer) => new Photographer(photographer)
+    )
   }
 
-  init(tag) {
+  async init() {
     this.displayNavbar()
     this.mainContainer.classList.add('index')
-    if (!tag) {
-      this.displayIndex()
-    } else {
-      this.displayIndexByTag(tag)
+    const url = new URLSearchParams(window.location.search)
+    switch (url.has('tag')) {
+      case true:
+        this.displayIndexByTag(url.get('tag'))
+        break
+      default:
+        this.displayIndex()
+        break
     }
   }
 
@@ -54,8 +57,8 @@ export default class Index {
 
   displayIndexByTag(tag) {
     this.photographers.forEach((photographer) => {
-      photographer.tags.forEach((e) => {
-        if (e === tag) {
+      photographer.tags.forEach((element) => {
+        if (element === tag) {
           this.displayPhotographer(photographer)
         }
       })
