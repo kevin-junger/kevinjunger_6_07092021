@@ -11,9 +11,6 @@ export default class Database {
 
   async get() {
     const response = await fetch(this.data)
-    if (!response.ok) {
-      return undefined
-    }
     const result = await response.json()
     return {
       photographers: [...result.photographers],
