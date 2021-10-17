@@ -21,6 +21,11 @@ export default class Index {
   }
 
   init() {
+    this.displayNavbar()
+    this.displayIndex()
+  }
+
+  displayNavbar() {
     const menu = document.createElement('ul')
     menu.className = 'navbar__menu tags'
     this.menu.forEach((element) => {
@@ -34,6 +39,9 @@ export default class Index {
       'beforeend',
       `<h2 class="navbar__header">Nos photographes</h2>`
     )
+  }
+
+  displayIndex() {
     this.mainContainer.classList.add('index')
     this.profiles.forEach((element) => {
       const card = document.createElement('figure')
