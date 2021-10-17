@@ -25,6 +25,7 @@ export default class Controller {
               this.context = new Profile(element, data.media)
             }
           })
+          this.context.init()
           break
         default:
           this.context = new Index(data.photographers)
@@ -36,6 +37,7 @@ export default class Controller {
               this.context.init()
               break
           }
+          break
       }
     })
   }
