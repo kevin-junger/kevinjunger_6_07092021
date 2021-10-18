@@ -9,9 +9,6 @@
 .tags {
   &__tag {
     @include __tag-builder(inherit, $grey, $primary);
-    &:hover {
-      @include __tag-builder($primary, $primary, white);
-    }
   }
 }
 .like {

@@ -16,6 +16,9 @@ header {
   &__item {
     margin-right: 0.5rem;
     cursor: pointer;
+    &:hover {
+      @include __tag-builder($primary, $primary, white);
+    }
     a {
       text-decoration: none;
       color: inherit;
