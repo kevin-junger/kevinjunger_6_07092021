@@ -80,11 +80,13 @@ export default class Gallery {
   }
 
   displayGallery(sortMethod) {
-    if (this.mainContainer.querySelector('.work') !== null) {
-      this.mainContainer.querySelector('.work').remove()
+    if (this.mainContainer.querySelector('.work') === null) {
+      this.galleryContainer = document.createElement('section')
+      this.galleryContainer.className = 'work'
+      this.mainContainer.appendChild(this.galleryContainer)
+    } else {
+      this.galleryContainer.innerHTML = ''
     }
-    this.galleryContainer = document.createElement('section')
-    this.galleryContainer.className = 'work'
     switch (sortMethod) {
       case 'date':
         this.galleryElements.sort((a, b) => a.getDate() - b.getDate())
@@ -146,7 +148,6 @@ export default class Gallery {
       })
       this.galleryContainer.appendChild(card)
     })
-    this.mainContainer.appendChild(this.galleryContainer)
   }
 
   getLikesTotal() {
