@@ -18,11 +18,11 @@ export default class Gallery {
   }
 
   async init() {
-    this.displaySortBy()
+    this.displaySort()
     this.displayGallery()
   }
 
-  displaySortBy() {
+  displaySort() {
     this.sortContainer = document.createElement('aside')
     this.sortContainer.className = 'sort'
     const select = document.createElement('select')
@@ -71,7 +71,7 @@ export default class Gallery {
     ddListOptions.forEach((option) => {
       option.addEventListener('click', (e) => {
         e.stopPropagation()
-        this.displayGallery(`${option.getAttribute('rel')}`)
+        this.sortMedia(`${option.getAttribute('rel')}`)
         ddStyled.innerText = option.textContent
         ddStyled.classList.remove('active')
         ddList.style.display = 'none'
@@ -79,26 +79,13 @@ export default class Gallery {
     })
   }
 
-  displayGallery(sortMethod) {
+  displayGallery() {
     if (this.mainContainer.querySelector('.work') === null) {
       this.galleryContainer = document.createElement('section')
       this.galleryContainer.className = 'work'
       this.mainContainer.appendChild(this.galleryContainer)
     } else {
       this.galleryContainer.innerHTML = ''
-    }
-    switch (sortMethod) {
-      case 'date':
-        this.galleryElements.sort((a, b) => a.getDate() - b.getDate())
-        break
-      case 'title':
-        this.galleryElements.sort((a, b) =>
-          a.getTitle().localeCompare(b.getTitle())
-        )
-        break
-      default:
-        this.galleryElements.sort((a, b) => b.getLikes() - a.getLikes())
-        break
     }
     this.galleryElements.forEach((element) => {
       const card = document.createElement('figure')
@@ -148,6 +135,23 @@ export default class Gallery {
       })
       this.galleryContainer.appendChild(card)
     })
+  }
+
+  sortMedia(sortMethod) {
+    switch (sortMethod) {
+      case 'date':
+        this.galleryElements.sort((a, b) => a.getDate() - b.getDate())
+        break
+      case 'title':
+        this.galleryElements.sort((a, b) =>
+          a.getTitle().localeCompare(b.getTitle())
+        )
+        break
+      default:
+        this.galleryElements.sort((a, b) => b.getLikes() - a.getLikes())
+        break
+    }
+    this.displayGallery()
   }
 
   getLikesTotal() {
