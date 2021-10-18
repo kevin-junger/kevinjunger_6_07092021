@@ -389,14 +389,14 @@ header {
   width: 100%;
   overflow: auto;
 }
-.contact__modal, .contact__message {
+.contact__modal, .contact__dialog {
   padding: 1rem;
 }
 .contact__modal {
   position: relative;
   background-color: #db8876;
 }
-.contact__message {
+.contact__dialog {
   display: none;
   position: fixed;
   top: 30vh;
@@ -511,7 +511,7 @@ header {
   .contact {
     background-color: rgba(82, 82, 82, 0.75);
   }
-  .contact__modal, .contact__message {
+  .contact__modal, .contact__dialog {
     border-radius: 10px;
     box-shadow: 0px 3px 5px 0px #525252;
   }
@@ -519,7 +519,7 @@ header {
     margin: 4rem auto;
     width: 700px;
   }
-  .contact__message {
+  .contact__dialog {
     margin: 8rem auto;
     width: 500px;
   }

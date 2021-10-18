@@ -8,14 +8,14 @@
   width: 100%;
   overflow: auto;
   &__modal,
-  &__message {
+  &__dialog {
     padding: 1rem;
   }
   &__modal {
     position: relative;
     background-color: $tertiary;
   }
-  &__message {
+  &__dialog {
     display: none;
     position: fixed;
     top: 30vh;

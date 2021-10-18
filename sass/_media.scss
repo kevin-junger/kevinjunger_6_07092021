@@ -34,7 +34,7 @@
   .contact {
     background-color: rgba($color: $dark_grey, $alpha: 0.75);
     &__modal,
-    &__message {
+    &__dialog {
       border-radius: 10px;
       box-shadow: 0px 3px 5px 0px $dark_grey;
     }
@@ -42,7 +42,7 @@
       margin: 4rem auto;
       width: 700px;
     }
-    &__message {
+    &__dialog {
       margin: 8rem auto;
       width: 500px;
     }
