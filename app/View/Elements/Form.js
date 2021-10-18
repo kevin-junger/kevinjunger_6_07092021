@@ -1,17 +1,26 @@
+/**
+ * Form
+ * Used by Modal in the Profile view class
+ * Checks the user's inputs in the form and handles the checks on validation
+ */
+
 export default class Form {
   constructor() {
+    // DOM elements - form fields and submit button
     this.firstName = document.querySelector('.form__input[name="first"]')
     this.lastName = document.querySelector('.form__input[name="last"]')
     this.email = document.querySelector('.form__input[name="email"]')
     this.message = document.querySelector('.form__message')
     this.submit = document.querySelector('.form__submit')
-    this.messageContainer = document.querySelector('.contact__message')
+    this.dialogContainer = document.querySelector('.contact__dialog')
+    // Regular expressions for data validation
     this.regexAlpha = /^[a-zA-ZÀ-ÖØ-öø-ÿ- \s]+$/
     this.regexEmail =
       /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
   }
 
   init() {
+    // add event listeners on each field to check the user's input when it loses focus
     this.firstName.addEventListener('focusout', () => {
       this.checkFirstName()
     })
@@ -24,9 +33,10 @@ export default class Form {
     this.message.addEventListener('focusout', () => {
       this.checkMessage()
     })
+    // add event listener on the submit button which triggers a callback function for validation
     this.submit.addEventListener('click', (e) => {
-      this.messageContainer.innerHTML = ''
-      this.messageContainer.insertAdjacentHTML(
+      this.dialogContainer.innerHTML = ''
+      this.dialogContainer.insertAdjacentHTML(
         'beforeend',
         `<button class="contact__confirm cta">OK</button>`
       )
@@ -36,30 +46,32 @@ export default class Form {
         !this.checkEmail() ||
         !this.checkMessage()
       ) {
-        this.messageContainer.insertAdjacentHTML(
+        // displays an error dialog when validation fails
+        this.dialogContainer.insertAdjacentHTML(
           'afterbegin',
           `<p class="contact__error">Un ou plus champs sont manquants ou erronés. Veuillez corriger.</p>`
         )
         document
           .querySelector('.contact__confirm')
           .addEventListener('click', () => {
-            this.messageContainer.style.display = 'none'
+            this.dialogContainer.style.display = 'none'
           })
-        this.messageContainer.style.display = 'block'
+        this.dialogContainer.style.display = 'block'
         e.preventDefault()
       } else {
-        this.messageContainer.insertAdjacentHTML(
+        // displays an success dialog
+        this.dialogContainer.insertAdjacentHTML(
           'afterbegin',
           `<p class="contact__success">Message envoyé !</p>`
         )
         document
           .querySelector('.contact__confirm')
           .addEventListener('click', () => {
-            this.messageContainer.style.display = 'none'
+            this.dialogContainer.style.display = 'none'
             document.querySelector('.contact').style.display = 'none'
           })
         document.querySelector('.contact__modal').style.display = 'none'
-        this.messageContainer.style.display = 'block'
+        this.dialogContainer.style.display = 'block'
         e.preventDefault()
       }
     })
