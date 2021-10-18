@@ -1,3 +1,8 @@
+/**
+ * Database
+ * Singleton class - fetches and serves the data from a JSON "database"
+ */
+
 export default class Database {
   constructor(json) {
     if (Database.exists) {
@@ -10,6 +15,7 @@ export default class Database {
   }
 
   async get() {
+    // fetches the file given to the constructor, interprets the JSON data and returns each dataset as an array
     const response = await fetch(this.data)
     const result = await response.json()
     return {

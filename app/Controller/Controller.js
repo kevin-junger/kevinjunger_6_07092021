@@ -2,6 +2,11 @@ import Database from './Database.js'
 import Index from '../View/Index.js'
 import Profile from '../View/Profile.js'
 
+/**
+ * Controller
+ * Singleton class - controls the display of the views, as its name implies
+ */
+
 export default class Controller {
   constructor() {
     if (Controller.exists) {
@@ -13,6 +18,7 @@ export default class Controller {
   }
 
   async init() {
+    // fetches the "database", then displays either the Index or the Profile view based on the 'profile' GET paramater in the URL (or its lack thereof)
     new Database('app/Controller/FishEyeData.json').get().then((data) => {
       const url = new URLSearchParams(window.location.search)
       switch (url.has('profile')) {
