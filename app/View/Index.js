@@ -7,7 +7,7 @@ import Photographer from '../Model/Photographer.js'
 
 export default class Index {
   constructor(photographers) {
-    // DOM elements
+    // DOM elements (navbar and container)
     this.mainContainer = document.querySelector('.container')
     this.navbar = document.querySelector('.navbar')
     // Data
