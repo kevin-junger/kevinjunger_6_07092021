@@ -1,10 +1,10 @@
+import Form from './Form.js'
+
 /**
  * Modal
  * Used in the Profile view
  * Displays the modal which contains the contact form
  */
-
-import Form from './Form.js'
 
 export default class Modal {
   constructor(pName) {
