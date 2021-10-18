@@ -8,7 +8,7 @@ export default class Form {
     this.messageContainer = document.querySelector('.contact__message')
     this.regexAlpha = /^[a-zA-ZÀ-ÖØ-öø-ÿ- \s]+$/
     this.regexEmail =
-      /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
   }
 
   init() {
