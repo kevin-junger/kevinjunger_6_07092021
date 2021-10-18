@@ -1,3 +1,8 @@
+/**
+ * Photographer
+ * Model class
+ */
+
 export default class Photographer {
   constructor(data) {
     this.setId(data.id)

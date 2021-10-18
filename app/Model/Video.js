@@ -1,3 +1,8 @@
+/**
+ * Video
+ * Model class - part of the Media Factory
+ */
+
 export default class Video {
   constructor(data) {
     this.type = 'Video'

@@ -1,3 +1,8 @@
+/**
+ * Image
+ * Model class - part of the Media Factory
+ */
+
 export default class Image {
   constructor(data) {
     this.type = 'Image'
