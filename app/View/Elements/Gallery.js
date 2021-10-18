@@ -1,11 +1,19 @@
-import Media from '../Model/Media.js'
-import Lightbox from './Elements/Lightbox.js'
+import Media from '../../Model/Media.js'
+import Lightbox from './Lightbox.js'
+
+/**
+ * Gallery
+ * Used in the Profile view - display the portfolio for the selected photographer
+ */
 
 export default class Gallery {
   constructor(media, pId) {
+    // DOM element - main container
     this.mainContainer = document.querySelector('.container')
+    // Data - contains each media from the photographer's portfolio
     this.galleryElements = []
     media.forEach((element) => {
+      // instanciates a Media object (with the right type) and adds it to the array
       if (element.photographerId === pId) {
         if (!element.video) {
           this.galleryElements.push(new Media(element, 'image'))
@@ -14,6 +22,7 @@ export default class Gallery {
         }
       }
     })
+    // Lightbox object
     this.lightbox = new Lightbox(this.galleryElements)
   }
 
@@ -23,8 +32,10 @@ export default class Gallery {
   }
 
   displaySort() {
+    // generates and display the dropdown menu which allows the user to sort the media by popularity, date or name
     this.sortContainer = document.createElement('aside')
     this.sortContainer.className = 'sort'
+    // creates the base select and options
     const select = document.createElement('select')
     select.className = 'sort__select'
     select.innerHTML = `
@@ -35,29 +46,31 @@ export default class Gallery {
     this.sortContainer.innerHTML = `<span class="sort__method">Trier par</span>`
     this.sortContainer.appendChild(select)
     this.mainContainer.appendChild(this.sortContainer)
-    const dropdown = document.querySelector('.sort__select')
-    const ddOptions = dropdown.querySelectorAll('option')
-    dropdown.className = 'sort__hidden'
+    // creates the stylised dropdown from the select
+    select.className = 'sort__hidden' // hides the base select
+    const dropdownOptions = select.querySelectorAll('option') // gathers the select options
+    // creates the wrapper for the stylised dropdown
     const ddWrapper = document.createElement('div')
     ddWrapper.className = 'sort__select'
-    dropdown.parentNode.insertBefore(ddWrapper, dropdown)
-    ddWrapper.appendChild(dropdown)
-    ddWrapper.insertAdjacentHTML(
-      'beforeend',
-      '<div class="sort__styled"></div>'
-    )
-    const ddStyled = document.querySelector('.sort__styled')
-    ddStyled.innerText = ddOptions[0].textContent
+    select.parentNode.insertBefore(ddWrapper, select)
+    // the stylised dropdown itself
+    const ddStyled = document.createElement('div')
+    ddStyled.className = 'sort__styled'
+    ddWrapper.appendChild(ddStyled)
+    ddStyled.innerText = dropdownOptions[0].textContent // sets the text to the first option
+    // creates the dropdown list
     const ddList = document.createElement('ul')
     ddList.className = 'sort__options'
     ddWrapper.appendChild(ddList)
-    ddOptions.forEach((option) => {
+    // iterates the options list and feeds them as li nodes to the previously created list
+    dropdownOptions.forEach((option) => {
       ddList.insertAdjacentHTML(
         'beforeend',
         `<li rel="${option.value}">${option.textContent}</li>`
       )
     })
-    const ddListOptions = ddList.querySelectorAll('li')
+    /* events listeners on the dropdown menu */
+    // event listener on the closed dropdown
     ddStyled.addEventListener('click', (e) => {
       e.stopPropagation()
       if (ddStyled.classList.contains('active')) {
@@ -68,10 +81,12 @@ export default class Gallery {
         ddList.style.display = 'block'
       }
     })
+    // events listeners on each option
+    const ddListOptions = ddList.querySelectorAll('li')
     ddListOptions.forEach((option) => {
       option.addEventListener('click', (e) => {
         e.stopPropagation()
-        this.sortMedia(`${option.getAttribute('rel')}`)
+        this.sortMedia(`${option.getAttribute('rel')}`) // triggers the sortMedia() method when an option is clicked
         ddStyled.innerText = option.textContent
         ddStyled.classList.remove('active')
         ddList.style.display = 'none'
@@ -80,7 +95,9 @@ export default class Gallery {
   }
 
   displayGallery() {
+    // generates and displays the gallery
     if (this.mainContainer.querySelector('.work') === null) {
+      // checks the gallery has already been generated
       this.galleryContainer = document.createElement('section')
       this.galleryContainer.className = 'work'
       this.mainContainer.appendChild(this.galleryContainer)
@@ -88,6 +105,7 @@ export default class Gallery {
       this.galleryContainer.innerHTML = ''
     }
     this.galleryElements.forEach((element) => {
+      // iterates the array of media, generates the card and adds it to the container
       const card = document.createElement('figure')
       card.className = 'work__card'
       let html = ''
@@ -119,10 +137,12 @@ export default class Gallery {
       `
       card.innerHTML = html
       card.querySelector('.work__display').addEventListener('click', () => {
+        // event listener that triggers the lightbox
         this.lightbox.init(parseInt(this.galleryElements.indexOf(element), 10))
       })
       const likeBtn = card.querySelector('.like__heart')
       likeBtn.addEventListener('click', () => {
+        // event listener that allows the user to like/dislike a media
         let nbLikes = element.getLikes()
         if (likeBtn.classList.contains('liked')) {
           likeBtn.classList.remove('liked')
@@ -138,6 +158,7 @@ export default class Gallery {
   }
 
   sortMedia(sortMethod) {
+    // sorts the media (duh)
     switch (sortMethod) {
       case 'date':
         this.galleryElements.sort((a, b) => a.getDate() - b.getDate())
@@ -155,6 +176,7 @@ export default class Gallery {
   }
 
   getLikesTotal() {
+    // gets the total of likes for the photographer's portfolio (no sh*t Sherlock)
     let likes = 0
     this.galleryElements.forEach((element) => {
       likes += element.likes
