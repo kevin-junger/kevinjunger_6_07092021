@@ -79,10 +79,13 @@ export default class Gallery {
     })
   }
 
-  displayGallery(sortBy) {
+  displayGallery(sortMethod) {
+    if (this.mainContainer.querySelector('.work') !== null) {
+      this.mainContainer.querySelector('.work').remove()
+    }
     this.galleryContainer = document.createElement('section')
     this.galleryContainer.className = 'work'
-    switch (sortBy) {
+    switch (sortMethod) {
       case 'date':
         this.galleryElements.sort((a, b) => a.getDate() - b.getDate())
         break
