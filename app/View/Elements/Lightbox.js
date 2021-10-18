@@ -1,26 +1,42 @@
+/**
+ * Lightbox
+ * Used in the Profile view - displays the selected media in full screen, with navigation on click or via keyboard inputs
+ */
+
 export default class Lightbox {
   constructor(media) {
+    // Media array
     this.galleryElements = media
+    // DOM elements - main container, content container, prev/next buttons, close button
     this.lightboxContainer = document.querySelector('.lightbox')
-    this.lightboxContent = document.querySelector('.lightbox__content')
-    this.lightboxPrevious = document.querySelector('.lightbox__previous')
-    this.lightboxNext = document.querySelector('.lightbox__next')
-    this.lightboxClose = document.querySelector('.lightbox__close')
+    this.lightboxContent =
+      this.lightboxContainer.querySelector('.lightbox__content')
+    this.lightboxPrevious = this.lightboxContainer.querySelector(
+      '.lightbox__previous'
+    )
+    this.lightboxNext = this.lightboxContainer.querySelector('.lightbox__next')
+    this.lightboxClose =
+      this.lightboxContainer.querySelector('.lightbox__close')
   }
 
-  init(index) {
-    this.mediumIndex = index
+  init(mediumIndex) {
+    // generates and displays the lightbox and the selected medium
+    this.mediumIndex = mediumIndex // the index for the select medium in the array
     this.lightboxContainer.style.display = 'block'
     this.lightboxPrevious.addEventListener('click', () => {
+      // previous button
       this.display('previous')
     })
     this.lightboxNext.addEventListener('click', () => {
+      // next button
       this.display('next')
     })
     this.lightboxClose.addEventListener('click', () => {
+      // close button
       this.lightboxContainer.style.display = 'none'
     })
     document.addEventListener('keydown', (e) => {
+      // event listeners for keyboard inputs
       switch (e.key) {
         case 'ArrowLeft':
           this.display('previous')
@@ -39,6 +55,7 @@ export default class Lightbox {
   }
 
   display(context) {
+    // displays the medium and the prev/next buttons
     switch (context) {
       case 'previous':
         if (this.mediumIndex > 0) {
