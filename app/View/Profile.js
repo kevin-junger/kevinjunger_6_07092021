@@ -5,19 +5,21 @@ import Modal from './Elements/Modal.js'
 export default class Profile {
   constructor(photographer, media) {
     this.mainContainer = document.querySelector('.container')
-    this.aboutContainer = document.createElement('section')
-    this.aboutContainer.className = 'about'
-    this.likesAndPriceContainer = document.createElement('aside')
-    this.likesAndPriceContainer.className = 'likes-price'
     this.photographer = new Photographer(photographer)
-    this.media = media
-    this.gallery = new Gallery(this.media, this.photographer.getId())
+    this.gallery = new Gallery(media, this.photographer.getId())
     this.modal = new Modal(this.photographer.getName())
   }
 
-  init() {
-    this.mainContainer.innerHTML = ''
+  async init() {
     this.mainContainer.classList.add('profile')
+    this.displayAbout()
+    this.gallery.init()
+    this.displayLikesAndPrice()
+  }
+
+  displayAbout() {
+    this.aboutContainer = document.createElement('section')
+    this.aboutContainer.className = 'about'
     const html = `
       <img class="about__pic" src="public/content/photographers/${this.photographer.getPortrait()}" />
       <div class="about__info">
@@ -39,15 +41,13 @@ export default class Profile {
       this.modal.init()
     })
     this.mainContainer.appendChild(this.aboutContainer)
-    this.gallery.init()
-    let likesCount = 0
-    this.media.forEach((element) => {
-      if (element.photographerId === this.photographer.getId()) {
-        likesCount += element.likes
-      }
-    })
+  }
+
+  displayLikesAndPrice() {
+    this.likesAndPriceContainer = document.createElement('aside')
+    this.likesAndPriceContainer.className = 'likes-price'
     this.likesAndPriceContainer.innerHTML = `
-      <span>${likesCount}</span>
+      <span>${this.gallery.getLikesTotal()}</span>
       <i class="fas fa-heart"></i>
       <span>${this.photographer.getPrice()}</span>
     `

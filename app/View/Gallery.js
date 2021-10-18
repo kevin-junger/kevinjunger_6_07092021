@@ -4,13 +4,8 @@ import Lightbox from './Elements/Lightbox.js'
 export default class Gallery {
   constructor(media, pId) {
     this.mainContainer = document.querySelector('.container')
-    this.sortContainer = document.createElement('aside')
-    this.sortContainer.className = 'sort'
-    this.galleryContainer = document.createElement('section') // DOM object which will contain the gallery
-    this.galleryContainer.className = 'work'
-    this.galleryElements = [] // will contain all Media objects corresponding to the chosen Photographer
+    this.galleryElements = []
     media.forEach((element) => {
-      // adds all Media objects to the array
       if (element.photographerId === pId) {
         if (!element.video) {
           this.galleryElements.push(new Media(element, 'image'))
@@ -22,12 +17,14 @@ export default class Gallery {
     this.lightbox = new Lightbox(this.galleryElements)
   }
 
-  init() {
+  async init() {
     this.displaySortBy()
     this.displayGallery()
   }
 
   displaySortBy() {
+    this.sortContainer = document.createElement('aside')
+    this.sortContainer.className = 'sort'
     const select = document.createElement('select')
     select.className = 'sort__select'
     select.innerHTML = `
@@ -83,7 +80,8 @@ export default class Gallery {
   }
 
   displayGallery(sortBy) {
-    this.galleryContainer.innerHTML = ''
+    this.galleryContainer = document.createElement('section')
+    this.galleryContainer.className = 'work'
     switch (sortBy) {
       case 'date':
         this.galleryElements.sort((a, b) => a.getDate() - b.getDate())
@@ -97,14 +95,11 @@ export default class Gallery {
         this.galleryElements.sort((a, b) => b.getLikes() - a.getLikes())
         break
     }
-    // loops the created array of media and displays it all
     this.galleryElements.forEach((element) => {
       const card = document.createElement('figure')
       card.className = 'work__card'
       let html = ''
-      switch (
-        element.getType() // verifies the Media type
-      ) {
+      switch (element.getType()) {
         case 'Video':
           html = `
             <video preload="metadata" class="work__display">
@@ -149,5 +144,13 @@ export default class Gallery {
       this.galleryContainer.appendChild(card)
     })
     this.mainContainer.appendChild(this.galleryContainer)
+  }
+
+  getLikesTotal() {
+    let likes = 0
+    this.galleryElements.forEach((element) => {
+      likes += element.likes
+    })
+    return likes
   }
 }
