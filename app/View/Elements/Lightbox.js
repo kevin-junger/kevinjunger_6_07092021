@@ -41,10 +41,14 @@ export default class Lightbox {
   display(context) {
     switch (context) {
       case 'previous':
-        this.mediumIndex -= 1
+        if (this.mediumIndex > 0) {
+          this.mediumIndex -= 1
+        }
         break
       case 'next':
-        this.mediumIndex += 1
+        if (this.mediumIndex < this.galleryElements.length - 1) {
+          this.mediumIndex += 1
+        }
         break
       default:
         break
