@@ -9,7 +9,7 @@ import Form from './Form.js'
 export default class Modal {
   constructor(pName) {
     // HTML content for modal header
-    this.pName = `Contactez-moi<br/>${pName}`
+    this.modalHeader = `<h2 class="contact__header">Contactez-moi<br/>${pName}</h2>`
     // DOM element - modal container
     this.modalContainer = document.querySelector('.contact')
     // Form object
@@ -18,6 +18,9 @@ export default class Modal {
 
   init() {
     // generates and displays modal and form
+    if (this.modalContainer.querySelector('.contact__header') !== null) {
+      this.modalContainer.querySelector('.contact__header').remove()
+    }
     this.modalContainer.style.display = 'block'
     const modal = this.modalContainer.querySelector('.contact__modal')
     modal.style.display = 'block'
@@ -25,8 +28,7 @@ export default class Modal {
     modalClose.addEventListener('click', () => {
       this.modalContainer.style.display = 'none'
     })
-    const modalHeader = modal.querySelector('.contact__header')
-    modalHeader.innerHTML = this.pName
+    modalClose.insertAdjacentHTML('afterend', this.modalHeader)
     this.form.init()
   }
 }
