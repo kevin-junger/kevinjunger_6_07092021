@@ -8,7 +8,15 @@
 }
 .tags {
   &__tag {
+    cursor: pointer;
     @include __tag-builder(inherit, $grey, $primary);
+    &:hover {
+      @include __tag-builder($primary, $primary, white);
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
   }
 }
 .like {
