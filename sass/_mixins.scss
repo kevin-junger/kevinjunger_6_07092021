@@ -5,9 +5,8 @@
   color: $color;
 }
 @mixin __button-builder($bg_color, $font_color) {
-  width: 170px;
-  height: 69px;
   background-color: $bg-color;
+  padding: 1rem;
   border-radius: 5px;
   border-style: none;
   @include __font-builder(1.1rem, 500, $font_color);

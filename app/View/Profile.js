@@ -29,7 +29,7 @@ export default class Profile {
     this.aboutContainer = document.createElement('section')
     this.aboutContainer.className = 'about'
     const html = `
-      <img class="about__pic" src="public/content/photographers/${this.photographer.getPortrait()}" />
+      <img class="about__pic" src="public/content/photographers/${this.photographer.getPortrait()}" alt="${this.photographer.getName()}" />
       <div class="about__info">
         <button class="about__contact cta">Contactez-moi</button>
         <h2 class="about__name">${this.photographer.getName()}</h2>
