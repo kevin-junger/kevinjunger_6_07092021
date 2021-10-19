@@ -58,10 +58,12 @@ export default class Gallery {
     // button
     const dropdownBtn = document.createElement('button')
     dropdownBtn.className = 'sort__button'
+    dropdownBtn.setAttribute('aria-haspopup', 'listbox')
     dropdownBtn.innerText = dropdownOptions[0].text
     // options list
     const dropdownList = document.createElement('ul')
     dropdownList.className = 'sort__list'
+    dropdownList.setAttribute('role', 'listbox')
     dropdownOptions.forEach((option) => {
       dropdownList.insertAdjacentHTML(
         'beforeend',
@@ -113,7 +115,7 @@ export default class Gallery {
       switch (element.getType()) {
         case 'Video':
           html = `
-            <video preload="metadata" class="work__display">
+            <video preload="metadata" class="work__display" aria-label="Voir en plein écran">
               <source 
                 src="public/content/media/${element.getPId()}/${element.getVideo()}#t=1"
                 type="video/mp4"
@@ -123,16 +125,16 @@ export default class Gallery {
           break
         default:
           html = `
-            <img class="work__display" src="public/content/media/${element.getPId()}/${element.getImage()}" alt="" />
+            <img class="work__display" src="public/content/media/${element.getPId()}/${element.getImage()}" alt="${element.getTitle()}" />
           `
           break
       }
       html += `
         <figcaption class="work__caption">
           <h2 class="work__desc">${element.getTitle()}</h2>
-          <div class="work__like like">
+          <div class="work__like like" aria-label="likes">
             <span class="like__count">${element.getLikes()}</span>
-            <i class="like__heart fas fa-heart"></i>
+            <span class="like__heart" aria-label="likes"><i class="fas fa-heart"></i></span>
           </div>
         </figcaption>
       `

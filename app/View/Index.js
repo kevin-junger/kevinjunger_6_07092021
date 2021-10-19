@@ -47,17 +47,16 @@ export default class Index {
     // generates and displays the menu bar
     const menu = document.createElement('ul')
     menu.className = 'navbar__menu tags'
-    this.menu.forEach((element) => {
-      // for each tag present in the array
-      const item = document.createElement('li')
-      item.className = 'navbar__item tags__tag'
-      item.innerHTML = `<a href="?tag=${element}">#${element}</a>` // for ex. <a href="?tag=art">#art</a>
-      menu.appendChild(item)
-    })
+    menu.innerHTML = `${this.menu
+      .map(
+        (element) =>
+          `<li class="navbar__item tags__tag"><a href="?tag=${element}">#${element}</a></li>`
+      )
+      .join(' ')}`
     this.navbar.appendChild(menu)
     this.navbar.insertAdjacentHTML(
       'beforeend',
-      `<h2 class="navbar__header">Nos photographes</h2>`
+      `<h1 class="navbar__header">Nos photographes</h1>`
     )
   }
 
@@ -85,7 +84,7 @@ export default class Index {
     card.className = 'photographer'
     const html = `
       <a class="photographer__link" href="?profile=${data.getId()}">
-        <img class="photographer__pic" src="public/content/photographers/${data.getPortrait()}" />
+        <img class="photographer__pic" src="public/content/photographers/${data.getPortrait()}" alt="" />
         <h2 class="photographer__name">${data.getName()}</h2>
       </a>
       <h3 class="photographer__location">${data.getLocation()}</h3>
@@ -94,7 +93,10 @@ export default class Index {
       <ul class="photographer__tags tags">
         ${data
           .getTags()
-          .map((tag) => `<li class="photographer__tag tags__tag">#${tag}</li>`)
+          .map(
+            (tag) =>
+              `<li class="photographer__tag tags__tag"><a href="?tag=${tag}">#${tag}</a></li>`
+          )
           .join(' ')}
       </ul>
     `

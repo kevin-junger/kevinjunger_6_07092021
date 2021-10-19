@@ -29,17 +29,20 @@ export default class Profile {
     this.aboutContainer = document.createElement('section')
     this.aboutContainer.className = 'about'
     const html = `
-      <img class="about__pic" src="public/content/photographers/${this.photographer.getPortrait()}" alt="${this.photographer.getName()}" />
+      <img class="about__pic" role="link" src="public/content/photographers/${this.photographer.getPortrait()}" alt="${this.photographer.getName()}" />
       <div class="about__info">
         <button class="about__contact cta">Contactez-moi</button>
-        <h2 class="about__name">${this.photographer.getName()}</h2>
+        <h1 class="about__name">${this.photographer.getName()}</h1>
       </div>
-      <h3 class="about__location">${this.photographer.getLocation()}</h3>
+      <h2 class="about__location">${this.photographer.getLocation()}</h2>
       <blockquote class="about__quote">${this.photographer.getTagline()}</blockquote>
       <ul class="about__tags tags">
         ${this.photographer
           .getTags()
-          .map((tag) => `<li class="about__tag tags__tag">#${tag}</li>`)
+          .map(
+            (tag) =>
+              `<li class="about__tag tags__tag"><a href="?tag=${tag}">#${tag}</a></li>`
+          )
           .join(' ')}
       </ul>
     `

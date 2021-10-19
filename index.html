@@ -33,20 +33,25 @@
       <div class="container"></div>
       <div class="lightbox">
         <div class="lightbox__modal">
-          <i class="lightbox__previous fas fa-chevron-left"></i>
+          <span class="lightbox__previous" aria-label="Image précédente"
+            ><i class="fas fa-chevron-left"></i
+          ></span>
           <div class="lightbox__container">
-            <i class="lightbox__close fas fa-times"></i>
+            <span class="lightbox__close" aria-label="Fermer"
+              ><i class="fas fa-times"></i
+            ></span>
             <figure class="lightbox__content"></figure>
           </div>
-          <i class="lightbox__next fas fa-chevron-right"></i>
+          <span class="lightbox__next" aria-label="Image suivante"
+            ><i class="fas fa-chevron-right"></i
+          ></span>
         </div>
       </div>
       <div class="contact">
         <div class="contact__modal">
           <i class="contact__close fas fa-times"></i>
-          <h2 class="contact__header"></h2>
           <div class="contact__form">
-            <form action="">
+            <form>
               <div
                 class="form__data"
                 data-error="Veuillez saisir un prénom valide (min. 2 caractères)"
@@ -57,6 +62,7 @@
                   minlength="2"
                   class="form__input"
                   name="first"
+                  id="first"
                 />
               </div>
               <div
@@ -69,6 +75,7 @@
                   minlength="2"
                   class="form__input"
                   name="last"
+                  id="last"
                 />
               </div>
               <div
@@ -76,7 +83,12 @@
                 data-error="Veuillez saisir une adresse email valide"
               >
                 <label for="email">Email</label>
-                <input type="email" class="form__input" name="email" />
+                <input
+                  type="email"
+                  class="form__input"
+                  name="email"
+                  id="email"
+                />
               </div>
               <div
                 class="form__data"
@@ -87,9 +99,10 @@
                   maxlength="500"
                   class="form__message"
                   name="message"
+                  id="message"
                 ></textarea>
               </div>
-              <input type="submit" class="cta form__submit" />
+              <input type="submit" class="cta form__submit" value="Envoyer" />
             </form>
           </div>
         </div>
