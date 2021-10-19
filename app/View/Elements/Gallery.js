@@ -28,14 +28,19 @@ export default class Gallery {
 
   async init() {
     this.displaySort()
+    this.sortMedia()
     this.displayGallery()
   }
 
   displaySort() {
-    // generates and display the dropdown menu which allows the user to sort the media by popularity, date or name
+    /* generates and display the dropdown menu which allows the user to sort the media by popularity, date or name */
+    // main container and dropdown wrapper
     const sortContainer = document.createElement('aside')
     sortContainer.className = 'sort'
     sortContainer.innerHTML = `<span class="sort__method" id="sort__method">Trier par</span>`
+    const dropdownWrapper = document.createElement('div')
+    dropdownWrapper.className = 'sort__wrapper'
+    // options array
     const dropdownOptions = [
       {
         value: 'popular',
@@ -50,63 +55,43 @@ export default class Gallery {
         text: 'Titre',
       },
     ]
-    // creates the wrapper for the stylised dropdown
-    const dropdownWrapper = document.createElement('div')
-    dropdownWrapper.className = 'sort__wrapper'
-    dropdownWrapper.setAttribute('id', 'sort__wrapper')
-    sortContainer.appendChild(dropdownWrapper)
-    // the stylised dropdown itself
-    const dropdownStyled = document.createElement('button')
-    dropdownStyled.className = 'sort__button'
-    dropdownStyled.setAttribute('aria-haspopup', 'listbox')
-    dropdownStyled.setAttribute('aria-labelledby', 'sort__method sort__button')
-    dropdownStyled.setAttribute('id', 'sort__button')
-    dropdownWrapper.appendChild(dropdownStyled)
-    dropdownStyled.innerText = dropdownOptions[0].text // sets the text to the first option
-    // creates the dropdown list
+    // button
+    const dropdownBtn = document.createElement('button')
+    dropdownBtn.className = 'sort__button'
+    dropdownBtn.innerText = dropdownOptions[0].text
+    // options list
     const dropdownList = document.createElement('ul')
     dropdownList.className = 'sort__list'
-    dropdownList.setAttribute('id', 'sort__method_list')
-    dropdownList.setAttribute('tabindex', '-1')
-    dropdownList.setAttribute('role', 'listbox')
-    dropdownList.setAttribute('aria-labelledby', 'sort__method')
-    dropdownWrapper.appendChild(dropdownList)
-    // iterates the options list and feeds them as li nodes to the previously created list
     dropdownOptions.forEach((option) => {
       dropdownList.insertAdjacentHTML(
         'beforeend',
         `<li id="sort__method_${option.value}" rel="${option.value}" role="option">${option.text}</li>`
       )
     })
-    /* events listeners on the dropdown menu */
-    // event listener on the closed dropdown
-    dropdownStyled.addEventListener('click', (e) => {
+    // events
+    dropdownBtn.addEventListener('click', (e) => {
       e.stopPropagation()
-      if (dropdownStyled.classList.contains('active')) {
-        dropdownStyled.classList.remove('active')
-        dropdownStyled.removeAttribute('aria-expanded')
+      if (dropdownBtn.classList.contains('active')) {
+        dropdownBtn.classList.remove('active')
         dropdownList.style.display = 'none'
       } else {
-        dropdownStyled.classList.toggle('active')
-        dropdownStyled.setAttribute('aria-expanded', 'true')
+        dropdownBtn.classList.toggle('active')
         dropdownList.style.display = 'block'
       }
     })
-    // events listeners on each option
     const dropdownListOptions = dropdownList.querySelectorAll('li')
     dropdownListOptions.forEach((option) => {
-      // option.removeAttribute('aria-selected')
       option.addEventListener('click', (e) => {
         e.stopPropagation()
-        // option.setAttribute('aria-selected', 'true')
-        this.sortMedia(`${option.getAttribute('rel')}`) // triggers the sortMedia() method when an option is clicked
-        dropdownStyled.innerText = option.textContent
-        dropdownStyled.classList.remove('active')
-        dropdownStyled.removeAttribute('aria-expanded')
-        dropdownList.setAttribute('aria-activedescendant', `${option.id}`)
+        this.sortMedia(`${option.getAttribute('rel')}`)
+        dropdownBtn.innerText = option.textContent
+        dropdownBtn.classList.remove('active')
         dropdownList.style.display = 'none'
       })
     })
+    dropdownWrapper.appendChild(dropdownBtn)
+    dropdownWrapper.appendChild(dropdownList)
+    sortContainer.appendChild(dropdownWrapper)
     this.mainContainer.appendChild(sortContainer)
   }
 
