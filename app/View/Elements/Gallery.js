@@ -58,16 +58,23 @@ export default class Gallery {
     // button
     const dropdownBtn = document.createElement('button')
     dropdownBtn.className = 'sort__button'
+    dropdownBtn.setAttribute('aria-labelledby', 'sort__method sort__selected')
+    dropdownBtn.setAttribute('aria-expanded', 'false')
     dropdownBtn.setAttribute('aria-haspopup', 'listbox')
+    dropdownBtn.setAttribute('id', 'sort__selected')
+    dropdownBtn.setAttribute('tabindex', '0')
     dropdownBtn.innerText = dropdownOptions[0].text
     // options list
     const dropdownList = document.createElement('ul')
     dropdownList.className = 'sort__list'
     dropdownList.setAttribute('role', 'listbox')
+    dropdownList.setAttribute('aria-labelledby', 'sort__method')
+    dropdownBtn.setAttribute('id', 'sort__method_list')
+    dropdownList.setAttribute('tabindex', '-1')
     dropdownOptions.forEach((option) => {
       dropdownList.insertAdjacentHTML(
         'beforeend',
-        `<li id="sort__method_${option.value}" rel="${option.value}" role="option">${option.text}</li>`
+        `<li id="${option.value}" role="option" tabindex="0">${option.text}</li>`
       )
     })
     // events
@@ -76,19 +83,50 @@ export default class Gallery {
       if (dropdownBtn.classList.contains('active')) {
         dropdownBtn.classList.remove('active')
         dropdownList.style.display = 'none'
+        dropdownBtn.setAttribute('aria-expanded', 'false')
       } else {
         dropdownBtn.classList.toggle('active')
         dropdownList.style.display = 'block'
+        dropdownBtn.setAttribute('aria-expanded', 'true')
       }
     })
     const dropdownListOptions = dropdownList.querySelectorAll('li')
     dropdownListOptions.forEach((option) => {
       option.addEventListener('click', (e) => {
         e.stopPropagation()
-        this.sortMedia(`${option.getAttribute('rel')}`)
+        this.sortMedia(`${option.getAttribute('id')}`)
         dropdownBtn.innerText = option.textContent
         dropdownBtn.classList.remove('active')
         dropdownList.style.display = 'none'
+        dropdownBtn.setAttribute('aria-expanded', 'false')
+      })
+    })
+    dropdownListOptions.forEach((option) => {
+      option.addEventListener('keydown', (e) => {
+        // const optionIndex = dropdownListOptions.indexOf(option)
+        switch (e.key) {
+          case 'Enter':
+            e.stopPropagation()
+            this.sortMedia(`${option.getAttribute('id')}`)
+            dropdownBtn.innerText = option.textContent
+            dropdownBtn.classList.remove('active')
+            dropdownList.style.display = 'none'
+            dropdownBtn.setAttribute('aria-expanded', 'false')
+            // dropdownBtn.focus()
+            break
+          /* case 'ArrowUp':
+            if (optionIndex > 0) {
+              option.previousSibling.focus()
+            }
+            break
+          case 'ArrowDown':
+            if (optionIndex < dropdownListOptions.length) {
+              option.nextSibling.focus()
+            }
+            break */
+          default:
+            break
+        }
       })
     })
     dropdownWrapper.appendChild(dropdownBtn)
@@ -115,7 +153,7 @@ export default class Gallery {
       switch (element.getType()) {
         case 'Video':
           html = `
-            <video preload="metadata" class="work__display" aria-label="Voir en plein écran">
+            <video preload="metadata" class="work__display">
               <source 
                 src="public/content/media/${element.getPId()}/${element.getVideo()}#t=1"
                 type="video/mp4"
@@ -132,9 +170,9 @@ export default class Gallery {
       html += `
         <figcaption class="work__caption">
           <h2 class="work__desc">${element.getTitle()}</h2>
-          <div class="work__like like" aria-label="likes">
+          <div class="work__like like">
             <span class="like__count">${element.getLikes()}</span>
-            <span class="like__heart" aria-label="likes"><i class="fas fa-heart"></i></span>
+            <span class="like__heart"><i class="fas fa-heart"></i></span>
           </div>
         </figcaption>
       `
