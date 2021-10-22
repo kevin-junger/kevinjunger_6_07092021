@@ -47,10 +47,11 @@ export default class Index {
     // generates and displays the menu bar
     const menu = document.createElement('ul')
     menu.className = 'navbar__menu tags'
+    menu.setAttribute('role', 'menu')
     menu.innerHTML = `${this.menu
       .map(
         (element) =>
-          `<li class="navbar__item tags__tag"><a href="?tag=${element}">#${element}</a></li>`
+          `<li class="navbar__item tags__tag" role="menuitem"><a href="?tag=${element}">#${element}</a></li>`
       )
       .join(' ')}`
     this.navbar.appendChild(menu)

@@ -153,17 +153,21 @@ export default class Gallery {
       switch (element.getType()) {
         case 'Video':
           html = `
-            <video preload="metadata" class="work__display">
-              <source 
-                src="public/content/media/${element.getPId()}/${element.getVideo()}#t=1"
-                type="video/mp4"
-              />
-            </video>
+            <button class="work__button">
+              <video preload="metadata" class="work__display">
+                <source 
+                  src="public/content/media/${element.getPId()}/${element.getVideo()}#t=1"
+                  type="video/mp4"
+                />
+              </video>
+            </button>
           `
           break
         default:
           html = `
-            <img class="work__display" src="public/content/media/${element.getPId()}/${element.getImage()}" alt="${element.getTitle()}" />
+            <button class="work__button">
+              <img class="work__display" src="public/content/media/${element.getPId()}/${element.getImage()}" alt="${element.getTitle()}" />
+            </button>
           `
           break
       }
@@ -172,12 +176,12 @@ export default class Gallery {
           <h2 class="work__desc">${element.getTitle()}</h2>
           <div class="work__like like">
             <span class="like__count">${element.getLikes()}</span>
-            <span class="like__heart"><i class="fas fa-heart"></i></span>
+            <button class="like__heart"><i class="fas fa-heart"></i></button>
           </div>
         </figcaption>
       `
       card.innerHTML = html
-      card.querySelector('.work__display').addEventListener('click', () => {
+      card.querySelector('.work__button').addEventListener('click', () => {
         // event listener that triggers the lightbox
         this.lightbox.init(parseInt(this.galleryElements.indexOf(element), 10))
       })

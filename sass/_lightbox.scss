@@ -16,7 +16,10 @@
     justify-content: center;
   }
   &__previous,
-  &__next {
+  &__next,
+  &__close {
+    background: none;
+    border: none;
     cursor: pointer;
     font-size: 1.5rem;
     color: $primary;
@@ -29,12 +32,8 @@
     right: 0;
   }
   &__close {
-    cursor: pointer;
-    position: absolute;
     top: 0;
     right: 0;
-    font-size: 1.5rem;
-    color: $primary;
   }
   &__content {
     display: flex;

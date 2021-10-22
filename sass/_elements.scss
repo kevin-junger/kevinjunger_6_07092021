@@ -25,6 +25,8 @@
   }
   &__heart {
     cursor: pointer;
+    background-color: transparent;
+    border: none;
     font-size: 1rem;
     -webkit-text-stroke: 1px $primary;
     -webkit-text-fill-color: transparent;

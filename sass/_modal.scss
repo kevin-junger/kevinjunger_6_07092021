@@ -31,6 +31,8 @@
   }
   &__close {
     cursor: pointer;
+    border: none;
+    background: transparent;
     float: right;
     font-size: 2rem;
     color: white;
