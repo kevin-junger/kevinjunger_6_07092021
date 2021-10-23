@@ -34,13 +34,9 @@ export default class Gallery {
 
   displaySort() {
     /* generates and display the dropdown menu which allows the user to sort the media by popularity, date or name */
-    // main container and dropdown wrapper
     const sortContainer = document.createElement('aside')
     sortContainer.className = 'sort'
-    sortContainer.innerHTML = `<span class="sort__method" id="sort__method">Trier par</span>`
-    const dropdownWrapper = document.createElement('div')
-    dropdownWrapper.className = 'sort__wrapper'
-    // options array
+    sortContainer.innerHTML = `<label class="sort__method" for="sort-by">Trier par</label>`
     const dropdownOptions = [
       {
         value: 'popular',
@@ -55,83 +51,21 @@ export default class Gallery {
         text: 'Titre',
       },
     ]
-    // button
-    const dropdownBtn = document.createElement('button')
-    dropdownBtn.className = 'sort__button'
-    dropdownBtn.setAttribute('aria-labelledby', 'sort__method sort__selected')
-    dropdownBtn.setAttribute('aria-expanded', 'false')
-    dropdownBtn.setAttribute('aria-haspopup', 'listbox')
-    dropdownBtn.setAttribute('id', 'sort__selected')
-    dropdownBtn.setAttribute('tabindex', '0')
-    dropdownBtn.innerText = dropdownOptions[0].text
-    // options list
-    const dropdownList = document.createElement('ul')
-    dropdownList.className = 'sort__list'
-    dropdownList.setAttribute('role', 'listbox')
-    dropdownList.setAttribute('aria-labelledby', 'sort__method')
-    dropdownBtn.setAttribute('id', 'sort__method_list')
-    dropdownList.setAttribute('tabindex', '-1')
+    const sortSelect = document.createElement('select')
+    sortSelect.className = 'sort__select'
+    sortSelect.setAttribute('name', 'sort-by')
+    sortSelect.setAttribute('id', 'sort-by')
     dropdownOptions.forEach((option) => {
-      dropdownList.insertAdjacentHTML(
+      sortSelect.insertAdjacentHTML(
         'beforeend',
-        `<li id="${option.value}" role="option" tabindex="0">${option.text}</li>`
+        `<option value="${option.value}">${option.text}</option>`
       )
     })
-    // events
-    dropdownBtn.addEventListener('click', (e) => {
+    sortSelect.addEventListener('change', (e) => {
       e.stopPropagation()
-      if (dropdownBtn.classList.contains('active')) {
-        dropdownBtn.classList.remove('active')
-        dropdownList.style.display = 'none'
-        dropdownBtn.setAttribute('aria-expanded', 'false')
-      } else {
-        dropdownBtn.classList.toggle('active')
-        dropdownList.style.display = 'block'
-        dropdownBtn.setAttribute('aria-expanded', 'true')
-      }
+      this.sortMedia(sortSelect.value)
     })
-    const dropdownListOptions = dropdownList.querySelectorAll('li')
-    dropdownListOptions.forEach((option) => {
-      option.addEventListener('click', (e) => {
-        e.stopPropagation()
-        this.sortMedia(`${option.getAttribute('id')}`)
-        dropdownBtn.innerText = option.textContent
-        dropdownBtn.classList.remove('active')
-        dropdownList.style.display = 'none'
-        dropdownBtn.setAttribute('aria-expanded', 'false')
-      })
-    })
-    dropdownListOptions.forEach((option) => {
-      option.addEventListener('keydown', (e) => {
-        // const optionIndex = dropdownListOptions.indexOf(option)
-        switch (e.key) {
-          case 'Enter':
-            e.stopPropagation()
-            this.sortMedia(`${option.getAttribute('id')}`)
-            dropdownBtn.innerText = option.textContent
-            dropdownBtn.classList.remove('active')
-            dropdownList.style.display = 'none'
-            dropdownBtn.setAttribute('aria-expanded', 'false')
-            // dropdownBtn.focus()
-            break
-          /* case 'ArrowUp':
-            if (optionIndex > 0) {
-              option.previousSibling.focus()
-            }
-            break
-          case 'ArrowDown':
-            if (optionIndex < dropdownListOptions.length) {
-              option.nextSibling.focus()
-            }
-            break */
-          default:
-            break
-        }
-      })
-    })
-    dropdownWrapper.appendChild(dropdownBtn)
-    dropdownWrapper.appendChild(dropdownList)
-    sortContainer.appendChild(dropdownWrapper)
+    sortContainer.appendChild(sortSelect)
     this.mainContainer.appendChild(sortContainer)
   }
 
