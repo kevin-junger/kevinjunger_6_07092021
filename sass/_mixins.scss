@@ -5,6 +5,8 @@
   color: $color;
 }
 @mixin __button-builder($bg_color, $font_color) {
+  max-height: 60px;
+  cursor: pointer;
   background-color: $bg-color;
   padding: 1rem;
   border-radius: 5px;

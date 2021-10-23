@@ -1,5 +1,7 @@
 .cta {
   cursor: pointer;
+  max-height: 60px;
+  cursor: pointer;
   background-color: #901c1c;
   padding: 1rem;
   border-radius: 5px;
@@ -10,6 +12,8 @@
   color: white;
 }
 .cta:hover {
+  max-height: 60px;
+  cursor: pointer;
   background-color: #db8876;
   padding: 1rem;
   border-radius: 5px;
@@ -163,17 +167,16 @@ header {
 .about {
   max-width: 100%;
   margin: 1rem;
+  display: flex;
+  justify-content: space-between;
 }
 .about__pic {
-  float: right;
+  flex-shrink: 0;
   width: 120px;
   height: 120px;
   border-radius: 60px;
   object-fit: cover;
   box-shadow: 0px 3px 5px 0px #c4c4c4;
-}
-.about__info {
-  max-width: 65%;
 }
 .about__name {
   font-family: "DM Sans", sans-serif;
@@ -198,6 +201,7 @@ header {
 }
 .about__tags {
   padding: 0;
+  position: relative;
 }
 .about__contact {
   position: fixed;
@@ -218,19 +222,14 @@ header {
   font-size: 1rem;
   color: black;
 }
-.sort__wrapper {
+.sort__select {
+  appearance: none;
   margin-left: 1rem;
   display: inline-block;
   position: relative;
   z-index: 10;
-  font-family: "DM Sans", sans-serif;
-  font-weight: 500;
-  font-size: 0.9rem;
-  color: white;
-  font-size: 1rem;
-  width: 170px;
-}
-.sort__button {
+  max-height: 60px;
+  cursor: pointer;
   background-color: #901c1c;
   padding: 1rem;
   border-radius: 5px;
@@ -239,37 +238,18 @@ header {
   font-weight: 500;
   font-size: 1.1rem;
   color: white;
-  cursor: pointer;
-  text-align: left;
+  font-size: 1rem;
   width: 170px;
+  background-image: url("../content/down-chevron.png");
+  background-repeat: no-repeat;
+  background-position: calc(100% - 1rem) center;
+  background-size: 10px;
 }
-.sort__button.active {
+.sort__select:focus {
   border-radius: 5px 5px 0 0;
 }
-.sort__list {
-  display: none;
-  position: absolute;
-  top: 100%;
-  right: 0;
-  left: 0;
-  margin: 0;
-  padding: 0;
-  background-color: #901c1c;
-  list-style: none;
-  border-radius: 0 0 5px 5px;
-  font-family: "DM Sans", sans-serif;
-  font-weight: 400;
-  font-size: 0.9rem;
-  color: white;
-}
-.sort__list li {
-  cursor: pointer;
-  padding: 1rem;
-  border-top: 1px solid white;
-}
-.sort__hidden {
-  display: none;
-  visibility: hidden;
+.sort__select:hover, .sort__select:focus {
+  box-shadow: 0px 3px 5px 0px #c4c4c4;
 }
 
 .work {
@@ -315,6 +295,7 @@ header {
   position: fixed;
   bottom: 0;
   right: 10vw;
+  box-shadow: 0px -3px 5px 0px #c4c4c4;
 }
 .likes-price i {
   margin-right: 4rem;
@@ -543,8 +524,6 @@ header {
 
   .about__contact {
     position: inherit;
-    float: right;
-    z-index: 0;
   }
 
   .index,
