@@ -110,7 +110,7 @@ export default class Gallery {
           <h2 class="work__desc">${element.getTitle()}</h2>
           <div class="work__like like">
             <span class="like__count">${element.getLikes()}</span>
-            <button class="like__heart" aria-label="like"><i class="fas fa-heart"></i></button>
+            <button class="like__heart" aria-label="like"><em class="fas fa-heart"></em></button>
           </div>
         </figcaption>
       `

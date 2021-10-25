@@ -20,8 +20,14 @@ export default class Profile {
   async init() {
     this.mainContainer.classList.add('profile') // for CSS purposes
     this.displayAbout()
-    this.displayLikesAndPrice()
     this.gallery.init()
+    this.displayLikesAndPrice()
+    this.likeButtons = document.querySelectorAll('.like__heart')
+    this.likeButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        this.updateLikesTotal()
+      })
+    })
   }
 
   displayAbout() {
@@ -60,10 +66,15 @@ export default class Profile {
     this.likesAndPriceContainer = document.createElement('aside')
     this.likesAndPriceContainer.className = 'likes-price'
     this.likesAndPriceContainer.innerHTML = `
-      <span>${this.gallery.getLikesTotal()}</span>
-      <i class="fas fa-heart"></i>
-      <span>${this.photographer.getPrice()}</span>
+      <span class="likes-price__total">${this.gallery.getLikesTotal()}<em class="fas fa-heart"></em></span>
+      <span class="likes-price__price">${this.photographer.getPrice()}</span>
     `
     this.mainContainer.appendChild(this.likesAndPriceContainer)
+  }
+
+  updateLikesTotal() {
+    document.querySelector(
+      '.likes-price__total'
+    ).innerHTML = `${this.gallery.getLikesTotal()}<em class="fas fa-heart"></em>`
   }
 }
