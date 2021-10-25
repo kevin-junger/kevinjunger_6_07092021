@@ -39,3 +39,16 @@
     }
   }
 }
+.goto {
+  position: absolute;
+  width: 200px;
+  text-align: center;
+  background-color: $tertiary;
+  padding: 1rem;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  text-decoration: none;
+  @include __font-builder(0.8rem, 500, black);
+  border-radius: 5px;
+}
