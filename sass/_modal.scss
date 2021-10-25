@@ -7,27 +7,10 @@
   height: 100%;
   width: 100%;
   overflow: auto;
-  &__modal,
-  &__dialog {
-    padding: 1rem;
-  }
   &__modal {
+    padding: 1rem;
     position: relative;
     background-color: $tertiary;
-  }
-  &__dialog {
-    display: none;
-    position: fixed;
-    top: 30vh;
-    left: 0;
-    right: 0;
-    margin: 0 auto;
-    background-color: $dark_grey;
-    text-align: center;
-  }
-  &__error,
-  &__success {
-    @include __font-builder(1.5rem, 400, white);
   }
   &__close {
     cursor: pointer;
@@ -43,6 +26,33 @@
   }
   &__form {
     margin-top: 1rem;
+  }
+}
+.dialog {
+  display: none;
+  position: fixed;
+  z-index: 20;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  text-align: center;
+  &__modal {
+    padding: 1rem;
+    position: relative;
+    background-color: $dark_grey;
+  }
+  &__close {
+    cursor: pointer;
+    border: none;
+    background: transparent;
+    float: right;
+    font-size: 2rem;
+    color: white;
+  }
+  &__text {
+    @include __font-builder(1.5rem, 400, white);
   }
 }
 .form {
@@ -68,6 +78,14 @@
   &__data[data-error-visible='true'] &__input,
   &__message {
     border: 2px solid $primary;
+  }
+  &__input,
+  &__input::before,
+  &__input::after,
+  &__message,
+  &__message::before,
+  &__message::after {
+    box-sizing: border-box;
   }
   &__input,
   &__message {
