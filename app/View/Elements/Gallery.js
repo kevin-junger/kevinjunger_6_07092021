@@ -89,8 +89,8 @@ export default class Gallery {
       switch (element.getType()) {
         case 'Video':
           html = `
-            <a href="#" class="work__open" aria-label="video ${element.getTitle()}">
-              <video preload="metadata" class="work__display">
+            <a href="#" class="work__open" aria-labelledby="${element.getId()}">
+              <video preload="metadata" class="work__display" id="${element.getId()}" aria-label="video ${element.getTitle()} - cliquer pour afficher">
                 <source 
                   src="public/content/media/${element.getPId()}/${element.getVideo()}#t=1"
                   type="video/mp4"
@@ -101,8 +101,8 @@ export default class Gallery {
           break
         default:
           html = `
-            <a href="#" class="work__open" aria-label="image ${element.getTitle()}">
-              <img class="work__display" src="public/content/media/${element.getPId()}/${element.getImage()}" alt="${element.getTitle()}" />
+            <a href="#" class="work__open" aria-labelledby="${element.getId()}">
+              <img class="work__display" id="${element.getId()}" src="public/content/media/${element.getPId()}/${element.getImage()}" alt="image ${element.getTitle()} - cliquer pour afficher" />
             </a>
           `
           break
