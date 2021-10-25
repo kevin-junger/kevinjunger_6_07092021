@@ -87,7 +87,7 @@ export default class Index {
     card.className = 'photographer'
     const html = `
       <a class="photographer__link" href="?profile=${data.getId()}">
-        <img class="photographer__pic" src="public/content/photographers/${data.getPortrait()}" alt="portrait ${data.getPortrait()}" />
+        <img class="photographer__pic" src="public/content/photographers/${data.getPortrait()}" alt="portrait ${data.getName()}" />
         <h2 class="photographer__name">${data.getName()}</h2>
       </a>
       <h3 class="photographer__location">${data.getLocation()}</h3>
