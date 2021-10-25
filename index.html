@@ -34,82 +34,21 @@
       <div class="lightbox">
         <div class="lightbox__modal">
           <button class="lightbox__previous" aria-label="Image précédente">
-            <i class="fas fa-chevron-left"></i>
+            <em class="fas fa-chevron-left"></em>
           </button>
           <div class="lightbox__container">
             <button class="lightbox__close" aria-label="Fermer">
-              <i class="fas fa-times"></i>
+              <em class="fas fa-times"></em>
             </button>
             <figure class="lightbox__content"></figure>
           </div>
           <button class="lightbox__next" aria-label="Image suivante">
-            <i class="fas fa-chevron-right"></i>
+            <em class="fas fa-chevron-right"></em>
           </button>
         </div>
       </div>
-      <div class="contact">
-        <div class="contact__modal">
-          <button class="contact__close" aria-label="Fermer">
-            <i class="fas fa-times"></i>
-          </button>
-          <div class="contact__form">
-            <form>
-              <div
-                class="form__data"
-                data-error="Veuillez saisir un prénom valide (min. 2 caractères)"
-              >
-                <label for="first">Prénom</label>
-                <input
-                  type="text"
-                  minlength="2"
-                  class="form__input"
-                  name="first"
-                  id="first"
-                />
-              </div>
-              <div
-                class="form__data"
-                data-error="Veuillez saisir un nom valide (min. 2 caractères)"
-              >
-                <label for="last">Nom</label>
-                <input
-                  type="text"
-                  minlength="2"
-                  class="form__input"
-                  name="last"
-                  id="last"
-                />
-              </div>
-              <div
-                class="form__data"
-                data-error="Veuillez saisir une adresse email valide"
-              >
-                <label for="email">Email</label>
-                <input
-                  type="email"
-                  class="form__input"
-                  name="email"
-                  id="email"
-                />
-              </div>
-              <div
-                class="form__data"
-                data-error="Veuillez saisir un message (max. 500 caractères)"
-              >
-                <label for="message">Message</label>
-                <textarea
-                  maxlength="500"
-                  class="form__message"
-                  name="message"
-                  id="message"
-                ></textarea>
-              </div>
-              <input type="submit" class="cta form__submit" value="Envoyer" />
-            </form>
-          </div>
-        </div>
-        <div class="contact__dialog"></div>
-      </div>
+      <div class="contact"></div>
+      <div class="dialog"></div>
     </main>
   </body>
 </html>
