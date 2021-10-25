@@ -105,7 +105,10 @@
   bottom: 0;
   right: 10vw;
   box-shadow: 0px -3px 5px 0px $grey;
-  i {
-    margin-right: 4rem;
+  &__total {
+    margin-right: 1.5rem;
+    em {
+      margin-left: 0.5rem;
+    }
   }
 }
