@@ -19,6 +19,8 @@ export default class Profile {
 
   async init() {
     this.mainContainer.classList.add('profile') // for CSS purposes
+    this.mainContainer.setAttribute('aria-label', 'profil photographe')
+    this.mainContainer.setAttribute('tabindex', '0')
     this.displayAbout()
     this.gallery.init()
     this.displayLikesAndPrice()
@@ -34,6 +36,8 @@ export default class Profile {
     // generates and displays the About section (contains the photographer's info)
     this.aboutContainer = document.createElement('section')
     this.aboutContainer.className = 'about'
+    this.aboutContainer.setAttribute('aria-label', 'a propos')
+    this.aboutContainer.setAttribute('tabindex', '0')
     const html = `
       <div class="about__info">
         <h1 class="about__name">${this.photographer.getName()}</h1>
@@ -50,7 +54,7 @@ export default class Profile {
         </ul>
       </div>
       <button class="about__contact cta">Contactez-moi</button>
-      <img class="about__pic" src="public/content/photographers/${this.photographer.getPortrait()}" alt="${this.photographer.getName()}" />
+      <img class="about__pic" src="public/content/photographers/${this.photographer.getPortrait()}" alt="portrait ${this.photographer.getName()}" />
     `
     this.aboutContainer.innerHTML = html
     // generates the contact button with the event listener which triggers the modal opening

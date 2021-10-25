@@ -31,6 +31,8 @@ export default class Index {
   async init() {
     this.displayMenu()
     this.mainContainer.classList.add('index') // for CSS purposes
+    this.mainContainer.setAttribute('aria-label', 'liste photographes')
+    this.mainContainer.setAttribute('tabindex', '0')
     // checks if the URL contains the 'tag' GET parameters, which means a tag has been clicked in the menu bar (for ex. 'art')
     const url = new URLSearchParams(window.location.search)
     switch (url.has('tag')) {
@@ -85,7 +87,7 @@ export default class Index {
     card.className = 'photographer'
     const html = `
       <a class="photographer__link" href="?profile=${data.getId()}">
-        <img class="photographer__pic" src="public/content/photographers/${data.getPortrait()}" alt="" />
+        <img class="photographer__pic" src="public/content/photographers/${data.getPortrait()}" alt="portrait ${data.getPortrait()}" />
         <h2 class="photographer__name">${data.getName()}</h2>
       </a>
       <h3 class="photographer__location">${data.getLocation()}</h3>

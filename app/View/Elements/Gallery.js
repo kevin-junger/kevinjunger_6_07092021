@@ -75,6 +75,8 @@ export default class Gallery {
       // checks the gallery has already been generated
       this.galleryContainer = document.createElement('section')
       this.galleryContainer.className = 'work'
+      this.galleryContainer.setAttribute('aria-label', 'galerie')
+      this.galleryContainer.setAttribute('tabindex', '0')
       this.mainContainer.appendChild(this.galleryContainer)
     } else {
       this.galleryContainer.innerHTML = ''
@@ -87,21 +89,21 @@ export default class Gallery {
       switch (element.getType()) {
         case 'Video':
           html = `
-            <button class="work__button" role="img" aria-label="${element.getTitle()}">
+            <a href="#" class="work__open" aria-label="video ${element.getTitle()}">
               <video preload="metadata" class="work__display">
                 <source 
                   src="public/content/media/${element.getPId()}/${element.getVideo()}#t=1"
                   type="video/mp4"
                 />
               </video>
-            </button>
+            </a>
           `
           break
         default:
           html = `
-            <button class="work__button" role="img">
+            <a href="#" class="work__open" aria-label="image ${element.getTitle()}">
               <img class="work__display" src="public/content/media/${element.getPId()}/${element.getImage()}" alt="${element.getTitle()}" />
-            </button>
+            </a>
           `
           break
       }
@@ -115,7 +117,7 @@ export default class Gallery {
         </figcaption>
       `
       card.innerHTML = html
-      card.querySelector('.work__button').addEventListener('click', () => {
+      card.querySelector('.work__open').addEventListener('click', () => {
         // event listener that triggers the lightbox
         this.lightbox.init(parseInt(this.galleryElements.indexOf(element), 10))
       })
