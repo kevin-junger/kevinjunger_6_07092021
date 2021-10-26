@@ -102,7 +102,7 @@ export default class Gallery {
         default:
           html = `
             <a href="#" class="work__open" aria-labelledby="${element.getId()}">
-              <img class="work__display" id="${element.getId()}" src="public/content/media/${element.getPId()}/${element.getImage()}" alt="image ${element.getTitle()} - cliquer pour afficher" />
+              <img class="work__display" id="${element.getId()}" loading="lazy" src="public/content/media/${element.getPId()}/${element.getImage()}" alt="image ${element.getTitle()} - cliquer pour afficher" />
             </a>
           `
           break
