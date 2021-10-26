@@ -17,7 +17,7 @@ export default class Profile {
     this.modal = new Modal(this.photographer.getName())
   }
 
-  async init() {
+  init() {
     this.mainContainer.classList.add('profile') // for CSS purposes
     this.mainContainer.setAttribute('aria-label', 'profil photographe')
     this.mainContainer.setAttribute('tabindex', '0')

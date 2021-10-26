@@ -17,7 +17,7 @@ export default class Controller {
     return this
   }
 
-  async init() {
+  init() {
     // fetches the "database", then displays either the Index or the Profile view based on the 'profile' GET paramater in the URL (or its lack thereof)
     new Database('app/Controller/FishEyeData.json').get().then((data) => {
       const url = new URLSearchParams(window.location.search)

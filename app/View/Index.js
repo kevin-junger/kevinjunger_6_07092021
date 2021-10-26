@@ -28,7 +28,7 @@ export default class Index {
     )
   }
 
-  async init() {
+  init() {
     this.displayMenu()
     this.mainContainer.classList.add('index') // for CSS purposes
     this.mainContainer.setAttribute('aria-label', 'liste photographes')
