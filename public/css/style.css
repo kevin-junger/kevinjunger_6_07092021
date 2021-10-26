@@ -82,10 +82,12 @@
 
 .goto {
   position: absolute;
+  z-index: 100;
   width: 200px;
   text-align: center;
   background-color: #db8876;
   padding: 1rem;
+  top: -50px;
   left: 0;
   right: 0;
   margin: 0 auto;
@@ -96,6 +98,11 @@
   color: black;
   -webkit-border-radius: 5px;
   border-radius: 5px;
+}
+.goto:focus {
+  top: 2.5rem;
+  -webkit-box-shadow: 0px 3px 5px 0px #c4c4c4;
+  box-shadow: 0px 3px 5px 0px #c4c4c4;
 }
 
 header {
