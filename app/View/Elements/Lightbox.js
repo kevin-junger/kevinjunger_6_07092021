@@ -79,7 +79,9 @@ export default class Lightbox {
     switch (this.galleryElements[this.mediumIndex].getType()) {
       case 'Video':
         html += `
-          <video autoplay controls class="lightbox__display">
+          <video autoplay controls class="lightbox__display" id="display" aria-label="vidéo ${this.galleryElements[
+            this.mediumIndex
+          ].getTitle()} - gauche pour image précédente, droite pour suivante, échap pour quitter">
             <source 
               src="public/content/media/${this.galleryElements[
                 this.mediumIndex
@@ -91,11 +93,13 @@ export default class Lightbox {
         break
       default:
         html += `
-          <img class="lightbox__display" src="public/content/media/${this.galleryElements[
+          <img class="lightbox__display" id="display" src="public/content/media/${this.galleryElements[
             this.mediumIndex
           ].getPId()}/${this.galleryElements[
           this.mediumIndex
-        ].getImage()}" alt="" />
+        ].getImage()}" alt="image ${this.galleryElements[
+          this.mediumIndex
+        ].getTitle()} - gauche pour image précédente, droite pour suivante, échap pour quitter" />
         `
         break
     }
@@ -108,6 +112,7 @@ export default class Lightbox {
       </figcaption>
     `
     this.lightboxContent.innerHTML = html
+    this.lightboxContent.setAttribute('aria-describedby', 'display')
   }
 
   displayButtons() {

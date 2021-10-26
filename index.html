@@ -43,7 +43,12 @@
             <button class="lightbox__close" aria-label="Fermer">
               <em class="fas fa-times"></em>
             </button>
-            <figure class="lightbox__content"></figure>
+            <figure
+              class="lightbox__content"
+              role="region"
+              aria-live="polite"
+              tabindex="-1"
+            ></figure>
           </div>
           <button class="lightbox__next" aria-label="Image suivante">
             <em class="fas fa-chevron-right"></em>
