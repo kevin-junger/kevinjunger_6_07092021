@@ -40,8 +40,8 @@ export default class Profile {
     this.aboutContainer.setAttribute('tabindex', '0')
     const html = `
       <div class="about__info">
-        <h1 class="about__name">${this.photographer.getName()}</h1>
-        <h2 class="about__location">${this.photographer.getLocation()}</h2>
+        <h2 class="about__name">${this.photographer.getName()}</h2>
+        <h3 class="about__location">${this.photographer.getLocation()}</h3>
         <blockquote class="about__quote">${this.photographer.getTagline()}</blockquote>
         <ul class="about__tags tags">
           ${this.photographer
