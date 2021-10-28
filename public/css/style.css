@@ -11,8 +11,12 @@
   font-weight: 500;
   font-size: 1.1rem;
   color: white;
+  -webkit-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 0.5s;
 }
-.cta:hover {
+.cta:hover,
+.cta:focus {
   max-height: 60px;
   cursor: pointer;
   background-color: #db8876;
@@ -40,8 +44,12 @@
   font-weight: 500;
   font-size: 0.8rem;
   color: #901c1c;
+  -webkit-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 0.5s;
 }
-.tags__tag:hover {
+.tags__tag:hover,
+.tags__tag:focus {
   display: inline-block;
   padding: 0.25rem 0.5rem 0.35rem;
   background-color: #901c1c;
@@ -58,6 +66,10 @@
   color: inherit;
 }
 
+.like {
+  background: none;
+  border: none;
+}
 .like__count {
   font-family: 'DM Sans', sans-serif;
   font-weight: 500;
@@ -98,6 +110,9 @@
   color: black;
   -webkit-border-radius: 5px;
   border-radius: 5px;
+  -webkit-transition: 0.25s;
+  -o-transition: 0.25s;
+  transition: 0.25s;
 }
 .goto:focus {
   top: 2.5rem;
@@ -323,6 +338,9 @@ header {
   background-position: -webkit-calc(100% - 1rem) center;
   background-position: calc(100% - 1rem) center;
   background-size: 10px;
+  -webkit-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 0.5s;
 }
 .sort__select:focus {
   -webkit-border-radius: 5px 5px 0 0;
@@ -529,14 +547,6 @@ header {
   position: relative;
   background-color: #525252;
 }
-.dialog__close {
-  cursor: pointer;
-  border: none;
-  background: transparent;
-  float: right;
-  font-size: 2rem;
-  color: white;
-}
 .dialog__text {
   font-family: 'DM Sans', sans-serif;
   font-weight: 400;
@@ -556,18 +566,14 @@ header {
   font-size: 1.25rem;
   color: black;
 }
-.form__data[data-error]::after {
-  content: attr(data-error);
+.form__error {
   display: block;
-  opacity: 0;
+  height: 15px;
   margin-top: 0.5rem;
   font-family: 'DM Sans', sans-serif;
   font-weight: 400;
   font-size: 0.75rem;
   color: #901c1c;
-}
-.form__data[data-error-visible='true']::after {
-  opacity: 1;
 }
 .form__data[data-error-visible='true'] .form__input,
 .form__message {
