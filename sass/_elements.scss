@@ -1,7 +1,9 @@
 .cta {
   cursor: pointer;
   @include __button-builder($primary, white);
-  &:hover {
+  transition: 0.5s;
+  &:hover,
+  &:focus {
     @include __button-builder($tertiary, black);
     box-shadow: 0px 3px 5px 0px $grey;
   }
@@ -10,7 +12,9 @@
   &__tag {
     cursor: pointer;
     @include __tag-builder(inherit, $grey, $primary);
-    &:hover {
+    transition: 0.5s;
+    &:hover,
+    &:focus {
       @include __tag-builder($primary, $primary, white);
     }
     a {
@@ -20,6 +24,8 @@
   }
 }
 .like {
+  background: none;
+  border: none;
   &__count {
     @include __font-builder(1.1rem, 500, $primary);
   }
@@ -53,6 +59,7 @@
   text-decoration: none;
   @include __font-builder(0.8rem, 500, black);
   border-radius: 5px;
+  transition: 0.25s;
   &:focus {
     top: 2.5rem;
     box-shadow: 0px 3px 5px 0px $grey;

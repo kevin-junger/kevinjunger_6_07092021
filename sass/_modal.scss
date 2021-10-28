@@ -43,14 +43,6 @@
     position: relative;
     background-color: $dark_grey;
   }
-  &__close {
-    cursor: pointer;
-    border: none;
-    background: transparent;
-    float: right;
-    font-size: 2rem;
-    color: white;
-  }
   &__text {
     @include __font-builder(1.5rem, 400, white);
   }
@@ -65,15 +57,11 @@
       @include __font-builder(1.25rem, 400, black);
     }
   }
-  &__data[data-error]::after {
-    content: attr(data-error);
+  &__error {
     display: block;
-    opacity: 0;
+    height: 15px;
     margin-top: 0.5rem;
     @include __font-builder(0.75rem, 400, $primary);
-  }
-  &__data[data-error-visible='true']::after {
-    opacity: 1;
   }
   &__data[data-error-visible='true'] &__input,
   &__message {
