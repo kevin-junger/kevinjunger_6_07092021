@@ -110,10 +110,10 @@ export default class Gallery {
       html += `
         <figcaption class="work__caption">
           <h2 class="work__desc">${element.getTitle()}</h2>
-          <div class="work__like like">
-            <span class="like__count">${element.getLikes()}</span>
-            <button class="like__heart" aria-label="like"><em class="fas fa-heart"></em></button>
-          </div>
+          <button class="work__like like" aria-labelledby="like-${element.getId()}">
+            <span class="like__count" id="like-${element.getId()}" role="region" aria-live="polite" aria-label="${element.getLikes()} likes">${element.getLikes()}</span>
+            <em class="like__heart fas fa-heart"></em>
+          </button>
         </figcaption>
       `
       card.innerHTML = html
@@ -121,17 +121,20 @@ export default class Gallery {
         // event listener that triggers the lightbox
         this.lightbox.init(parseInt(this.galleryElements.indexOf(element), 10))
       })
-      const likeBtn = card.querySelector('.like__heart')
+      const likeBtn = card.querySelector('.work__like')
       likeBtn.addEventListener('click', () => {
         // event listener that allows the user to like/dislike a media
         let nbLikes = element.getLikes()
-        if (likeBtn.classList.contains('liked')) {
-          likeBtn.classList.remove('liked')
+        if (likeBtn.querySelector('.like__heart').classList.contains('liked')) {
+          likeBtn.querySelector('.like__heart').classList.remove('liked')
           element.setLikes((nbLikes -= 1))
         } else {
-          likeBtn.classList.toggle('liked')
+          likeBtn.querySelector('.like__heart').classList.toggle('liked')
           element.setLikes((nbLikes += 1))
         }
+        card
+          .querySelector('.like__count')
+          .setAttribute('aria-label', `${element.getLikes()} likes`)
         card.querySelector('.like__count').innerHTML = element.getLikes()
       })
       this.galleryContainer.appendChild(card)

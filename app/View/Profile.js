@@ -24,7 +24,7 @@ export default class Profile {
     this.displayAbout()
     this.gallery.init()
     this.displayLikesAndPrice()
-    this.likeButtons = document.querySelectorAll('.like__heart')
+    this.likeButtons = document.querySelectorAll('.work__like')
     this.likeButtons.forEach((button) => {
       button.addEventListener('click', () => {
         this.updateLikesTotal()
