@@ -26,21 +26,35 @@ export default class Modal {
     this.contact.className = 'contact__modal'
     this.contactCloseBtn = document.createElement('button')
     this.contactCloseBtn.className = 'contact__close'
-    this.contactCloseBtn.setAttribute('aria-label', 'fermer')
+    this.contactCloseBtn.setAttribute('aria-label', 'bouton fermer')
     this.contactCloseBtn.innerHTML = `<em class="fas fa-times"></em>`
     this.contactCloseBtn.addEventListener('click', () => {
       this.contactContainer.style.display = 'none'
+      this.contactContainer.innerHTML = ''
+      document.querySelector('.about__contact').focus()
+    })
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        this.contactContainer.style.display = 'none'
+        this.contactContainer.innerHTML = ''
+        document.querySelector('.about__contact').focus()
+      }
     })
     this.contactHeader = document.createElement('h2')
     this.contactHeader.className = 'contact__header'
     this.contactHeader.innerHTML = `${this.contactHeaderContent}`
-    this.contactForm = document.createElement('div')
+    this.contactForm = document.createElement('section')
     this.contactForm.className = 'contact__form'
+    this.contactForm.setAttribute(
+      'aria-label',
+      'formulaire de contact - échap pour quitter'
+    )
+    this.contactForm.setAttribute('tabindex', '0')
     this.contactForm.innerHTML = `
       <form>
         <div
           class="form__data"
-          data-error="Veuillez saisir un prénom valide (min. 2 caractères)"
+          data-error="Erreur : veuillez saisir un prénom valide (minimum 2 caractères)"
         >
           <label for="first">Prénom</label>
           <input
@@ -50,10 +64,13 @@ export default class Modal {
             name="first"
             id="first"
           />
+          <strong class="form__error"
+          role="alert"
+          aria-live="assertive"></strong>
         </div>
         <div
           class="form__data"
-          data-error="Veuillez saisir un nom valide (min. 2 caractères)"
+          data-error="Erreur : veuillez saisir un nom valide (minimum 2 caractères)"
         >
           <label for="last">Nom</label>
           <input
@@ -63,10 +80,13 @@ export default class Modal {
             name="last"
             id="last"
           />
+          <strong class="form__error"
+          role="alert"
+          aria-live="assertive"></strong>
         </div>
         <div
           class="form__data"
-          data-error="Veuillez saisir une adresse email valide"
+          data-error="Erreur : veuillez saisir une adresse email valide"
         >
           <label for="email">Email</label>
           <input
@@ -75,10 +95,13 @@ export default class Modal {
             name="email"
             id="email"
           />
+          <strong class="form__error"
+          role="alert"
+          aria-live="assertive"></strong>
         </div>
         <div
           class="form__data"
-          data-error="Veuillez saisir un message (max. 500 caractères)"
+          data-error="Erreur : veuillez saisir un message (maximum 500 caractères)"
         >
           <label for="message">Message</label>
           <textarea
@@ -87,6 +110,9 @@ export default class Modal {
             name="message"
             id="message"
           ></textarea>
+          <strong class="form__error"
+            role="alert"
+            aria-live="assertive"></strong>
         </div>
         <input type="submit" class="cta form__submit" value="Envoyer" />
       </form>
@@ -97,6 +123,7 @@ export default class Modal {
     this.contactContainer.appendChild(this.contact)
     this.initForm()
     this.contactContainer.style.display = 'block'
+    this.contactForm.focus()
   }
 
   initForm() {
@@ -130,21 +157,17 @@ export default class Modal {
     }
     this.dialog = document.createElement('div')
     this.dialog.className = 'dialog__modal'
-    this.dialogCloseBtn = document.createElement('button')
-    this.dialogCloseBtn.className = 'dialog__close'
-    this.dialogCloseBtn.setAttribute('aria-label', 'fermer')
-    this.dialogCloseBtn.innerHTML = `<em class="fas fa-times"></em>`
-    this.dialogCloseBtn.addEventListener('click', () => {
-      this.dialogContainer.style.display = 'none'
-    })
     this.dialogOkBtn = document.createElement('button')
     this.dialogOkBtn.className = 'cta dialog__ok'
-    this.dialogOkBtn.innerText = 'OK'
     this.dialogOkBtn.addEventListener('click', () => {
       this.dialogContainer.style.display = 'none'
+      this.dialogContainer.innerHTML = ''
+      this.contactForm.focus()
     })
     this.dialogText = document.createElement('p')
     this.dialogText.className = 'dialog__text'
+    this.dialogText.setAttribute('role', 'alert')
+    this.dialogText.setAttribute('aria-live', 'assertive')
     if (
       !this.checkFirstName() ||
       !this.checkLastName() ||
@@ -153,15 +176,21 @@ export default class Modal {
     ) {
       this.dialogText.innerText =
         'Une ou plusieurs informations sont erronées. Veuillez corriger et réessayer.'
+      this.dialogOkBtn.innerText = 'Corriger'
     } else {
       this.contactContainer.style.display = 'none'
       this.dialogText.innerText = 'Votre message a été envoyé !'
+      this.dialogOkBtn.innerText = 'OK'
+      console.log(this.firstName.value.trim())
+      console.log(this.lastName.value.trim())
+      console.log(this.email.value.trim())
+      console.log(this.message.value.trim())
     }
-    this.dialog.appendChild(this.dialogCloseBtn)
     this.dialog.appendChild(this.dialogText)
     this.dialog.appendChild(this.dialogOkBtn)
     this.dialogContainer.appendChild(this.dialog)
     this.dialogContainer.style.display = 'block'
+    this.dialogOkBtn.focus()
   }
 
   checkFirstName() {
@@ -171,9 +200,13 @@ export default class Modal {
       !this.regexAlpha.test(this.firstName.value.trim())
     ) {
       this.firstName.parentElement.setAttribute('data-error-visible', 'true')
+      this.firstName.parentElement.querySelector(
+        '.form__error'
+      ).innerText = `${this.firstName.parentElement.getAttribute('data-error')}`
       return false
     }
     this.firstName.parentElement.setAttribute('data-error-visible', 'false')
+    this.firstName.parentElement.querySelector('.form__error').innerText = ''
     return true
   }
 
@@ -184,9 +217,13 @@ export default class Modal {
       !this.regexAlpha.test(this.lastName.value.trim())
     ) {
       this.lastName.parentElement.setAttribute('data-error-visible', 'true')
+      this.lastName.parentElement.querySelector(
+        '.form__error'
+      ).innerText = `${this.lastName.parentElement.getAttribute('data-error')}`
       return false
     }
     this.lastName.parentElement.setAttribute('data-error-visible', 'false')
+    this.lastName.parentElement.querySelector('.form__error').innerText = ''
     return true
   }
 
@@ -196,9 +233,13 @@ export default class Modal {
       !this.regexEmail.test(this.email.value.trim())
     ) {
       this.email.parentElement.setAttribute('data-error-visible', 'true')
+      this.email.parentElement.querySelector(
+        '.form__error'
+      ).innerText = `${this.email.parentElement.getAttribute('data-error')}`
       return false
     }
     this.email.parentElement.setAttribute('data-error-visible', 'false')
+    this.email.parentElement.querySelector('.form__error').innerText = ''
     return true
   }
 
@@ -208,9 +249,13 @@ export default class Modal {
       this.message.value.trim().length > 500
     ) {
       this.message.parentElement.setAttribute('data-error-visible', 'true')
+      this.message.parentElement.querySelector(
+        '.form__error'
+      ).innerText = `${this.message.parentElement.getAttribute('data-error')}`
       return false
     }
     this.message.parentElement.setAttribute('data-error-visible', 'false')
+    this.message.parentElement.querySelector('.form__error').innerText = ''
     return true
   }
 }
