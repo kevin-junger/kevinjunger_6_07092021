@@ -9,6 +9,35 @@ export default class Lightbox {
     this.galleryElements = media
     // DOM elements - main container, content container, prev/next buttons, close button
     this.lightboxContainer = document.querySelector('.lightbox')
+  }
+
+  init(mediumIndex) {
+    // generates and displays the lightbox and the selected medium
+    this.mediumIndex = mediumIndex // the index for the select medium in the array
+    this.lightboxContainer.innerHTML = `
+      <div class="lightbox__modal">
+        <button
+          class="lightbox__previous"
+          aria-label="bouton image précédente"
+        >
+          <em class="fas fa-chevron-left"></em>
+        </button>
+        <div class="lightbox__wrapper">
+          <button class="lightbox__close" aria-label="button fermer">
+            <em class="fas fa-times"></em>
+          </button>
+          <figure
+            class="lightbox__content"
+            role="region"
+            aria-live="polite"
+            tabindex="0"
+          ></figure>
+        </div>
+        <button class="lightbox__next" aria-label="bouton image suivante">
+          <em class="fas fa-chevron-right"></em>
+        </button>
+      </div>
+    `
     this.lightboxContent =
       this.lightboxContainer.querySelector('.lightbox__content')
     this.lightboxPrevious = this.lightboxContainer.querySelector(
@@ -17,12 +46,6 @@ export default class Lightbox {
     this.lightboxNext = this.lightboxContainer.querySelector('.lightbox__next')
     this.lightboxClose =
       this.lightboxContainer.querySelector('.lightbox__close')
-  }
-
-  init(mediumIndex) {
-    // generates and displays the lightbox and the selected medium
-    this.mediumIndex = mediumIndex // the index for the select medium in the array
-    this.lightboxContainer.style.display = 'block'
     this.lightboxPrevious.addEventListener('click', () => {
       // previous button
       this.display('previous')
@@ -34,6 +57,10 @@ export default class Lightbox {
     this.lightboxClose.addEventListener('click', () => {
       // close button
       this.lightboxContainer.style.display = 'none'
+      this.lightboxContent.innerHTML = ''
+      document
+        .getElementById(`${this.galleryElements[this.mediumIndex].getId()}`)
+        .parentElement.focus()
     })
     document.addEventListener('keydown', (e) => {
       // event listeners for keyboard inputs
@@ -46,11 +73,16 @@ export default class Lightbox {
           break
         case 'Escape':
           this.lightboxContainer.style.display = 'none'
+          this.lightboxContent.innerHTML = ''
+          document
+            .getElementById(`${this.galleryElements[this.mediumIndex].getId()}`)
+            .parentElement.focus()
           break
         default:
           break
       }
     })
+    this.lightboxContainer.style.display = 'block'
     this.display()
   }
 
@@ -113,6 +145,7 @@ export default class Lightbox {
     `
     this.lightboxContent.innerHTML = html
     this.lightboxContent.setAttribute('aria-describedby', 'display')
+    this.lightboxContent.focus()
   }
 
   displayButtons() {
