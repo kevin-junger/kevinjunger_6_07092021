@@ -26,12 +26,13 @@ export default class Lightbox {
           <button class="lightbox__close" aria-label="button fermer">
             <em class="fas fa-times"></em>
           </button>
-          <figure
+          <section
             class="lightbox__content"
             role="region"
             aria-live="polite"
             tabindex="0"
-          ></figure>
+          ></section>
+          <h2 class="lightbox__caption"></h2>
         </div>
         <button class="lightbox__next" aria-label="bouton image suivante">
           <em class="fas fa-chevron-right"></em>
@@ -139,15 +140,10 @@ export default class Lightbox {
         `
         break
     }
-
-    html += `
-      <figcaption class="lightbox__caption">
-        <h2 class="lightbox__desc">${this.galleryElements[
-          this.mediumIndex
-        ].getTitle()}</h2>
-      </figcaption>
-    `
     this.lightboxContent.innerHTML = html
+    this.lightboxContainer.querySelector('.lightbox__caption').innerText = `${this.galleryElements[
+      this.mediumIndex
+    ].getTitle()}`
     this.lightboxContent.setAttribute('aria-describedby', 'display')
     this.lightboxContent.focus()
   }
