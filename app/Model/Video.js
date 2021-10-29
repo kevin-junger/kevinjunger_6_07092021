@@ -13,6 +13,7 @@ export default class Video {
     this.setTags(data.tags)
     this.setDate(data.date)
     this.setLikes(data.likes)
+    this.setAlt(data.alt)
   }
 
   // setters
@@ -43,6 +44,10 @@ export default class Video {
 
   setLikes(likes) {
     this.likes = likes
+  }
+
+  setAlt(alt) {
+    this.alt = alt
   }
 
   // getters
@@ -77,5 +82,9 @@ export default class Video {
 
   getLikes() {
     return this.likes
+  }
+
+  getAlt() {
+    return this.alt
   }
 }

@@ -13,13 +13,10 @@ export default class Image {
     this.setTags(data.tags)
     this.setDate(data.date)
     this.setLikes(data.likes)
+    this.setAlt(data.alt)
   }
 
   // setters
-
-  getType() {
-    return this.type
-  }
 
   setId(id) {
     this.id = id
@@ -49,7 +46,15 @@ export default class Image {
     this.likes = likes
   }
 
+  setAlt(alt) {
+    this.alt = alt
+  }
+
   // getters
+
+  getType() {
+    return this.type
+  }
 
   getId() {
     return this.id
@@ -77,5 +82,9 @@ export default class Image {
 
   getLikes() {
     return this.likes
+  }
+
+  getAlt() {
+    return this.alt
   }
 }
