@@ -159,11 +159,6 @@ export default class Modal {
     this.dialog.className = 'dialog__modal'
     this.dialogOkBtn = document.createElement('button')
     this.dialogOkBtn.className = 'cta dialog__ok'
-    this.dialogOkBtn.addEventListener('click', () => {
-      this.dialogContainer.style.display = 'none'
-      this.dialogContainer.innerHTML = ''
-      this.contactForm.focus()
-    })
     this.dialogText = document.createElement('p')
     this.dialogText.className = 'dialog__text'
     this.dialogText.setAttribute('role', 'alert')
@@ -177,6 +172,11 @@ export default class Modal {
       this.dialogText.innerText =
         'Une ou plusieurs informations sont erronées. Veuillez corriger et réessayer.'
       this.dialogOkBtn.innerText = 'Corriger'
+      this.dialogOkBtn.addEventListener('click', () => {
+        this.dialogContainer.style.display = 'none'
+        this.dialogContainer.innerHTML = ''
+        this.contactForm.focus()
+      })
     } else {
       this.contactContainer.style.display = 'none'
       this.dialogText.innerText = 'Votre message a été envoyé !'
@@ -185,6 +185,11 @@ export default class Modal {
       console.log(this.lastName.value.trim())
       console.log(this.email.value.trim())
       console.log(this.message.value.trim())
+      this.dialogOkBtn.addEventListener('click', () => {
+        this.dialogContainer.style.display = 'none'
+        this.dialogContainer.innerHTML = ''
+        document.getElementById('content').focus()
+      })
     }
     this.dialog.appendChild(this.dialogText)
     this.dialog.appendChild(this.dialogOkBtn)
