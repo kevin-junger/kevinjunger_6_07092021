@@ -26,7 +26,7 @@ export default class Modal {
     this.contact.className = 'contact__modal'
     this.contactCloseBtn = document.createElement('button')
     this.contactCloseBtn.className = 'contact__close'
-    this.contactCloseBtn.setAttribute('aria-label', 'bouton fermer')
+    this.contactCloseBtn.setAttribute('tabindex', '-1')
     this.contactCloseBtn.innerHTML = `<em class="fas fa-times"></em>`
     this.contactCloseBtn.addEventListener('click', () => {
       this.contactContainer.style.display = 'none'

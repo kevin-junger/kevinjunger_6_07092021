@@ -23,14 +23,11 @@ export default class Lightbox {
           <em class="fas fa-chevron-left"></em>
         </button>
         <div class="lightbox__wrapper">
-          <button class="lightbox__close" aria-label="button fermer">
+          <button class="lightbox__close" tabindex="-1">
             <em class="fas fa-times"></em>
           </button>
           <section
             class="lightbox__content"
-            role="region"
-            aria-live="polite"
-            tabindex="0"
           ></section>
           <h2 class="lightbox__caption"></h2>
         </div>
@@ -112,7 +109,7 @@ export default class Lightbox {
     switch (this.galleryElements[this.mediumIndex].getType()) {
       case 'Video':
         html += `
-          <video autoplay controls class="lightbox__display" id="display" aria-label="vidéo ${this.galleryElements[
+          <video autoplay class="lightbox__display" aria-label="vidéo ${this.galleryElements[
             this.mediumIndex
           ].getTitle()} - ${this.galleryElements[
             this.mediumIndex
@@ -128,7 +125,7 @@ export default class Lightbox {
         break
       default:
         html += `
-          <img class="lightbox__display" id="display" src="public/content/media/${this.galleryElements[
+          <img class="lightbox__display" src="public/content/media/${this.galleryElements[
             this.mediumIndex
           ].getPId()}/${this.galleryElements[
           this.mediumIndex
@@ -136,7 +133,7 @@ export default class Lightbox {
           this.mediumIndex
         ].getTitle()} - ${this.galleryElements[
           this.mediumIndex
-        ].getAlt()} - gauche pour image précédente, droite pour suivante, échap pour quitter" />
+        ].getAlt()} - bouton gauche pour image précédente, bouton droite pour suivante, échap pour quitter" />
         `
         break
     }
@@ -144,8 +141,8 @@ export default class Lightbox {
     this.lightboxContainer.querySelector('.lightbox__caption').innerText = `${this.galleryElements[
       this.mediumIndex
     ].getTitle()}`
-    this.lightboxContent.setAttribute('aria-describedby', 'display')
-    this.lightboxContent.focus()
+    this.lightboxContent.querySelector('.lightbox__display').setAttribute('tabindex', '0')
+    this.lightboxContent.querySelector('.lightbox__display').focus()
   }
 
   displayButtons() {
