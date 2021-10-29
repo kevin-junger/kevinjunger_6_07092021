@@ -26,9 +26,9 @@ export default class Lightbox {
           <button class="lightbox__close" tabindex="-1">
             <em class="fas fa-times"></em>
           </button>
-          <section
+          <div
             class="lightbox__content"
-          ></section>
+          ></div>
           <h2 class="lightbox__caption"></h2>
         </div>
         <button class="lightbox__next" aria-label="bouton image suivante">
