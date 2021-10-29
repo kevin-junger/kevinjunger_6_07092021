@@ -113,7 +113,9 @@ export default class Lightbox {
         html += `
           <video autoplay controls class="lightbox__display" id="display" aria-label="vidéo ${this.galleryElements[
             this.mediumIndex
-          ].getTitle()} - gauche pour image précédente, droite pour suivante, échap pour quitter">
+          ].getTitle()} - ${this.galleryElements[
+            this.mediumIndex
+          ].getAlt()} - gauche pour image précédente, droite pour suivante, échap pour quitter">
             <source 
               src="public/content/media/${this.galleryElements[
                 this.mediumIndex
@@ -131,7 +133,9 @@ export default class Lightbox {
           this.mediumIndex
         ].getImage()}" alt="image ${this.galleryElements[
           this.mediumIndex
-        ].getTitle()} - gauche pour image précédente, droite pour suivante, échap pour quitter" />
+        ].getTitle()} - ${this.galleryElements[
+          this.mediumIndex
+        ].getAlt()} - gauche pour image précédente, droite pour suivante, échap pour quitter" />
         `
         break
     }
