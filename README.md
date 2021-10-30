@@ -38,15 +38,16 @@ Le site web est obsolète et nécessite une refonte afin notamment de le rendre 
 - Plusieurs modules NodeJS ont été utilisés : `eslint`, `eslint-config-airbnb-base`, `eslint-config-prettier`, `eslint-plugin-import`, `eslint-plugin-prettier`, `prettier` et `sass`. Les fichiers de configuration du projet sont fournis, mais les dépendances doivent être installées en local par la suite.
 - La majorité des débogages et tests de compatibilité ont été réalisés sous Mozilla Firefox et Google Chrome dans leurs dernières versions au moment de l'écriture, sur ordinateur (Linux) et téléphone (Android).
 - Les tests impliquant l'utilisation de **lecteurs d'écrans** ont été effectués sur **3 configurations différentes** :
-	1. _Mozilla Firefox sous Linux (Ubuntu 20.04 LTS) avec lecteur d'écran Orca (fourni avec l'environnement de bureau par défaut)_
-	2. _Google Chrome sous Linux (Ubuntu 20.04 LTS) avec lecteur d'écran ChromeVox (installé en tant qu'extension au sein du navigateur)_
-	3. _Microsoft Edge sous Windows 10 (révision 21H1) en machine virtuelle, avec lecteur d'écran NVDA 2021.2_
-	2. _Google Chrome sous  Windows 10 (révision 21H1) avec lecteur d'écran ChromeVox (installé en tant qu'extension au sein du navigateur)_
+  1.  _Mozilla Firefox sous Linux (Ubuntu 20.04 LTS) avec lecteur d'écran Orca (fourni avec l'environnement de bureau par défaut)_
+  2.  _Google Chrome sous Linux (Ubuntu 20.04 LTS) avec lecteur d'écran ChromeVox (installé en tant qu'extension au sein du navigateur)_
+  3.  _Microsoft Edge sous Windows 10 (révision 21H1) en machine virtuelle, avec lecteur d'écran NVDA 2021.2_
+  4.  _Google Chrome sous Windows 10 (révision 21H1) avec lecteur d'écran ChromeVox (installé en tant qu'extension au sein du navigateur)_
 - N'ayant pas en ma possession d'appareils sous macOS ou iOS, la compatibilité avec Safari n'a pu être vérifiée.
 
 ## Problèmes connus
 
 - En utilisant **Google Chrome sous Linux avec l'extension ChromeVox**, lors de l'ouverture de la _lightbox_, le focus n'est pas redirigé sur le média. L'affichage du média précédant ou suivant avec les flèches du clavier fonctionne cependant, le focus se fait à ce moment-là et le média est retranscrit comme prévu. La même combinaison de navigateur et extension sous Windows n'occasionne pas ce problème.
-- A l'inverse, en utilisant **Orca** (Linux) ou **NVDA** (Windows), le focus se fait et la retranscription se fait correctement. En revanche, le défilement au clavier ne marche pas, il faut utiliser les boutons de l'interface en sélectionnant avec Tab ou Shift+Tab.
+- À l'inverse, en utilisant **Orca (Linux)** ou **NVDA (Windows)**, le focus se fait et la retranscription se fait correctement. En revanche, le défilement au clavier ne marche pas, il faut utiliser les boutons de l'interface en sélectionnant avec Tab ou Shift+Tab.
 - Dans les deux cas, la touche Echap est fonctionnelle pour sortir de la _lightbox_, et le bouton fermer a été rendu inaccessible afin d'éviter une redondance.
 - En utilisant **Google Chrome avec l'extension ChromeVox**, quel que soit le système d'exploitation, l'ouverture du menu déroulant permettant le choix de la méthode de tri de la galerie grâce à la touche Entrée n'est pas possible. En revanche, sélectionner la méthode de tri avec les touches Haut et Bas du clavier fonctionne.
+- En utilisant **Orca sous Linux**, lors de l'affichage de la boîte de dialogue à la soumission du formulaire, le lecteur ne lit pas le message de cette boîte de dialogue, bien que le focus soit au bon endroit.
