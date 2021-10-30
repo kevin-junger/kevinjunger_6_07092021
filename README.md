@@ -41,4 +41,4 @@ Le site web est obsolète et nécessite une refonte afin notamment de le rendre 
 	1. _Mozilla Firefox sous Linux (Ubuntu 20.04 LTS) avec lecteur d'écran Orca (fourni avec l'environnement de bureau par défaut)_
 	2. _Google Chrome sous Linux (Ubuntu 20.04 LTS) avec lecteur d'écran ChromeVox (installé en tant qu'extension au sein du navigateur)_
 	3. _Microsoft Edge sous Windows 10 (révision 21H1) en machine virtuelle, avec lecteur d'écran NVDA 2021.2_
-- N'ayant pas en ma possession d'appareils sous macOS ou iOS, la compatibilité avec Safari n'a pu être vérifiée à 100%, malgré l'emploi d'un navigateur (Epiphany) reposant sur le même moteur de rendu (WebKit).
+- N'ayant pas en ma possession d'appareils sous macOS ou iOS, la compatibilité avec Safari n'a pu être vérifiée.
