@@ -41,4 +41,11 @@ Le site web est obsolète et nécessite une refonte afin notamment de le rendre 
 	1. _Mozilla Firefox sous Linux (Ubuntu 20.04 LTS) avec lecteur d'écran Orca (fourni avec l'environnement de bureau par défaut)_
 	2. _Google Chrome sous Linux (Ubuntu 20.04 LTS) avec lecteur d'écran ChromeVox (installé en tant qu'extension au sein du navigateur)_
 	3. _Microsoft Edge sous Windows 10 (révision 21H1) en machine virtuelle, avec lecteur d'écran NVDA 2021.2_
+	2. _Google Chrome sous  Windows 10 (révision 21H1) avec lecteur d'écran ChromeVox (installé en tant qu'extension au sein du navigateur)_
 - N'ayant pas en ma possession d'appareils sous macOS ou iOS, la compatibilité avec Safari n'a pu être vérifiée.
+
+## Problèmes connus
+
+- En utilisant **Google Chrome sous Linux avec l'extension ChromeVox**, lors de l'ouverture de la _lightbox_, le focus n'est pas redirigé sur le média. L'affichage du média précédant ou suivant avec les flèches du clavier fonctionne cependant, le focus se fait à ce moment-là et le média est retranscrit comme prévu. La même combinaison de navigateur et extension sous Windows n'occasionne pas ce problème.
+- A l'inverse, en utilisant **Orca** (Linux) ou **NVDA** (Windows), le focus se fait et la retranscription se fait correctement. En revanche, le défilement au clavier ne marche pas, il faut utiliser les boutons de l'interface en sélectionnant avec Tab ou Shift+Tab.
+- Dans les deux cas, la touche Echap est fonctionnelle pour sortir de la _lightbox_, et le bouton fermer a été rendu inaccessible afin d'éviter une redondance.
