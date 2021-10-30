@@ -110,8 +110,8 @@ export default class Gallery {
       html += `
         <figcaption class="work__caption">
           <h2 class="work__desc">${element.getTitle()}</h2>
-          <button class="work__like like" aria-labelledby="like-${element.getId()}">
-            <span class="like__count" id="like-${element.getId()}" role="region" aria-live="polite" aria-label="${element.getLikes()} likes">${element.getLikes()}</span>
+          <button class="work__like like" aria-label="${element.getLikes()} likes">
+            <span class="like__count" aria-hidden="true">${element.getLikes()}</span>
             <em class="like__heart fas fa-heart"></em>
           </button>
         </figcaption>
@@ -132,9 +132,7 @@ export default class Gallery {
           likeBtn.querySelector('.like__heart').classList.toggle('liked')
           element.setLikes((nbLikes += 1))
         }
-        card
-          .querySelector('.like__count')
-          .setAttribute('aria-label', `${element.getLikes()} likes`)
+        likeBtn.setAttribute('aria-label', `${element.getLikes()} likes`)
         card.querySelector('.like__count').innerHTML = element.getLikes()
       })
       this.galleryContainer.appendChild(card)
