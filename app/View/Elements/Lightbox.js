@@ -26,17 +26,10 @@ export default class Lightbox {
           <button class="lightbox__close" tabindex="-1">
             <em class="fas fa-times"></em>
           </button>
-          <figure
+          <section
             class="lightbox__content"
-<<<<<<< HEAD
           ></section>
           <h2 class="lightbox__caption"></h2>
-=======
-            role="region"
-            aria-live="polite"
-            tabindex="0"
-          ></figure>
->>>>>>> parent of 8309446 (🧪 test: focus on medium displayed in lightbox)
         </div>
         <button class="lightbox__next" aria-label="bouton image suivante">
           <em class="fas fa-chevron-right"></em>
@@ -144,25 +137,12 @@ export default class Lightbox {
         `
         break
     }
-
-    html += `
-      <figcaption class="lightbox__caption">
-        <h2 class="lightbox__desc">${this.galleryElements[
-          this.mediumIndex
-        ].getTitle()}</h2>
-      </figcaption>
-    `
     this.lightboxContent.innerHTML = html
-<<<<<<< HEAD
     this.lightboxContainer.querySelector('.lightbox__caption').innerText = `${this.galleryElements[
       this.mediumIndex
     ].getTitle()}`
     this.lightboxContent.querySelector('.lightbox__display').setAttribute('tabindex', '0')
     this.lightboxContent.querySelector('.lightbox__display').focus()
-=======
-    this.lightboxContent.setAttribute('aria-describedby', 'display')
-    this.lightboxContent.focus()
->>>>>>> parent of 8309446 (🧪 test: focus on medium displayed in lightbox)
   }
 
   displayButtons() {
