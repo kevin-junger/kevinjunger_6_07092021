@@ -54,7 +54,7 @@ export default class Lightbox {
     this.lightboxClose.addEventListener('click', () => {
       // close button
       this.lightboxContainer.style.display = 'none'
-      this.lightboxContent.innerHTML = ''
+      this.lightboxContainer.innerHTML = ''
       document
         .getElementById(`${this.galleryElements[this.mediumIndex].getId()}`)
         .parentElement.focus()
