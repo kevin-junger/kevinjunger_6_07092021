@@ -6,27 +6,23 @@
   padding: 1rem;
   border-radius: 5px;
   border-style: none;
-  font-family: 'DM Sans', sans-serif;
+  font-family: "DM Sans", sans-serif;
   font-weight: 500;
   font-size: 1.1rem;
   color: white;
-  -webkit-transition: 0.5s;
-  -o-transition: 0.5s;
   transition: 0.5s;
 }
-.cta:hover,
-.cta:focus {
+.cta:hover, .cta:focus {
   max-height: 60px;
   cursor: pointer;
   background-color: #db8876;
   padding: 1rem;
   border-radius: 5px;
   border-style: none;
-  font-family: 'DM Sans', sans-serif;
+  font-family: "DM Sans", sans-serif;
   font-weight: 500;
   font-size: 1.1rem;
   color: black;
-  -webkit-box-shadow: 0px 3px 5px 0px #c4c4c4;
   box-shadow: 0px 3px 5px 0px #c4c4c4;
 }
 
@@ -37,22 +33,19 @@
   background-color: inherit;
   border: 1px solid #c4c4c4;
   border-radius: 20px;
-  font-family: 'DM Sans', sans-serif;
+  font-family: "DM Sans", sans-serif;
   font-weight: 500;
   font-size: 0.8rem;
   color: #901c1c;
-  -webkit-transition: 0.5s;
-  -o-transition: 0.5s;
   transition: 0.5s;
 }
-.tags__tag:hover,
-.tags__tag:focus {
+.tags__tag:hover, .tags__tag:focus {
   display: inline-block;
   padding: 0.25rem 0.5rem 0.35rem;
   background-color: #901c1c;
   border: 1px solid #901c1c;
   border-radius: 20px;
-  font-family: 'DM Sans', sans-serif;
+  font-family: "DM Sans", sans-serif;
   font-weight: 500;
   font-size: 0.8rem;
   color: white;
@@ -67,7 +60,7 @@
   border: none;
 }
 .like__count {
-  font-family: 'DM Sans', sans-serif;
+  font-family: "DM Sans", sans-serif;
   font-weight: 500;
   font-size: 1.1rem;
   color: #901c1c;
@@ -80,8 +73,7 @@
   -webkit-text-stroke: 1px #901c1c;
   -webkit-text-fill-color: transparent;
 }
-.like__heart:hover,
-.like__heart.liked {
+.like__heart:hover, .like__heart.liked {
   background-color: #901c1c;
   background-clip: text;
   -webkit-background-clip: text;
@@ -100,18 +92,15 @@
   right: 0;
   margin: 0 auto;
   text-decoration: none;
-  font-family: 'DM Sans', sans-serif;
+  font-family: "DM Sans", sans-serif;
   font-weight: 500;
   font-size: 0.8rem;
   color: black;
   border-radius: 5px;
-  -webkit-transition: 0.25s;
-  -o-transition: 0.25s;
   transition: 0.25s;
 }
 .goto:focus {
   top: 2.5rem;
-  -webkit-box-shadow: 0px 3px 5px 0px #c4c4c4;
   box-shadow: 0px 3px 5px 0px #c4c4c4;
 }
 
@@ -122,14 +111,8 @@ header {
 
 .navbar {
   margin: 0 1rem;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
   justify-content: space-between;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
 }
 .navbar__logo {
@@ -139,7 +122,7 @@ header {
   display: none;
 }
 .navbar__header {
-  font-family: 'DM Sans', sans-serif;
+  font-family: "DM Sans", sans-serif;
   font-weight: 400;
   font-size: 1rem;
   color: #901c1c;
@@ -151,28 +134,14 @@ header {
 }
 
 .photographer {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
   flex-direction: column;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
   text-align: center;
 }
 .photographer__link {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
   flex-direction: column;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
   text-decoration: none;
 }
@@ -180,34 +149,32 @@ header {
   width: 200px;
   height: 200px;
   border-radius: 100px;
-  -o-object-fit: cover;
   object-fit: cover;
-  -webkit-box-shadow: 0px 3px 5px 0px #c4c4c4;
   box-shadow: 0px 3px 5px 0px #c4c4c4;
 }
 .photographer__name {
-  font-family: 'DM Sans', sans-serif;
+  font-family: "DM Sans", sans-serif;
   font-weight: 400;
   font-size: 2rem;
   color: #d3573c;
   margin: 0.5rem 0 0.25rem;
 }
 .photographer__location {
-  font-family: 'DM Sans', sans-serif;
+  font-family: "DM Sans", sans-serif;
   font-weight: 400;
   font-size: 1rem;
   color: #901c1c;
   margin: 0;
 }
 .photographer__quote {
-  font-family: 'DM Sans', sans-serif;
+  font-family: "DM Sans", sans-serif;
   font-weight: 400;
   font-size: 0.8rem;
   color: black;
   margin: 0.2rem 0;
 }
 .photographer__price {
-  font-family: 'DM Sans', sans-serif;
+  font-family: "DM Sans", sans-serif;
   font-weight: 400;
   font-size: 0.7rem;
   color: #525252;
@@ -230,33 +197,26 @@ header {
 .about {
   max-width: 100%;
   margin: 1rem;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
   justify-content: space-between;
 }
 .about__pic {
-  -ms-flex-negative: 0;
   flex-shrink: 0;
   width: 120px;
   height: 120px;
   border-radius: 60px;
-  -o-object-fit: cover;
   object-fit: cover;
-  -webkit-box-shadow: 0px 3px 5px 0px #c4c4c4;
   box-shadow: 0px 3px 5px 0px #c4c4c4;
 }
 .about__name {
-  font-family: 'DM Sans', sans-serif;
+  font-family: "DM Sans", sans-serif;
   font-weight: 400;
   font-size: 3rem;
   color: #d3573c;
   margin: 0;
 }
 .about__location {
-  font-family: 'DM Sans', sans-serif;
+  font-family: "DM Sans", sans-serif;
   font-weight: 400;
   font-size: 1.5rem;
   color: #901c1c;
@@ -264,7 +224,7 @@ header {
 }
 .about__quote {
   margin: 0.5rem 0;
-  font-family: 'DM Sans', sans-serif;
+  font-family: "DM Sans", sans-serif;
   font-weight: 400;
   font-size: 1rem;
   color: #525252;
@@ -288,14 +248,12 @@ header {
   margin: 1rem;
 }
 .sort__method {
-  font-family: 'DM Sans', sans-serif;
+  font-family: "DM Sans", sans-serif;
   font-weight: 500;
   font-size: 1rem;
   color: black;
 }
 .sort__select {
-  -webkit-appearance: none;
-  -moz-appearance: none;
   appearance: none;
   margin-left: 1rem;
   display: inline-block;
@@ -307,26 +265,22 @@ header {
   padding: 1rem;
   border-radius: 5px;
   border-style: none;
-  font-family: 'DM Sans', sans-serif;
+  font-family: "DM Sans", sans-serif;
   font-weight: 500;
   font-size: 1.1rem;
   color: white;
   font-size: 1rem;
   width: 170px;
-  background-image: url('../content/down-chevron.png');
+  background-image: url("../content/down-chevron.png");
   background-repeat: no-repeat;
   background-position: calc(100% - 1rem) center;
   background-size: 10px;
-  -webkit-transition: 0.5s;
-  -o-transition: 0.5s;
   transition: 0.5s;
 }
 .sort__select:focus {
   border-radius: 5px 5px 0 0;
 }
-.sort__select:hover,
-.sort__select:focus {
-  -webkit-box-shadow: 0px 3px 5px 0px #c4c4c4;
+.sort__select:hover, .sort__select:focus {
   box-shadow: 0px 3px 5px 0px #c4c4c4;
 }
 
@@ -340,21 +294,16 @@ header {
 .work__display {
   height: 200px;
   width: 100%;
-  -o-object-fit: cover;
   object-fit: cover;
   border-radius: 5px;
 }
 .work__caption {
   margin: 0.8rem 0 1rem;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
   justify-content: space-between;
 }
 .work__desc {
-  font-family: 'DM Sans', sans-serif;
+  font-family: "DM Sans", sans-serif;
   font-weight: 500;
   font-size: 1.1rem;
   color: #901c1c;
@@ -363,7 +312,7 @@ header {
 
 .likes-price {
   display: none;
-  font-family: 'DM Sans', sans-serif;
+  font-family: "DM Sans", sans-serif;
   font-weight: 500;
   font-size: 1.3rem;
   color: black;
@@ -373,7 +322,6 @@ header {
   position: fixed;
   bottom: 0;
   right: 10vw;
-  -webkit-box-shadow: 0px -3px 5px 0px #c4c4c4;
   box-shadow: 0px -3px 5px 0px #c4c4c4;
 }
 .likes-price__total {
@@ -391,25 +339,16 @@ header {
   height: 100vh;
   width: 100vw;
   background-color: white;
-  padding: 1rem;
 }
 .lightbox__modal {
   position: relative;
   height: 100%;
-  margin: 1rem;
-  display: -webkit-box;
-  display: -ms-flexbox;
+  margin: 2rem;
   display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
   justify-content: center;
 }
-.lightbox__previous,
-.lightbox__next,
-.lightbox__close {
+.lightbox__previous, .lightbox__next, .lightbox__close {
   background: none;
   border: none;
   cursor: pointer;
@@ -428,27 +367,16 @@ header {
   right: 0;
 }
 .lightbox__content {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
   flex-direction: column;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
   justify-content: center;
   height: 80vh;
 }
 .lightbox__caption {
-  margin: 0.8rem 0 0;
-  display: -webkit-box;
-  display: -ms-flexbox;
+  margin-top: 0.8rem;
   display: flex;
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
   justify-content: space-between;
-  font-family: 'DM Sans', sans-serif;
+  font-family: "DM Sans", sans-serif;
   font-weight: 500;
   font-size: 1.1rem;
   color: #901c1c;
@@ -456,7 +384,6 @@ header {
 .lightbox__display {
   max-width: 100%;
   max-height: 100%;
-  -o-object-fit: contain;
   object-fit: contain;
 }
 
@@ -485,7 +412,7 @@ header {
 }
 .contact__header {
   margin: 0;
-  font-family: 'DM Sans', sans-serif;
+  font-family: "DM Sans", sans-serif;
   font-weight: 400;
   font-size: 2.25rem;
   color: black;
@@ -511,7 +438,7 @@ header {
   background-color: #525252;
 }
 .dialog__text {
-  font-family: 'DM Sans', sans-serif;
+  font-family: "DM Sans", sans-serif;
   font-weight: 400;
   font-size: 1.5rem;
   color: white;
@@ -524,7 +451,7 @@ header {
 .form__data label {
   display: block;
   margin-bottom: 0.5rem;
-  font-family: 'DM Sans', sans-serif;
+  font-family: "DM Sans", sans-serif;
   font-weight: 400;
   font-size: 1.25rem;
   color: black;
@@ -533,27 +460,19 @@ header {
   display: block;
   height: 15px;
   margin-top: 0.5rem;
-  font-family: 'DM Sans', sans-serif;
+  font-family: "DM Sans", sans-serif;
   font-weight: 400;
   font-size: 0.75rem;
   color: #901c1c;
 }
-.form__data[data-error-visible='true'] .form__input,
-.form__message {
+.form__data[data-error-visible=true] .form__input, .form__message {
   border: 2px solid #901c1c;
 }
-.form__input,
-.form__input::before,
-.form__input::after,
-.form__message,
-.form__message::before,
-.form__message::after {
-  -webkit-box-sizing: border-box;
+.form__input, .form__input::before, .form__input::after, .form__message, .form__message::before, .form__message::after {
   box-sizing: border-box;
 }
-.form__input,
-.form__message {
-  font-family: 'DM Sans', sans-serif;
+.form__input, .form__message {
+  font-family: "DM Sans", sans-serif;
   font-weight: 400;
   font-size: 1rem;
   color: black;
@@ -568,8 +487,8 @@ header {
 
 @media screen and (min-width: 768px) {
   header,
-  .index,
-  .profile {
+.index,
+.profile {
     max-width: 700px;
   }
 
@@ -594,8 +513,7 @@ header {
   }
 
   .index,
-  .work {
-    display: -ms-grid;
+.work {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
   }
@@ -605,13 +523,12 @@ header {
   }
 
   .contact,
-  .dialog {
+.dialog {
     background-color: rgba(82, 82, 82, 0.75);
   }
   .contact__modal,
-  .dialog__modal {
+.dialog__modal {
     border-radius: 10px;
-    -webkit-box-shadow: 0px 3px 5px 0px #525252;
     box-shadow: 0px 3px 5px 0px #525252;
   }
 
@@ -627,8 +544,8 @@ header {
 }
 @media screen and (min-width: 1280px) {
   header,
-  .index,
-  .profile {
+.index,
+.profile {
     max-width: 1200px;
   }
 
@@ -644,8 +561,7 @@ header {
   }
 
   .index,
-  .work {
-    display: -ms-grid;
+.work {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
   }
