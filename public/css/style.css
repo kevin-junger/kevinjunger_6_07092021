@@ -398,6 +398,7 @@ header {
   overflow: auto;
 }
 .contact__modal {
+  height: 100%;
   padding: 1rem;
   position: relative;
   background-color: #db8876;
@@ -433,6 +434,10 @@ header {
   text-align: center;
 }
 .dialog__modal {
+  border-radius: 10px;
+  box-shadow: 0px 3px 5px 0px #525252;
+  margin: 35vh auto 0;
+  width: 90vw;
   padding: 1rem;
   position: relative;
   background-color: #525252;
@@ -526,13 +531,10 @@ header {
 .dialog {
     background-color: rgba(82, 82, 82, 0.75);
   }
-  .contact__modal,
-.dialog__modal {
-    border-radius: 10px;
-    box-shadow: 0px 3px 5px 0px #525252;
-  }
 
   .contact__modal {
+    border-radius: 10px;
+    box-shadow: 0px 3px 5px 0px #525252;
     margin: 4rem auto;
     width: 700px;
   }
