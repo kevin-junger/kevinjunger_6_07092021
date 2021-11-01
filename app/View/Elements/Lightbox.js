@@ -7,13 +7,14 @@ export default class Lightbox {
   constructor(media) {
     // Media array
     this.galleryElements = media
-    // DOM elements - main container, content container, prev/next buttons, close button
+    // DOM element - main container
     this.lightboxContainer = document.querySelector('.lightbox')
   }
 
   init(mediumIndex) {
     // generates and displays the lightbox and the selected medium
     this.mediumIndex = mediumIndex // the index for the select medium in the array
+    // inserts the lightbox template 
     this.lightboxContainer.innerHTML = `
       <div class="lightbox__modal">
         <button
@@ -35,6 +36,7 @@ export default class Lightbox {
         </button>
       </div>
     `
+    // storing DOM elements (content container, buttons)
     this.lightboxContent =
       this.lightboxContainer.querySelector('.lightbox__content')
     this.lightboxPrevious = this.lightboxContainer.querySelector(
@@ -44,20 +46,20 @@ export default class Lightbox {
     this.lightboxClose =
       this.lightboxContainer.querySelector('.lightbox__close')
     this.lightboxPrevious.addEventListener('click', () => {
-      // previous button
+      // previous button event listener
       this.display('previous')
     })
     this.lightboxNext.addEventListener('click', () => {
-      // next button
+      // next button event listener
       this.display('next')
     })
     this.lightboxClose.addEventListener('click', () => {
-      // close button
+      // close button event listener
       this.lightboxContainer.style.display = 'none'
       this.lightboxContainer.innerHTML = ''
       document
         .getElementById(`${this.galleryElements[this.mediumIndex].getId()}`)
-        .parentElement.focus()
+        .parentElement.focus()  // when closing, focus goes on the selected media
     })
     document.addEventListener('keydown', (e) => {
       // event listeners for keyboard inputs
@@ -73,7 +75,7 @@ export default class Lightbox {
           this.lightboxContent.innerHTML = ''
           document
             .getElementById(`${this.galleryElements[this.mediumIndex].getId()}`)
-            .parentElement.focus()
+            .parentElement.focus() // when closing, focus goes on the selected media
           break
         default:
           break
@@ -103,7 +105,7 @@ export default class Lightbox {
     this.displayMedia()
   }
 
-  displayMedia() {
+  displayMedia() {  // pretty much self-explanatory
     let html = ''
     switch (this.galleryElements[this.mediumIndex].getType()) {
       case 'Video':
@@ -151,7 +153,7 @@ export default class Lightbox {
     this.lightboxContent.querySelector('.lightbox__display').focus()
   }
 
-  displayButtons() {
+  displayButtons() {  // also self-explanatory
     if (this.mediumIndex <= 0) {
       this.lightboxPrevious.style.visibility = 'hidden'
     } else {

@@ -26,7 +26,7 @@ export default class Gallery {
     this.lightbox = new Lightbox(this.galleryElements)
   }
 
-  async init() {
+  init() {
     this.displaySort()
     this.sortMedia()
     this.displayGallery()
@@ -62,7 +62,6 @@ export default class Gallery {
       )
     })
     sortSelect.addEventListener('change', (e) => {
-      e.stopPropagation()
       this.sortMedia(sortSelect.value)
     })
     sortContainer.appendChild(sortSelect)
@@ -71,18 +70,17 @@ export default class Gallery {
 
   displayGallery() {
     // generates and displays the gallery
-    if (this.mainContainer.querySelector('.work') === null) {
-      // checks the gallery has already been generated
-      this.galleryContainer = document.createElement('section')
-      this.galleryContainer.className = 'work'
-      this.galleryContainer.setAttribute('aria-label', 'galerie')
-      this.galleryContainer.setAttribute('tabindex', '0')
-      this.mainContainer.appendChild(this.galleryContainer)
-    } else {
-      this.galleryContainer.innerHTML = ''
+    if (this.mainContainer.querySelector('.work') !== null) {
+      // checks if the gallery has already been generated or not
+      this.mainContainer.querySelector('.work').remove()
     }
+    this.galleryContainer = document.createElement('section')
+    this.galleryContainer.className = 'work'
+    this.galleryContainer.setAttribute('aria-label', 'galerie')
+    this.galleryContainer.setAttribute('tabindex', '0')
+    this.mainContainer.appendChild(this.galleryContainer)
+    // iterates the array of media, generates the card and adds it to the container
     this.galleryElements.forEach((element) => {
-      // iterates the array of media, generates the card and adds it to the container
       const card = document.createElement('figure')
       card.className = 'work__card'
       let html = ''
@@ -118,7 +116,7 @@ export default class Gallery {
       `
       card.innerHTML = html
       card.querySelector('.work__open').addEventListener('click', () => {
-        // event listener that triggers the lightbox
+        // event listener that triggers the lightbox when any media is clicked on
         this.lightbox.init(parseInt(this.galleryElements.indexOf(element), 10))
       })
       const likeBtn = card.querySelector('.work__like')
@@ -140,7 +138,7 @@ export default class Gallery {
   }
 
   sortMedia(sortMethod) {
-    // sorts the media (duh)
+    // sorts the media
     switch (sortMethod) {
       case 'date':
         this.galleryElements.sort((a, b) => a.getDate() - b.getDate())
@@ -158,7 +156,7 @@ export default class Gallery {
   }
 
   getLikesTotal() {
-    // gets the total of likes for the photographer's portfolio (no sh*t Sherlock)
+    // gets the total of likes for the photographer's portfolio
     let likes = 0
     this.galleryElements.forEach((element) => {
       likes += element.likes

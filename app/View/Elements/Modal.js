@@ -19,30 +19,31 @@ export default class Modal {
 
   init() {
     // generates and displays modal and form
-    if (this.contactContainer.querySelector('.contact__modal') !== null) {
-      this.contactContainer.querySelector('.contact__modal').remove()
-    }
+    // modal wrapper
     this.contact = document.createElement('div')
     this.contact.className = 'contact__modal'
+    // close btn
     this.contactCloseBtn = document.createElement('button')
     this.contactCloseBtn.className = 'contact__close'
     this.contactCloseBtn.setAttribute('tabindex', '-1')
     this.contactCloseBtn.innerHTML = `<em class="fas fa-times"></em>`
-    this.contactCloseBtn.addEventListener('click', () => {
+    this.contactCloseBtn.addEventListener('click', () => { // close btn event listener
       this.contactContainer.style.display = 'none'
       this.contactContainer.innerHTML = ''
       document.querySelector('.about__contact').focus()
     })
-    document.addEventListener('keydown', (e) => {
+    document.addEventListener('keydown', (e) => { // Esc key event listener
       if (e.key === 'Escape') {
         this.contactContainer.style.display = 'none'
         this.contactContainer.innerHTML = ''
         document.querySelector('.about__contact').focus()
       }
     })
+    // modal header
     this.contactHeader = document.createElement('h2')
     this.contactHeader.className = 'contact__header'
     this.contactHeader.innerHTML = `${this.contactHeaderContent}`
+    // form wrapper
     this.contactForm = document.createElement('section')
     this.contactForm.className = 'contact__form'
     this.contactForm.setAttribute(
@@ -50,6 +51,7 @@ export default class Modal {
       'formulaire de contact - échap pour quitter'
     )
     this.contactForm.setAttribute('tabindex', '0')
+    // form template
     this.contactForm.innerHTML = `
       <form>
         <div
@@ -117,22 +119,25 @@ export default class Modal {
         <input type="submit" class="cta form__submit" value="Envoyer" />
       </form>
     `
+    // adds all that stuff to the modal wrapper
     this.contact.appendChild(this.contactCloseBtn)
     this.contact.appendChild(this.contactHeader)
     this.contact.appendChild(this.contactForm)
+    // adds the wrapper to container
     this.contactContainer.appendChild(this.contact)
-    this.initForm()
+    this.initForm() // initiates the form
     this.contactContainer.style.display = 'block'
     this.contactForm.focus()
   }
 
-  initForm() {
+  initForm() { // contains everything related to form verification and submission
+    // DOM elements - form fields, textarea and submit btn
     this.firstName = document.querySelector('.form__input[name="first"]')
     this.lastName = document.querySelector('.form__input[name="last"]')
     this.email = document.querySelector('.form__input[name="email"]')
     this.message = document.querySelector('.form__message')
     this.submit = document.querySelector('.form__submit')
-    // add event listeners on each field to check the user's input when it loses focus
+    // add event listeners on each element to check the user's input when it loses focus
     this.firstName.addEventListener('focusout', () => {
       this.checkFirstName()
     })
@@ -151,10 +156,11 @@ export default class Modal {
     })
   }
 
+  // complete validation method
+  
   validate() {
-    if (this.dialogContainer.querySelector('.dialog__modal') !== null) {
-      this.dialogContainer.querySelector('.dialog__modal').remove()
-    }
+    // creates the dialog boxes and commands every check before submitting
+    // dialog box template
     this.dialog = document.createElement('div')
     this.dialog.className = 'dialog__modal'
     this.dialogOkBtn = document.createElement('button')
@@ -163,6 +169,7 @@ export default class Modal {
     this.dialogText.className = 'dialog__text'
     this.dialogText.setAttribute('role', 'alert')
     this.dialogText.setAttribute('aria-live', 'assertive')
+    // checking any any field, etc. is falsely completed
     if (
       !this.checkFirstName() ||
       !this.checkLastName() ||
@@ -177,7 +184,7 @@ export default class Modal {
         this.dialogContainer.innerHTML = ''
         this.contactForm.focus()
       })
-    } else {
+    } else { // if all correct
       this.contactContainer.style.display = 'none'
       this.dialogText.innerText = 'Votre message a été envoyé !'
       this.dialogOkBtn.innerText = 'OK'
@@ -191,12 +198,15 @@ export default class Modal {
         document.getElementById('content').focus()
       })
     }
+    // populates, displays and focuses on the dialog
     this.dialog.appendChild(this.dialogText)
     this.dialog.appendChild(this.dialogOkBtn)
     this.dialogContainer.appendChild(this.dialog)
     this.dialogContainer.style.display = 'block'
     this.dialogOkBtn.focus()
   }
+
+  // individual checks
 
   checkFirstName() {
     if (
