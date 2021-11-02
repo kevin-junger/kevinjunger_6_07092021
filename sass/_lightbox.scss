@@ -42,8 +42,6 @@
   }
   &__caption {
     margin-top: 0.8rem;
-    display: flex;
-    justify-content: space-between;
     @include __font-builder(1.1rem, 500, $primary);
   }
   &__display {
