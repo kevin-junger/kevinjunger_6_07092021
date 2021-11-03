@@ -29,19 +29,16 @@ export default class Index {
   }
 
   init() {
-    this.displayMenu()
+    this.displayMenu() // initiates the menu bar
     this.mainContainer.classList.add('index') // for CSS purposes
     this.mainContainer.setAttribute('aria-label', 'liste photographes')
     this.mainContainer.setAttribute('tabindex', '0')
     // checks if the URL contains the 'tag' GET parameters, which means a tag has been clicked in the menu bar (for ex. 'art')
     const url = new URLSearchParams(window.location.search)
-    switch (url.has('tag')) {
-      case true:
-        this.displayIndexByTag(url.get('tag')) // regenerate the page with only the photographers associated to the 'art' tag (for ex.)
-        break
-      default:
-        this.displayIndex() // displays all the photographers (default)
-        break
+    if (url.has('tag') === true) {
+      this.displayIndexByTag(url.get('tag')) // regenerate the page with only the photographers associated to the 'art' tag (for ex.)
+    } else {
+      this.displayIndex() // displays all the photographers (default)
     }
   }
 

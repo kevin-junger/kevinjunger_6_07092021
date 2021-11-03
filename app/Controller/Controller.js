@@ -21,19 +21,16 @@ export default class Controller {
     // fetches the "database", then displays either the Index or the Profile view based on the 'profile' GET paramater in the URL (or its lack thereof)
     new Database('app/Controller/FishEyeData.json').get().then((data) => {
       const url = new URLSearchParams(window.location.search)
-      switch (url.has('profile')) {
-        case true:
-          data.photographers.forEach((element) => {
-            if (element.id === parseInt(url.get('profile'), 10)) {
-              this.context = new Profile(element, data.media)
-              this.context.init()
-            }
-          })
-          break
-        default:
-          this.context = new Index(data.photographers)
-          this.context.init()
-          break
+      if (url.has('profile') === true) { // checks if the URL has a 'profile' GET parameter
+        data.photographers.forEach((element) => {
+          if (element.id === parseInt(url.get('profile'), 10)) { // checks if the value stored in the 'profile" GET param corresponds to an existing ID
+            this.context = new Profile(element, data.media) // initiates the corresponding profile
+            this.context.init()
+          }
+        })
+      } else {
+        this.context = new Index(data.photographers)  // initiates the index page with all the photographers
+        this.context.init()
       }
     })
   }

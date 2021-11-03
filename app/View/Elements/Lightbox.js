@@ -107,37 +107,34 @@ export default class Lightbox {
 
   displayMedia() {  // pretty much self-explanatory
     let html = ''
-    switch (this.galleryElements[this.mediumIndex].getType()) {
-      case 'Video':
-        html += `
-          <video autoplay class="lightbox__display" aria-label="vidéo ${this.galleryElements[
-            this.mediumIndex
-          ].getTitle()} - ${this.galleryElements[
-            this.mediumIndex
-          ].getAlt()} - gauche pour image précédente, droite pour suivante, échap pour quitter">
-            <source 
-              src="public/content/media/${this.galleryElements[
-                this.mediumIndex
-              ].getPId()}/${this.galleryElements[this.mediumIndex].getVideo()}"
-              type="video/mp4"
-            />
-          </video>
-        `
-        break
-      default:
-        html += `
-          <img class="lightbox__display" src="public/content/media/${this.galleryElements[
-            this.mediumIndex
-          ].getPId()}/${this.galleryElements[
-          this.mediumIndex
-        ].getImage()}" alt="image ${this.galleryElements[
+    if (this.galleryElements[this.mediumIndex].getType() === 'Video') {
+      html += `
+        <video autoplay class="lightbox__display" aria-label="vidéo ${this.galleryElements[
           this.mediumIndex
         ].getTitle()} - ${this.galleryElements[
           this.mediumIndex
-        ].getAlt()} - bouton gauche pour image précédente, bouton droite pour suivante, échap pour quitter" />
-        `
-        break
-    }    
+        ].getAlt()} - gauche pour image précédente, droite pour suivante, échap pour quitter">
+          <source 
+            src="public/content/media/${this.galleryElements[
+              this.mediumIndex
+            ].getPId()}/${this.galleryElements[this.mediumIndex].getVideo()}"
+            type="video/mp4"
+          />
+        </video>
+      `
+    } else {
+      html += `
+        <img class="lightbox__display" src="public/content/media/${this.galleryElements[
+          this.mediumIndex
+        ].getPId()}/${this.galleryElements[
+        this.mediumIndex
+      ].getImage()}" alt="image ${this.galleryElements[
+        this.mediumIndex
+      ].getTitle()} - ${this.galleryElements[
+        this.mediumIndex
+      ].getAlt()} - bouton gauche pour image précédente, bouton droite pour suivante, échap pour quitter" />
+      `
+    } 
     html += `
       <figcaption class="lightbox__caption">
         <h2 class="lightbox__desc">${this.galleryElements[

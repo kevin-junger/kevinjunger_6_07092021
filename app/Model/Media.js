@@ -8,13 +8,10 @@ import Video from './Video.js'
 
 export default class Media {
   constructor(data, type) {
-    switch (type) {
-      case 'image':
-        return new Image(data)
-      case 'video':
-        return new Video(data)
-      default:
-        return undefined
+    if(type === 'video') {
+      return new Video(data)
+    } else {
+      return new Image(data)
     }
   }
 }
